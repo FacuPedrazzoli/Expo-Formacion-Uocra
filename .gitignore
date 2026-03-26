@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build
+.next/
+out/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+
+# Misc
+*.tsbuildinfo
+next-env.d.ts.env
