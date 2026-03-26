@@ -31,7 +31,7 @@ export function EmpresasSection({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
@@ -47,7 +47,7 @@ export function EmpresasSection({
                 key={empresa.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.2, delay: index * 0.02 }}
                 viewport={{ once: true }}
               >
                 <a

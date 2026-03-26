@@ -45,7 +45,7 @@ export function BienvenidaSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             className="space-y-8"
           >
@@ -76,7 +76,7 @@ export function BienvenidaSection() {
                     key={chip}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    transition={{ duration: 0.15, delay: index * 0.05 }}
                     viewport={{ once: true }}
                     className="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-medium"
                   >
@@ -91,7 +91,7 @@ export function BienvenidaSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             viewport={{ once: true }}
             className="space-y-6 lg:border-l lg:border-slate-200 lg:pl-12"
           >
@@ -105,7 +105,7 @@ export function BienvenidaSection() {
                   key={benefit.title}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  transition={{ duration: 0.2, delay: index * 0.05 }}
                   viewport={{ once: true }}
                   className="flex items-start gap-4 p-4 bg-white rounded-lg border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
                 >

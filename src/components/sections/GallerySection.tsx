@@ -58,7 +58,7 @@ export function GallerySection({
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.2 }}
               viewport={{ once: true }}
               className="mb-12"
             >
@@ -80,7 +80,7 @@ export function GallerySection({
                 key={image.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                transition={{ duration: 0.15, delay: index * 0.02 }}
                 viewport={{ once: true }}
                 className="aspect-square relative overflow-hidden rounded-lg group cursor-pointer"
               >
