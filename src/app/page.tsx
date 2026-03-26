@@ -77,7 +77,19 @@ export default function HomePage() {
           ].map((e) => ({ id: e.nombre, name: e.nombre, logo: e.logo, url: e.url }))}
         />
         
-        <TalksSection id="talks" talks={talks} />
+        <TalksSection 
+          id="talks" 
+          talks={talks.length > 0 ? talks : eventData.charlas.map((c) => ({
+            id: c.id,
+            title: c.titulo,
+            description: c.descripcion,
+            startTime: c.horario.split(' - ')[0],
+            endTime: c.horario.split(' - ')[1],
+            capacity: c.capacidad,
+            room: c.sala,
+            registeredCount: 0,
+          }))} 
+        />
         
         <GallerySection images={images} videoUrl={eventData.video} />
 

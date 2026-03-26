@@ -1,5 +1,22 @@
 {
   "video": "https://www.youtube.com/watch?v=sdoX3YvrbuA&t=18s",
+  "charlas": [
+    { "id": "tal-001", "titulo": "Charla Inaugural: El futuro de la construcción en Argentina", "descripcion": "Apertura oficial de Expo Formación UOCRA 2026. Palabras de autoridades gremiales y presentación de las tendencias del sector para los próximos años.", "horario": "09:00 - 10:00", "capacidad": 500, "sala": "Salón Principal" },
+    { "id": "tal-002", "titulo": "Normativas de Seguridad Laboral 2026", "descripcion": "Actualización sobre las nuevas normas de seguridad en obras de construcción. Higiene, prevención de accidentes y equipamiento de protección personal.", "horario": "10:30 - 11:30", "capacidad": 150, "sala": "Aula 1" },
+    { "id": "tal-003", "titulo": "Tecnologías BIM en proyectos de construcción", "descripcion": "Introducción a la Modelación de Información de Edificios. Cómo implementar BIM en obras de infraestructura y vivienda.", "horario": "10:30 - 11:30", "capacidad": 80, "sala": "Aula 2" },
+    { "id": "tal-004", "titulo": "Oportunidades de empleo en el sector construcción", "descripcion": "Panel con empresas del sector hablando sobre demanda de trabajadores especializados. Requisitos, beneficios y cómo aplicar.", "horario": "12:00 - 13:00", "capacidad": 300, "sala": "Salón Principal" },
+    { "id": "tal-005", "titulo": "Introducción a la albañilería profesional", "descripcion": "Técnicas actualizadas de albañilería. Materiales, herramientas y procedimientos para obras de calidad.", "horario": "14:00 - 15:00", "capacidad": 100, "sala": "Aula 1" },
+    { "id": "tal-006", "titulo": "Electricidad residencial y comercial", "descripcion": "Fundamentos de instalación eléctrica. Normas IRAM, cableado y sistemas de protección para edificios.", "horario": "14:00 - 15:00", "capacidad": 80, "sala": "Aula 2" },
+    { "id": "tal-007", "titulo": "Construcción sostenible y eficiencia energética", "descripcion": "Materiales ecológicos y técnicas de construcción verde. Certificaciones LEED y estrategias de ahorro energético.", "horario": "15:30 - 16:30", "capacidad": 120, "sala": "Aula 1" },
+    { "id": "tal-008", "titulo": "Manejo de maquinaria pesada", "descripcion": "Operación segura de excavadoras, cargadores y retroexcavadoras. Mantenimiento preventivo y productividad.", "horario": "09:00 - 10:30", "capacidad": 60, "sala": "Aula 1" },
+    { "id": "tal-009", "titulo": "Gestión de obras y presupuestos", "descripcion": "Administración de proyectos de construcción. Control de costos, cronograma y recursos humanos.", "horario": "09:00 - 10:00", "capacidad": 100, "sala": "Aula 2" },
+    { "id": "tal-010", "titulo": "Herramientas eléctricas: mantenimiento y seguridad", "descripcion": "Uso correcto de herramientas eléctricas. Mantenimiento, cuidados y prevención de accidentes.", "horario": "10:30 - 11:30", "capacidad": 80, "sala": "Aula 1" },
+    { "id": "tal-011", "titulo": "Panel: Mujeres en la construcción", "descripcion": "Experiencias y testimonios de mujeres que trabajan en el sector construcción. Desafíos, logros y oportunidades.", "horario": "11:00 - 12:30", "capacidad": 200, "sala": "Salón Principal" },
+    { "id": "tal-012", "titulo": "Soldadura profesional", "descripcion": "Técnicas de soldadura para construcción. Soldadura MIG, TIG y arco manual. Materiales y equipos.", "horario": "14:00 - 15:30", "capacidad": 50, "sala": "Aula 1" },
+    { "id": "tal-013", "titulo": "Carpintería de obra", "descripcion": "Técnicas de carpintería para construcción. Estructuras de madera, encofrados y terminaciones.", "horario": "14:00 - 15:00", "capacidad": 60, "sala": "Aula 2" },
+    { "id": "tal-014", "titulo": "Primeros auxilios en obra", "descripcion": "Capacitación en primeros auxilios especializados para accidentes de construcción. RCP, emergencias y evacuación.", "horario": "15:30 - 17:00", "capacidad": 100, "sala": "Salón Principal" },
+    { "id": "tal-015", "titulo": "Clausura: Entrega de certificados y reconocimientos", "descripcion": "Cierre de Expo Formación UOCRA 2026. Entrega de certificados a participantes y reconocimientos a empresas patrocinadoras.", "horario": "16:00 - 18:00", "capacidad": 500, "sala": "Salón Principal" }
+  ],
   "empresas": {
     "construccion": [
       { "nombre": "Dun Dun", "logo": "https://dundun.com.ar/wp-content/uploads/2016/01/produtividade_1.png", "descripcion": "Mezcla de polímeros para colocación de ladrillos y bloques", "url": "https://dun-dun.com.ar/" },
