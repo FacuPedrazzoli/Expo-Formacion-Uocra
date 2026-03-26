@@ -70,7 +70,16 @@ export default function HomePage() {
 
         <StandsSection stands={stands.length > 0 ? stands : eventData.empresas.construccion.map((e, i) => ({ id: String(i), eventId: '1', name: e.nombre, description: e.descripcion, logoUrl: e.logo, order: i }))} />
 
-        <EmpresasSection id="empresas" stands={stands.length > 0 ? stands : eventData.empresas.construccion.map((e, i) => ({ id: String(i), eventId: '1', name: e.nombre, description: e.descripcion, logoUrl: e.logo, order: i }))} />
+        <EmpresasSection 
+          id="empresas" 
+          empresas={[
+            ...eventData.empresas.construccion,
+            ...eventData.empresas.sanitarias,
+            ...eventData.empresas.electricidad,
+            ...eventData.empresas.informatica,
+            ...eventData.empresas.instituciones,
+          ].map((e) => ({ id: e.nombre, name: e.nombre, logo: e.logo, url: e.url }))}
+        />
         
         <TalksSection id="talks" talks={talks} />
         

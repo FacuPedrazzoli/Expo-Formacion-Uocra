@@ -4,32 +4,30 @@ import { motion } from 'framer-motion';
 import { Section } from './Section';
 import { Container } from '@/components/layout/Container';
 
-interface Stand {
+interface Empresa {
   id: string;
-  eventId?: string;
   name: string;
-  description?: string;
-  logoUrl?: string;
-  imageUrl?: string;
-  order?: number;
+  logo: string;
+  url?: string;
 }
 
 interface EmpresasSectionProps {
   id?: string;
-  title?: string;
-  subtitle?: string;
-  stands?: Stand[];
+  empresas?: Empresa[];
 }
 
 export function EmpresasSection({
   id,
-  title = 'EMPRESAS PARTICIPANTES 2026',
-  subtitle = 'Conocè a las empresas del sector',
-  stands = [],
+  empresas = [],
 }: EmpresasSectionProps) {
   return (
-    <Section id={id} variant="dark">
-      <Container>
+    <Section id={id} className="relative overflow-hidden bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a]">
+      {/* Formas decorativas */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-1/2 left-1/4 w-32 h-32 border border-accent/20 rotate-12 rounded-lg" />
+      
+      <Container className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,78 +35,49 @@ export function EmpresasSection({
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-sm font-semibold mb-4">
-            CONOCÉ A LAS
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            {title}
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-wide">
+            EMPRESAS
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            {subtitle}
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {stands.length > 0 ? (
-            stands.map((stand, index) => (
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
+          {empresas.length > 0 ? (
+            empresas.map((empresa, index) => (
               <motion.div
-                key={stand.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                key={empresa.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-accent/50 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="flex flex-col items-center justify-center h-full gap-4">
-                  {stand.logoUrl ? (
-                    <img 
-                      src={stand.logoUrl} 
-                      alt={stand.name}
-                      className="h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                <a
+                  href={empresa.url || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-4 bg-white/5 rounded-xl border border-white/10 hover:border-accent/50 hover:bg-white/10 transition-all duration-300 group"
+                >
+                  <div className="aspect-square flex items-center justify-center">
+                    <img
+                      src={empresa.logo}
+                      alt={empresa.name}
+                      className="max-h-16 md:max-h-20 w-auto object-contain grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
                     />
-                  ) : stand.imageUrl ? (
-                    <img 
-                      src={stand.imageUrl} 
-                      alt={stand.name}
-                      className="h-16 w-auto object-contain"
-                    />
-                  ) : (
-                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl font-bold text-accent">
-                        {stand.name.charAt(0)}
-                      </span>
-                    </div>
-                  )}
-                  <h3 className="text-white font-semibold text-center text-sm">
-                    {stand.name}
-                  </h3>
-                </div>
-                {stand.description && (
-                  <p className="text-white/50 text-xs text-center mt-2 line-clamp-2">
-                    {stand.description}
-                  </p>
-                )}
+                  </div>
+                </a>
               </motion.div>
             ))
           ) : (
-            Array.from({ length: 8 }).map((_, index) => (
+            Array.from({ length: 18 }).map((_, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="group bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-accent/50 hover:bg-white/10 transition-all duration-300"
+                className="p-4 bg-white/5 rounded-xl border border-white/10"
               >
-                <div className="flex flex-col items-center justify-center h-full gap-4">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                    <span className="text-2xl font-bold text-accent">
-                      {String.fromCharCode(65 + index)}
-                    </span>
-                  </div>
-                  <h3 className="text-white font-semibold text-center text-sm">
-                    Empresa {index + 1}
-                  </h3>
+                <div className="aspect-square flex items-center justify-center">
+                  <div className="w-16 h-16 bg-white/10 rounded-lg" />
                 </div>
               </motion.div>
             ))
