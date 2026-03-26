@@ -40,7 +40,7 @@ export function EmpresasSection({
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
           {empresas.length > 0 ? (
             empresas.map((empresa, index) => (
               <motion.div
@@ -54,13 +54,13 @@ export function EmpresasSection({
                   href={empresa.url || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-4 bg-white/5 rounded-xl border border-white/10 hover:border-accent/50 hover:bg-white/10 transition-all duration-300 group"
+                  className="block p-3 bg-white rounded-lg border border-slate-200 hover:border-accent hover:shadow-md transition-all duration-300"
                 >
                   <div className="aspect-square flex items-center justify-center">
                     <img
                       src={empresa.logo}
                       alt={empresa.name}
-                      className="max-h-16 md:max-h-20 w-auto object-contain grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                      className="max-h-12 md:max-h-16 w-auto object-contain"
                     />
                   </div>
                 </a>
@@ -74,10 +74,10 @@ export function EmpresasSection({
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="p-4 bg-white/5 rounded-xl border border-white/10"
+                className="p-3 bg-white rounded-lg border border-slate-200"
               >
                 <div className="aspect-square flex items-center justify-center">
-                  <div className="w-16 h-16 bg-white/10 rounded-lg" />
+                  <div className="w-12 h-12 bg-slate-100 rounded-lg" />
                 </div>
               </motion.div>
             ))
