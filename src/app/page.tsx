@@ -1,6 +1,7 @@
 'use client';
 
 import { HeroSection } from '@/components/sections/HeroSection';
+import { BienvenidaSection } from '@/components/sections/BienvenidaSection';
 import { StandsSection } from '@/components/sections/StandsSection';
 import { TalksSection } from '@/components/sections/TalksSection';
 import { GallerySection } from '@/components/sections/GallerySection';
@@ -36,6 +37,8 @@ export default function HomePage() {
           secondaryCtaHref="#talks"
           backgroundImage={event?.imageUrl}
         />
+
+        <BienvenidaSection />
 
         <Section variant="secondary">
           <Container>
