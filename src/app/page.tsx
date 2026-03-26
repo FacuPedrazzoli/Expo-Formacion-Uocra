@@ -5,6 +5,7 @@ import { StandsSection } from '@/components/sections/StandsSection';
 import { TalksSection } from '@/components/sections/TalksSection';
 import { GallerySection } from '@/components/sections/GallerySection';
 import { SponsorsSection } from '@/components/sections/SponsorsSection';
+import { VideoSection } from '@/components/sections/VideoSection';
 import { Section, SectionTitle, SectionContent } from '@/components/sections/Section';
 import { Container } from '@/components/layout/Container';
 import Link from 'next/link';
@@ -14,6 +15,7 @@ import { useStands } from '@/hooks/useStands';
 import { useGallery } from '@/hooks/useGallery';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import eventData from '@/data/event-data.json';
 
 export default function HomePage() {
   const { event } = useEvent();
@@ -35,6 +37,8 @@ export default function HomePage() {
           backgroundImage={event?.imageUrl}
         />
 
+        <VideoSection videoUrl={eventData.video} />
+
         <Section id="about">
           <Container>
             <SectionTitle 
@@ -48,7 +52,7 @@ export default function HomePage() {
                   <p className="text-muted-foreground">Charlas Técnicas</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">{stands.length}+</div>
+                  <div className="text-4xl font-bold text-primary mb-2">{stands.length > 0 ? stands.length : eventData.empresas.construccion.length}+</div>
                   <p className="text-muted-foreground">Empresas Expositoras</p>
                 </div>
                 <div className="text-center">
@@ -60,7 +64,7 @@ export default function HomePage() {
           </Container>
         </Section>
 
-        <StandsSection stands={stands} />
+        <StandsSection stands={stands.length > 0 ? stands : eventData.empresas.construccion.map((e, i) => ({ id: String(i), eventId: '1', name: e.nombre, description: e.descripcion, logoUrl: e.logo, order: i }))} />
         
         <TalksSection id="talks" talks={talks} />
         

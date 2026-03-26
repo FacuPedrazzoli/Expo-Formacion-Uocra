@@ -1,0 +1,82 @@
+{
+  "video": "https://www.youtube.com/watch?v=sdoX3YvrbuA&t=18s",
+  "empresas": {
+    "construccion": [
+      { "nombre": "Dun Dun", "logo": "https://dundun.com.ar/wp-content/uploads/2016/01/produtividade_1.png", "descripcion": "Mezcla de polímeros para colocación de ladrillos y bloques", "url": "https://dun-dun.com.ar/" },
+      { "nombre": "El Galgo", "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQEKGI7i2yTcWQ/company-logo_200_200/company-logo_200_200/0/1631354576694?e=2147483647&v=beta&t=LM2Z7KoWPJjaKK-eFRmbXifMKtR6hsxKSXIzqEmm-7U", "descripcion": "Empresa líder en fabricación de herramientas profesionales para pintura", "url": "https://www.elgalgo.com.ar/" },
+      { "nombre": "Fischer", "logo": "https://www.fischer.com.ar/-/media/system/user-defined/og-images/fischer-og-image.png", "descripcion": "Empresa multinacional alemana líder en sistemas de fijación", "url": "https://www.fischer.com.ar" },
+      { "nombre": "Mekano", "logo": "https://mekano.com.ar/images/logo_nav-principal-cabecera.png", "descripcion": "Diseño y fabricación de estructuras tubulares y andamios", "url": "https://mekano.com.ar" },
+      { "nombre": "Retak", "logo": "https://retak.com.ar/wp-content/uploads/2024/09/logo_retak_menu.svg", "descripcion": "Ladrillos de Hormarquía Celular Curados en Autoclave (HCCA)", "url": "https://retak.com.ar/" },
+      { "nombre": "Tao", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ0IrDtVEvrfo6kTdSQwFWIzKI4yG5FdYxWg&s", "descripcion": "Tablero estructural con hojuelas de madera orientadas", "url": "https://taopaneles.com/" },
+      { "nombre": "Sinteplast", "logo": "https://http2.mlstatic.com/D_NQ_NP_996466-MLA70931999155_082023-O.webp", "descripcion": "Empresa líder de capitales nacionales en pinturas", "url": "https://www.sinteplast.com.ar/" },
+      { "nombre": "Durlock", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2F5n_mS1D5foPebBFeD2y6goItHGHOmXlgQ&s", "descripcion": "Líder en sistemas de construcción en seco", "url": "https://durlock.com/" },
+      { "nombre": "Saint Gobain", "logo": "https://www.hipco.com/wp-content/uploads/2020/07/Logo-Saint-Gobain.png", "descripcion": "Empresa multinacional fabricante de materiales", "url": "https://www.saint-gobain.ar/es" },
+      { "nombre": "Plavicon", "logo": "https://www.plavicon.com/site/imagenes/logo.png", "descripcion": "Impermeabilizantes y materiales para construcción", "url": "https://www.plavicon.com/site/index.php" },
+      { "nombre": "Ceramica San Lorenzo", "logo": "https://ceramicasanlorenzo.com.ar/wp-content/themes/csl/images/logo.svg", "descripcion": "Fabricación de cerámicas de calidad", "url": "https://ceramicasanlorenzo.com.ar/" },
+      { "nombre": "Loma Negra", "logo": "https://www.lomanegra.com/wp-content/uploads/2022/08/logo-loma-negra.png", "descripcion": "Empresa líder en producción de cemento", "url": "https://www.lomanegra.com/" },
+      { "nombre": "Acerbrag", "logo": "https://www.acerbrag.com/imgs/logo-acerbrag.svg", "descripcion": "Fabricación de productos de acero de alta calidad", "url": "https://www.acerbrag.com/" },
+      { "nombre": "Later-Cer", "logo": "https://later-cersa.com.ar/wp-content/uploads/2022/07/Logo_Encabezado.png", "descripcion": "Grupo líder en fabricación de ladrillo cerámico", "url": "https://later-cersa.com.ar/" },
+      { "nombre": "Aluar", "logo": "https://www.aluar.com.ar/assets/sitio/img/aluar-logo.svg", "descripcion": "Compañía de capitales nacionales en la industria del aluminio", "url": "https://www.aluar.com.ar/" },
+      { "nombre": "Klaukol", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5YiEH3V2n1UhpxqT6kuC2Tc76kppJIUme9g&s", "descripcion": "Líder en adhesivos y pastinas para pisos cerámicos", "url": "https://arg.sika.com/klaukol" },
+      { "nombre": "Alba", "logo": "https://images.akzonobel.com/akzonobel-flourish/alba/ar/es/homepage/logo-alba-100.png?impolicy=.auto", "descripcion": "Marca líder de pinturas decorativas", "url": "https://www.alba.com.ar/es" },
+      { "nombre": "Bremen", "logo": "https://bremenar.vtexassets.com/assets/vtex.file-manager-graphql/images/929679d8-6818-4504-a16d-d76ebbfe2bc8___df3a039fc3515b5732deac0cd682ba06.svg", "descripcion": "Herramientas para profesionales de la construcción", "url": "https://www.brementools.com/" },
+      { "nombre": "PPA Bs As", "logo": "https://www.ppabsas.com.ar/img/logo-ppa.png", "descripcion": "Soluciones en automatismos de portones y seguridad", "url": "https://www.ppabsas.com.ar/" }
+    ],
+    "sanitarias": [
+      { "nombre": "Escorial", "logo": "https://escorial.com.ar/unregalo/img/logo-escorial.png", "descripcion": "Empresa familiar dedicada a artefactos de cocción", "url": "https://www.escorial.com.ar/" },
+      { "nombre": "Latyn", "logo": "https://www.latyn.net/img/logo_header.svg", "descripcion": "Distribución de griferías y equipamiento", "url": "https://www.latyn.net/" },
+      { "nombre": "Ferrum S.A.", "logo": "https://ferrum.com/pub/media/athlete2/default/logo_fv.png", "descripcion": "Soluciones para baño, cocina y lavadero", "url": "https://ferrum.com/" },
+      { "nombre": "Grupo DEMA", "logo": "https://www.grupodema.com.ar/bundles/app/front/resources/img/dema-logoSombra.jpg", "descripcion": "Empresa dinámica en el sector sanitario", "url": "https://www.grupodema.com.ar/" },
+      { "nombre": "Dinatecnica", "logo": "https://http2.mlstatic.com/D_NQ_NP_758107-MLA43580721883_092020-O.webp", "descripcion": "Más de 55 años en soluciones de tuberías", "url": "https://dinatecnica.com.ar/" },
+      { "nombre": "FV", "logo": "https://ferrum.com/pub/media/athlete2/default/logo_fv.png", "descripcion": "Confort en baños y cocinas", "url": "https://fvsa.com/" }
+    ],
+    "electricidad": [
+      { "nombre": "Conextube", "logo": "https://www.conextube.com/assets/imgs/logo-conextube-light-ss.svg", "descripcion": "Productos para instalaciones eléctricas seguras", "url": "https://www.conextube.com/" },
+      { "nombre": "Schneider Electric", "logo": "https://www.logo.wine/a/logo/Schneider_Electric/Schneider_Electric-Logo.wine.svg", "descripcion": "Sostenibilidad y Eficiencia energética", "url": "https://www.se.com/" },
+      { "nombre": "Gralf", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOqscXAy-E8-bqnun_6EhVQ7ydWj7_xj2SzA&s", "descripcion": "Instrumentos de medición y control eléctrico", "url": "https://www.gralf.com.ar" },
+      { "nombre": "Micro Control", "logo": "https://microcontrol.com.ar/storage/2023/11/isologo-microcontrol-180x80-1.png", "descripcion": "Canalización y conectividad eléctrica", "url": "https://microcontrol.com.ar/" },
+      { "nombre": "Zoloda", "logo": "https://www.zoloda.com.ar/wp-content/uploads/ICONO-1.png", "descripcion": "Soluciones en canalización eléctrica", "url": "https://www.zoloda.com.ar/" },
+      { "nombre": "Genrod", "logo": "https://electricaoscar.com/images/default/productos/genrod52.jpg", "descripcion": "Tecnología y calidad en sector eléctrico", "url": "https://fundacion.uocra.org/" },
+      { "nombre": "Cambre", "logo": "https://migluz.ar/wp-content/uploads/2023/01/logo-cambre.jpg", "descripcion": "Fabricante de material eléctrico", "url": "https://cambre.com.ar/" }
+    ],
+    "informatica": [
+      { "nombre": "Realidad Virtual — Fundación UOCRA", "logo": "https://www.kozoarquitectura.es/wp-content/uploads/2020/08/Realidad-Virtual.jpg", "descripcion": "Proyecto piloto con la OIT para realidad virtual", "url": "https://fundacion.uocra.org/novedades/realidad-virtual-en-la-fundacion-uocra/" },
+      { "nombre": "3D Insumos", "logo": "https://3dinsumos.com.ar/img/Logo.png", "descripcion": "Electrónica e impresoras 3D", "url": "https://3dinsumos.com.ar/" }
+    ],
+    "instituciones": [
+      { "nombre": "Fundación UOCRA", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQriRNbgrf454MsqjE0gXKp86GTp8_vLhLacg&s", "descripcion": "ONG de formación profesional para trabajadores", "url": "https://fundacion.uocra.org/" },
+      { "nombre": "UOCRA Mujeres", "logo": "https://mujeres.uocra.org/wp-content/uploads/2022/11/stickers_5.png", "descripcion": "Asistencia a trabajadoras constructoras", "url": "https://mujeres.uocra.org/" },
+      { "nombre": "MOECRA", "logo": "https://mutual.uocra.org/wp-content/uploads/2023/09/cropped-LogoMOECRA.png", "descripcion": "Mutual para trabajadores constructores", "url": "https://mutual.uocra.org/" },
+      { "nombre": "Construir TV", "logo": "https://www.construirtv.com/wp-content/uploads/2017/09/logo-ctv.jpg", "descripcion": "Canal temático sobre el mundo del trabajo", "url": "https://www.construirtv.com/" },
+      { "nombre": "Consejo de Bomberos", "logo": "https://www.bomberosra.org.ar/wp-content/uploads/2023/06/logo-CNB.jpg.png", "descripcion": "Protección Civil en Argentina", "url": "https://www.bomberosra.org.ar" },
+      { "nombre": "INET", "logo": "https://rfietp.educacion.gob.ar/imagenes/logo-inet.png", "descripcion": "Instituto Nacional de Educación Tecnológica", "url": "https://www.inet.edu.ar/" },
+      { "nombre": "CAMARCO", "logo": "https://www.camarco.org.ar/wp-content/uploads/2022/06/camarco.png", "descripcion": "Cámara Argentina de la Construcción", "url": "https://www.camarco.org.ar/" }
+    ]
+  },
+  "muestras": [
+    { "numero": 1, "muestra": "Laboratorio de informática", "ubicacion": "P.B 1" },
+    { "numero": 2, "muestra": "Modelo de impresión 3D", "ubicacion": "P.B 2" },
+    { "numero": 3, "muestra": "Instalación de ascensores", "ubicacion": "P.B 3" },
+    { "numero": 4, "muestra": "Gasista domiciliario", "ubicacion": "Aula 3.1" },
+    { "numero": 5, "muestra": "Soldador", "ubicacion": "P.B 3" },
+    { "numero": 6, "muestra": "Cerrajería computarizada", "ubicacion": "Aula 3.3" },
+    { "numero": 7, "muestra": "Carpintería de aluminio", "ubicacion": "Patio" },
+    { "numero": 8, "muestra": "Instalador sanitario", "ubicacion": "Aula 4.1" },
+    { "numero": 9, "muestra": "Instalador de equipos de refrigeración", "ubicacion": "Aula 4.2" },
+    { "numero": 10, "muestra": "Automatización", "ubicacion": "Aula 4.4" },
+    { "numero": 11, "muestra": "Electricidad de inmuebles", "ubicacion": "Aula 5.1" },
+    { "numero": 12, "muestra": "Electricidad industrial", "ubicacion": "Aula 5.2" },
+    { "numero": 13, "muestra": "Instalador de alarmas", "ubicacion": "Aula 5.3" },
+    { "numero": 14, "muestra": "Montador electricista domiciliario", "ubicacion": "Aula 5.4" },
+    { "numero": 15, "muestra": "Montador electricista domiciliario", "ubicacion": "Aula 5.5" },
+    { "numero": 16, "muestra": "Topografía", "ubicacion": "Patio" }
+  ],
+  "competencias": {
+    "electricidad": [
+      { "titulo": "Montador Electricista Domiciliario", "descripcion": "Competición de armado de tableros eléctricos según normativa vigente", "horario": "13:00", "fecha": "03/07/2025", "ubicacion": "Centro Evaluador de Competencias IERIC", "imagen": "https://sceu.frba.utn.edu.ar/wp-content/uploads/2022/11/Electricista_domiciliario_2023-1024x373.jpg" }
+    ],
+    "construccion": [
+      { "titulo": "Montador Sanitarista", "descripcion": "Desafíos reales de instalación sanitaria siguiendo normas de calidad y seguridad", "horario": "16:00", "fecha": "03/07/2025", "ubicacion": "Centro Evaluador de Competencias IERIC", "imagen": "https://img.freepik.com/foto-gratis/trabajador-reparando-calentador-agua_23-2149334225.jpg" }
+    ]
+  }
+}
