@@ -26,18 +26,24 @@ interface GallerySectionProps {
   title?: string;
   subtitle?: string;
   images?: GalleryImage[];
+  videoUrl?: string;
 }
 
 export function GallerySection({
   title = 'Galería',
   subtitle = 'Momentos del evento',
   images = [],
+  videoUrl,
 }: GallerySectionProps) {
   const displayImages = images.length > 0 ? images : defaultImages;
+  const embedUrl = videoUrl?.replace('watch?v=', 'embed/').split('&')[0];
 
   return (
-    <Section variant="primary">
-      <Container>
+    <Section variant="primary" className="relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
+      
+      <Container className="relative z-10">
         <SectionTitle 
           title={title} 
           subtitle={subtitle}
@@ -45,6 +51,26 @@ export function GallerySection({
         />
         
         <SectionContent>
+          {embedUrl && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+                <iframe
+                  src={embedUrl}
+                  title="Video del Evento"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </motion.div>
+          )}
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {displayImages.map((image, index) => (
               <motion.div

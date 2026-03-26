@@ -6,8 +6,6 @@ import { StandsSection } from '@/components/sections/StandsSection';
 import { EmpresasSection } from '@/components/sections/EmpresasSection';
 import { TalksSection } from '@/components/sections/TalksSection';
 import { GallerySection } from '@/components/sections/GallerySection';
-import { SponsorsSection } from '@/components/sections/SponsorsSection';
-import { VideoSection } from '@/components/sections/VideoSection';
 import { Section, SectionTitle, SectionContent } from '@/components/sections/Section';
 import { Container } from '@/components/layout/Container';
 import Link from 'next/link';
@@ -66,8 +64,6 @@ export default function HomePage() {
           </Container>
         </Section>
 
-        <VideoSection videoUrl={eventData.video} />
-
         <StandsSection stands={stands.length > 0 ? stands : eventData.empresas.construccion.map((e, i) => ({ id: String(i), eventId: '1', name: e.nombre, description: e.descripcion, logoUrl: e.logo, order: i }))} />
 
         <EmpresasSection 
@@ -83,7 +79,7 @@ export default function HomePage() {
         
         <TalksSection id="talks" talks={talks} />
         
-        <GallerySection images={images} />
+        <GallerySection images={images} videoUrl={eventData.video} />
 
         <Section variant="dark" className="py-20">
           <Container>
