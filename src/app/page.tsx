@@ -37,9 +37,7 @@ export default function HomePage() {
           backgroundImage={event?.imageUrl}
         />
 
-        <VideoSection videoUrl={eventData.video} />
-
-        <Section id="about">
+        <Section variant="secondary">
           <Container>
             <SectionTitle 
               title="Sobre el Evento" 
@@ -47,15 +45,15 @@ export default function HomePage() {
             />
             <SectionContent>
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="text-center">
+                <div className="text-center p-6 bg-white rounded-lg shadow-md border border-slate-100">
                   <div className="text-4xl font-bold text-primary mb-2">{talks.length}+</div>
                   <p className="text-muted-foreground">Charlas Técnicas</p>
                 </div>
-                <div className="text-center">
+                <div className="text-center p-6 bg-white rounded-lg shadow-md border border-slate-100">
                   <div className="text-4xl font-bold text-primary mb-2">{stands.length > 0 ? stands.length : eventData.empresas.construccion.length}+</div>
                   <p className="text-muted-foreground">Empresas Expositoras</p>
                 </div>
-                <div className="text-center">
+                <div className="text-center p-6 bg-white rounded-lg shadow-md border border-slate-100">
                   <div className="text-4xl font-bold text-primary mb-2">2000+</div>
                   <p className="text-muted-foreground">Asistentes</p>
                 </div>
@@ -63,6 +61,8 @@ export default function HomePage() {
             </SectionContent>
           </Container>
         </Section>
+
+        <VideoSection videoUrl={eventData.video} />
 
         <StandsSection stands={stands.length > 0 ? stands : eventData.empresas.construccion.map((e, i) => ({ id: String(i), eventId: '1', name: e.nombre, description: e.descripcion, logoUrl: e.logo, order: i }))} />
         
@@ -72,17 +72,17 @@ export default function HomePage() {
 
         <SponsorsSection />
 
-        <Section className="bg-primary text-primary-foreground">
+        <Section variant="dark" className="py-20">
           <Container>
             <div className="text-center">
               <SectionTitle 
                 title="¿Aún no te registraste?" 
                 subtitle="Asegurá tu lugar en el evento más importante del año"
-                className="text-primary-foreground [&>h2]:text-white [&>p]:text-white/80"
+                className="text-white [&>h2]:text-white [&>p]:text-white/80"
               />
               <Link 
                 href="/register"
-                className="inline-flex items-center justify-center rounded-lg bg-white text-primary px-8 py-3 text-lg font-medium transition-colors hover:bg-white/90"
+                className="inline-flex items-center justify-center rounded-lg bg-white text-primary px-8 py-3 text-lg font-semibold transition-all duration-300 hover:bg-accent hover:scale-105 shadow-lg"
               >
                 Registrarse Ahora
               </Link>

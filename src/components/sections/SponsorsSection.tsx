@@ -17,7 +17,7 @@ export function SponsorsSection({
   sponsors = [],
 }: SponsorsSectionProps) {
   return (
-    <Section className="bg-muted/30">
+    <Section variant="secondary">
       <Container>
         <SectionTitle title={title} subtitle={subtitle} />
         
@@ -31,17 +31,17 @@ export function SponsorsSection({
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="flex items-center justify-center p-4"
+                  className="flex items-center justify-center p-4 bg-white rounded-lg border border-slate-100 shadow-sm hover:shadow-md hover:border-accent transition-all duration-300"
                 >
                   <div className="text-center">
                     {sponsor.logoUrl ? (
                       <img 
                         src={sponsor.logoUrl} 
                         alt={sponsor.name}
-                        className="h-16 w-auto mx-auto grayscale hover:grayscale-0 transition-all"
+                        className="h-12 w-auto mx-auto grayscale hover:grayscale-0 transition-all duration-300"
                       />
                     ) : (
-                      <span className="text-lg font-semibold">{sponsor.name}</span>
+                      <span className="text-lg font-semibold text-primary">{sponsor.name}</span>
                     )}
                   </div>
                 </motion.div>

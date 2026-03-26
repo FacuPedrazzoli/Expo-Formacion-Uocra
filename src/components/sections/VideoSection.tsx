@@ -15,7 +15,7 @@ export function VideoSection({ videoUrl, title = 'Video del Evento' }: VideoSect
   const embedUrl = videoUrl.replace('watch?v=', 'embed/').split('&')[0];
 
   return (
-    <Section className="bg-muted/30">
+    <Section variant="default">
       <Container>
         <SectionTitle title={title} />
         <SectionContent>
@@ -24,7 +24,7 @@ export function VideoSection({ videoUrl, title = 'Video del Evento' }: VideoSect
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             viewport={{ once: true }}
-            className="w-full aspect-video rounded-xl overflow-hidden shadow-lg"
+            className="w-full aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-200"
           >
             <iframe
               src={embedUrl}

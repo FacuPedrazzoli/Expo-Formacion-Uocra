@@ -39,6 +39,14 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-accent-hover: var(--accent-hover);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-darker: var(--bg-darker);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -62,23 +70,35 @@
 
 :root {
   /* Base colors - warm off-white for reduced eye strain */
-  --background: oklch(0.98 0.01 230);     /* #f8fafc - soft off-white */
+  --background: oklch(0.97 0.015 220);     /* #f0f8fa - UOCRA background */
   --foreground: oklch(0.15 0.01 40);     /* #1e293b - slate-900 for better contrast than #000 */
   
   /* Primary - UOCRA Dark Blue */
   --primary: oklch(0.28 0.04 245);        /* #124565 */
   --primary-foreground: oklch(0.98 0 0); /* white text on primary */
   
+  /* Primary variants */
+  --primary-dark: oklch(0.22 0.03 245);    /* #0d3650 */
+  --primary-light: oklch(0.35 0.05 245);   /* #1a5a80 */
+  
   /* Secondary - Teal */
   --secondary: oklch(0.45 0.12 185);       /* #25848d */
   --secondary-foreground: oklch(0.98 0 0);
+  --secondary-dark: oklch(0.38 0.10 185);  /* #1e6b74 */
   
   /* Accent - Light Teal */
   --accent: oklch(0.60 0.15 175);          /* #56bcb8 */
   --accent-foreground: oklch(0.15 0.01 40); /* dark text on accent */
+  --accent-hover: oklch(0.65 0.15 175);     /* #68caca */
   
   /* Accent Yellow - for highlights */
   --color-accent-yellow: oklch(0.75 0.15 50); /* #e2c048 */
+  
+  /* Background variants */
+  --bg-primary: oklch(0.97 0.015 220);      /* #f0f8fa */
+  --bg-secondary: oklch(0.91 0.02 220);     /* #e8f4f7 */
+  --bg-dark: oklch(0.12 0.01 260);          /* #1a1a2e */
+  --bg-darker: oklch(0.08 0.01 260);        /* #0d1b2a */
   
   /* Muted colors - improved for accessibility */
   --muted: oklch(0.96 0.02 230);
@@ -173,4 +193,85 @@
   h1, h2, h3, h4, h5, h6 {
     @apply text-zinc-900 font-semibold;
   }
+}
+
+/* Geometric decorative shapes */
+.geometric-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.geometric-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0.1;
+}
+
+.floating-element {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(-5deg);
+  }
+}
+
+/* Diagonal pattern background */
+.diagonal-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(18, 69, 101, 0.03) 20px,
+    rgba(18, 69, 101, 0.03) 40px
+  );
+}
+
+/* Radial gradient overlay */
+.radial-overlay {
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+}
+
+/* Card hover effects - Legacy style */
+.legacy-card {
+  @apply border border-slate-200 shadow-md transition-all duration-300;
+}
+
+.legacy-card:hover {
+  @apply -translate-y-1 border-accent shadow-lg;
+}
+
+/* Section separators */
+.section-divider {
+  position: relative;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 2px;
 }

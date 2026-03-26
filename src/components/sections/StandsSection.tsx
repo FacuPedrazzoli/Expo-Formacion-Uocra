@@ -18,7 +18,7 @@ export function StandsSection({
   stands = [],
 }: StandsSectionProps) {
   return (
-    <Section className="bg-muted/30">
+    <Section variant="accent">
       <Container>
         <SectionTitle title={title} subtitle={subtitle} />
         
@@ -32,21 +32,22 @@ export function StandsSection({
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  className="group"
                 >
-                  <Card hover className="h-full">
+                  <div className="h-full bg-white rounded-xl border border-slate-200 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg overflow-hidden">
                     {stand.imageUrl && (
                       <div 
-                        className="h-48 w-full bg-cover bg-center rounded-t-xl"
+                        className="h-48 w-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
                         style={{ backgroundImage: `url(${stand.imageUrl})` }}
                       />
                     )}
-                    <CardHeader>
-                      <CardTitle>{stand.name}</CardTitle>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-lg text-primary">{stand.name}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">{stand.description}</p>
+                      <p className="text-muted-foreground text-sm">{stand.description}</p>
                     </CardContent>
-                  </Card>
+                  </div>
                 </motion.div>
               ))
             ) : (
@@ -57,17 +58,18 @@ export function StandsSection({
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  className="group"
                 >
-                  <Card hover className="h-full">
-                    <CardHeader>
-                      <CardTitle>Stand {index + 1}</CardTitle>
+                  <div className="h-full bg-white rounded-xl border border-slate-200 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-lg text-primary">Stand {index + 1}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Descripción del stand expositor.
                       </p>
                     </CardContent>
-                  </Card>
+                  </div>
                 </motion.div>
               ))
             )}

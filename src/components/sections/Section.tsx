@@ -4,11 +4,45 @@ interface SectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  variant?: 'default' | 'primary' | 'secondary' | 'dark' | 'accent';
 }
 
-export function Section({ children, className, id }: SectionProps) {
+const variantClasses = {
+  default: 'bg-[#f0f8fa]',
+  primary: 'bg-primary text-primary-foreground',
+  secondary: 'bg-[#e8f4f7]',
+  dark: 'bg-[#1a1a2e] text-white',
+  accent: 'bg-[#e8f4f7]',
+};
+
+export function Section({ children, className, id, variant = 'default' }: SectionProps) {
   return (
-    <section id={id} className={cn('py-12 md:py-16 lg:py-20', className)}>
+    <section id={id} className={cn('py-16 md:py-20 lg:py-24 relative overflow-hidden', variantClasses[variant], className)}>
+      {/* Decorative geometric shapes for each section */}
+      {variant === 'default' && (
+        <>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+        </>
+      )}
+      {variant === 'primary' && (
+        <>
+          <div className="absolute top-10 right-10 w-0 h-0 border-l-[30px] border-l-transparent border-r-[30px] border-r-transparent border-b-[50px] border-b-white/10" />
+          <div className="absolute bottom-10 left-1/4 w-32 h-32 border border-white/10 rotate-12" />
+        </>
+      )}
+      {variant === 'secondary' && (
+        <>
+          <div className="absolute top-20 left-10 w-24 h-24 bg-primary/10 rounded-lg rotate-6" />
+          <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent/10 rounded-full" />
+        </>
+      )}
+      {variant === 'dark' && (
+        <>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full -translate-y-1/2 translate-x-1/3" style={{ filter: 'blur(60px)' }} />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full translate-y-1/2" style={{ filter: 'blur(40px)' }} />
+        </>
+      )}
       {children}
     </section>
   );
@@ -23,7 +57,7 @@ interface SectionTitleProps {
 
 export function SectionTitle({ title, subtitle, className, align = 'center' }: SectionTitleProps) {
   return (
-    <div className={cn('mb-8 md:mb-12', align === 'center' ? 'text-center' : 'text-left', className)}>
+    <div className={cn('mb-10 md:mb-14', align === 'center' ? 'text-center' : 'text-left', className)}>
       <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
         {title}
       </h2>
