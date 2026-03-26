@@ -89,6 +89,8 @@ export default function HomePage() {
             capacity: c.capacidad,
             room: c.sala,
             registeredCount: 0,
+            isFull: false,
+            availableSpots: c.capacidad,
           }))} 
         />
         
