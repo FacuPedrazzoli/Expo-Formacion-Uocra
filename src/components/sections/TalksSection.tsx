@@ -21,7 +21,13 @@ export function TalksSection({
   talks = [],
 }: TalksSectionProps) {
   return (
-    <Section id={id} variant="default">
+    <Section id={id} variant="default" className="relative">
+      {/* Formas geométricas adicionales */}
+      <div className="absolute top-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
+      <div className="absolute top-1/2 right-20 w-24 h-24 border border-accent/20 rotate-12" />
+      <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-primary/20 rotate-45" />
+      
       <Container>
         <SectionTitle title={title} subtitle={subtitle} />
         
