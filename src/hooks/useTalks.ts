@@ -48,19 +48,19 @@ export function useTalks(eventId?: string): UseTalksReturn {
         if (fallbackError) {
           setError(fallbackError.message);
         } else {
-          const talksWithCapacity = (fallbackData || []).map(talk => ({
-            id: talk.id,
-            eventId: talk.event_id,
-            title: talk.title,
-            description: talk.description,
-            speaker: talk.speaker_name,
-            startTime: talk.start_time,
-            endTime: talk.end_time,
-            room: talk.room || '',
-            capacity: talk.capacity,
+          const talksWithCapacity: TalkWithCapacity[] = (fallbackData || []).map((talk: Record<string, unknown>) => ({
+            id: String(talk.id),
+            eventId: String(talk.event_id),
+            title: String(talk.title || ''),
+            description: talk.description ? String(talk.description) : undefined,
+            speaker: talk.speaker_name ? String(talk.speaker_name) : undefined,
+            startTime: String(talk.start_time),
+            endTime: String(talk.end_time),
+            room: String(talk.room || ''),
+            capacity: Number(talk.capacity) || 0,
             registeredCount: 0,
             isFull: false,
-            availableSpots: talk.capacity,
+            availableSpots: Number(talk.capacity) || 0,
           }));
           setTalks(talksWithCapacity);
         }
