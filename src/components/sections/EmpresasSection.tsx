@@ -56,11 +56,11 @@ export function EmpresasSection({
                   rel="noopener noreferrer"
                   className="block p-3 bg-white rounded-lg border border-slate-200 hover:border-accent hover:shadow-md transition-all duration-300"
                 >
-                  <div className="aspect-square flex items-center justify-center">
+                  <div className="aspect-square flex items-center justify-center p-2">
                     <img
                       src={empresa.logo}
                       alt={empresa.name}
-                      className="max-h-12 md:max-h-16 w-auto object-contain"
+                      className="max-w-full max-h-full w-auto h-auto object-contain"
                     />
                   </div>
                 </a>
