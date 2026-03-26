@@ -48,16 +48,16 @@ export default function HomePage() {
             <SectionContent>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center p-6 bg-white rounded-lg shadow-md border border-slate-100">
-                  <div className="text-4xl font-bold text-primary mb-2">{talks.length}+</div>
+                  <div className="text-4xl font-bold text-primary mb-2">15</div>
                   <p className="text-muted-foreground">Charlas Técnicas</p>
                 </div>
                 <div className="text-center p-6 bg-white rounded-lg shadow-md border border-slate-100">
-                  <div className="text-4xl font-bold text-primary mb-2">{stands.length > 0 ? stands.length : eventData.empresas.construccion.length}+</div>
+                  <div className="text-4xl font-bold text-primary mb-2">40</div>
                   <p className="text-muted-foreground">Empresas Expositoras</p>
                 </div>
                 <div className="text-center p-6 bg-white rounded-lg shadow-md border border-slate-100">
                   <div className="text-4xl font-bold text-primary mb-2">2000+</div>
-                  <p className="text-muted-foreground">Asistentes</p>
+                  <p className="text-muted-foreground">Participantes</p>
                 </div>
               </div>
             </SectionContent>
