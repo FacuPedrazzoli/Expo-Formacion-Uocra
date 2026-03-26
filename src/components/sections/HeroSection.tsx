@@ -27,9 +27,9 @@ export function HeroSection({
     <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {backgroundImage && (
         <div 
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 bg-black/60"
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(${backgroundImage})`,
+            backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -43,7 +43,7 @@ export function HeroSection({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 drop-shadow-lg"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 drop-shadow-lg text-balance"
         >
           {title}
         </motion.h1>
@@ -53,7 +53,7 @@ export function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl md:text-2xl text-neutral-50 mb-8 max-w-2xl mx-auto drop-shadow-md"
+            className="text-lg sm:text-xl md:text-2xl text-neutral-50 mb-8 max-w-2xl mx-auto drop-shadow-md text-balance leading-relaxed"
           >
             {subtitle}
           </motion.p>
