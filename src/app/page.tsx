@@ -81,6 +81,7 @@ export default function HomePage() {
           id="talks" 
           talks={talks.length > 0 ? talks : eventData.charlas.map((c) => ({
             id: c.id,
+            eventId: 'evt-001',
             title: c.titulo,
             description: c.descripcion,
             startTime: c.horario.split(' - ')[0],
