@@ -34,26 +34,7 @@ export function HeroSection({
   eventAddress = 'Gral. José Gervasio Artigas 2102, Buenos Aires',
   mapsUrl = 'https://maps.google.com/?q=Club+Social+y+Deportivo+UBS+Buenos+Aires',
 }: HeroSectionProps) {
-  const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:Expo Formación UOCRA 2026
-DTSTART:${eventDateIcs}T090000
-DTEND:${eventDateIcs}T180000
-DESCRIPTION:El evento anual de formación profesional para el sector de la construcción
-LOCATION:${eventLocation} - ${eventAddress}
-END:VEVENT
-END:VCALENDAR`;
-
-  const downloadIcs = () => {
-    const blob = new Blob([icsContent], { type: 'text/calendar' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'expo-formacion-uocra-2026.ics';
-    link.click();
-    URL.revokeObjectURL(url);
-  };
+  const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Expo+Formación+UOCRA+2026&dates=${eventDateIcs}T090000/${eventDateIcs}T180000&details=El+evento+anual+de+formación+profesional+para+el+sector+de+la+construcción&location=${eventLocation}+-+${encodeURIComponent(eventAddress)}`;
 
   return (
     <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0d1b2a] via-[#0d3650] to-[#0d1b2a]">
@@ -141,13 +122,15 @@ END:VCALENDAR`;
             transition={{ duration: 0.5, delay: 0.25 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
-            <button
-              onClick={downloadIcs}
+            <a
+              href={calendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg text-white font-medium transition-all duration-300 hover:bg-white/20 hover:border-white/50 hover:scale-105"
             >
               <Calendar className="w-5 h-5" />
               {eventDate}
-            </button>
+            </a>
             <a
               href={mapsUrl}
               target="_blank"
