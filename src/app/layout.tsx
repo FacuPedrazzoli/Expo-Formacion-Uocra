@@ -27,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <link rel="icon" href="/images/casquito.png" type="image/png" />
+      </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         {children}
       </body>
