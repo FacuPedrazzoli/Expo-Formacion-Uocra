@@ -90,21 +90,25 @@ export function HeroSection({
 
       {/* Content */}
       <Container className="relative z-10 text-center px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 text-balance drop-shadow-lg"
+            transition={{ duration: 0.8 }}
           >
-            {title}
-          </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="mb-8"
+            >
+              <img 
+                src="/images/logo-expo-formacion-nuevo.jpeg" 
+                alt="Expo Formación UOCRA" 
+                className="max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] w-auto h-auto mx-auto drop-shadow-2xl"
+              />
+            </motion.div>
 
-          {subtitle && (
+            {subtitle && (
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
