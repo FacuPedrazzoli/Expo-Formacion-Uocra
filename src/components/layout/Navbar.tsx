@@ -25,7 +25,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
       <Container>
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/images/legacy/logo-expo-formacion.png" alt="Expo Formación UOCRA" className="h-8 w-auto" />
+            <img src="/images/logo-expo-formacion-nuevo.jpeg" alt="Expo Formación UOCRA" className="h-10 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
