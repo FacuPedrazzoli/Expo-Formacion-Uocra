@@ -1,5 +1,12 @@
 {
   "video": "https://www.youtube.com/watch?v=sdoX3YvrbuA&t=18s",
+  "eventInfo": {
+    "date": "15 al 17 de Septiembre 2026",
+    "dateIcs": "20260915",
+    "location": "Club Social y Deportivo UBS",
+    "address": "Gral. José Gervasio Artigas 2102, Buenos Aires, Argentina",
+    "mapsUrl": "https://maps.google.com/?q=Club+Social+y+Deportivo+UBS+Buenos+Aires"
+  },
   "charlas": [
     { "id": "tal-001", "titulo": "Charla Inaugural: El futuro de la construcción en Argentina", "descripcion": "Apertura oficial de Expo Formación UOCRA 2026. Palabras de autoridades gremiales y presentación de las tendencias del sector para los próximos años.", "horario": "09:00 - 10:00", "capacidad": 500, "sala": "Salón Principal" },
     { "id": "tal-002", "titulo": "Normativas de Seguridad Laboral 2026", "descripcion": "Actualización sobre las nuevas normas de seguridad en obras de construcción. Higiene, prevención de accidentes y equipamiento de protección personal.", "horario": "10:30 - 11:30", "capacidad": 150, "sala": "Aula 1" },

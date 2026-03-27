@@ -35,6 +35,11 @@ export default function HomePage() {
           secondaryCtaText="Ver Charlas"
           secondaryCtaHref="#talks"
           backgroundImage={event?.imageUrl}
+          eventDate={eventData.eventInfo.date}
+          eventDateIcs={eventData.eventInfo.dateIcs}
+          eventLocation={eventData.eventInfo.location}
+          eventAddress={eventData.eventInfo.address}
+          mapsUrl={eventData.eventInfo.mapsUrl}
         />
 
         <BienvenidaSection />

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Container } from '@/components/layout/Container';
 import Link from 'next/link';
+import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 
 interface HeroSectionProps {
   title: string;
@@ -12,6 +13,11 @@ interface HeroSectionProps {
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
   backgroundImage?: string;
+  eventDate?: string;
+  eventDateIcs?: string;
+  eventLocation?: string;
+  eventAddress?: string;
+  mapsUrl?: string;
 }
 
 export function HeroSection({
@@ -22,7 +28,33 @@ export function HeroSection({
   secondaryCtaText,
   secondaryCtaHref,
   backgroundImage,
+  eventDate = '15 al 17 de Septiembre 2026',
+  eventDateIcs = '20260915',
+  eventLocation = 'Club Social y Deportivo UBS',
+  eventAddress = 'Gral. José Gervasio Artigas 2102, Buenos Aires',
+  mapsUrl = 'https://maps.google.com/?q=Club+Social+y+Deportivo+UBS+Buenos+Aires',
 }: HeroSectionProps) {
+  const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Expo Formación UOCRA 2026
+DTSTART:${eventDateIcs}T090000
+DTEND:${eventDateIcs}T180000
+DESCRIPTION:El evento anual de formación profesional para el sector de la construcción
+LOCATION:${eventLocation} - ${eventAddress}
+END:VEVENT
+END:VCALENDAR`;
+
+  const downloadIcs = () => {
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'expo-formacion-uocra-2026.ics';
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0d1b2a] via-[#0d3650] to-[#0d1b2a]">
       {/* Background pattern */}
@@ -96,11 +128,37 @@ export function HeroSection({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto text-balance leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 max-w-2xl mx-auto text-balance leading-relaxed"
             >
               {subtitle}
             </motion.p>
           )}
+
+          {/* Event Info Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
+          >
+            <button
+              onClick={downloadIcs}
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg text-white font-medium transition-all duration-300 hover:bg-white/20 hover:border-white/50 hover:scale-105"
+            >
+              <Calendar className="w-5 h-5" />
+              {eventDate}
+            </button>
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg text-white font-medium transition-all duration-300 hover:bg-white/20 hover:border-white/50 hover:scale-105"
+            >
+              <MapPin className="w-5 h-5" />
+              {eventLocation}
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
