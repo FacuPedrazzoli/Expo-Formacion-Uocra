@@ -18,7 +18,6 @@ const defaultImages: GalleryImage[] = [
   { id: '5', src: '/images/legacy/imagen (5).jpeg', alt: 'Imagen del evento 5' },
   { id: '6', src: '/images/legacy/imagen (6).jpeg', alt: 'Imagen del evento 6' },
   { id: '7', src: '/images/legacy/imagen (7).jpeg', alt: 'Imagen del evento 7' },
-  { id: '8', src: '/images/legacy/imagen (8).jpeg', alt: 'Imagen del evento 8' },
   { id: '9', src: '/images/legacy/imagen (9).jpeg', alt: 'Imagen del evento 9' },
 ];
 

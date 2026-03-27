@@ -14,8 +14,7 @@
     { "id": "tal-011", "titulo": "Panel: Mujeres en la construcción", "descripcion": "Experiencias y testimonios de mujeres que trabajan en el sector construcción. Desafíos, logros y oportunidades.", "horario": "11:00 - 12:30", "capacidad": 200, "sala": "Salón Principal" },
     { "id": "tal-012", "titulo": "Soldadura profesional", "descripcion": "Técnicas de soldadura para construcción. Soldadura MIG, TIG y arco manual. Materiales y equipos.", "horario": "14:00 - 15:30", "capacidad": 50, "sala": "Aula 1" },
     { "id": "tal-013", "titulo": "Carpintería de obra", "descripcion": "Técnicas de carpintería para construcción. Estructuras de madera, encofrados y terminaciones.", "horario": "14:00 - 15:00", "capacidad": 60, "sala": "Aula 2" },
-    { "id": "tal-014", "titulo": "Primeros auxilios en obra", "descripcion": "Capacitación en primeros auxilios especializados para accidentes de construcción. RCP, emergencias y evacuación.", "horario": "15:30 - 17:00", "capacidad": 100, "sala": "Salón Principal" },
-    { "id": "tal-015", "titulo": "Clausura: Entrega de certificados y reconocimientos", "descripcion": "Cierre de Expo Formación UOCRA 2026. Entrega de certificados a participantes y reconocimientos a empresas patrocinadoras.", "horario": "16:00 - 18:00", "capacidad": 500, "sala": "Salón Principal" }
+    { "id": "tal-014", "titulo": "Primeros auxilios en obra", "descripcion": "Capacitación en primeros auxilios especializados para accidentes de construcción. RCP, emergencias y evacuación.", "horario": "15:30 - 17:00", "capacidad": 100, "sala": "Salón Principal" }
   ],
   "empresas": {
     "construccion": [
