@@ -35,8 +35,7 @@
       { "nombre": "Aluar", "logo": "https://www.aluar.com.ar/assets/sitio/img/aluar-logo.svg", "descripcion": "Compañía de capitales nacionales en la industria del aluminio", "url": "https://www.aluar.com.ar/" },
       { "nombre": "Klaukol", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5YiEH3V2n1UhpxqT6kuC2Tc76kppJIUme9g&s", "descripcion": "Líder en adhesivos y pastinas para pisos cerámicos", "url": "https://arg.sika.com/klaukol" },
       { "nombre": "Alba", "logo": "https://images.akzonobel.com/akzonobel-flourish/alba/ar/es/homepage/logo-alba-100.png?impolicy=.auto", "descripcion": "Marca líder de pinturas decorativas", "url": "https://www.alba.com.ar/es" },
-      { "nombre": "Bremen", "logo": "https://bremenar.vtexassets.com/assets/vtex.file-manager-graphql/images/929679d8-6818-4504-a16d-d76ebbfe2bc8___df3a039fc3515b5732deac0cd682ba06.svg", "descripcion": "Herramientas para profesionales de la construcción", "url": "https://www.brementools.com/" },
-      { "nombre": "PPA Bs As", "logo": "https://www.ppabsas.com.ar/img/logo-ppa.png", "descripcion": "Soluciones en automatismos de portones y seguridad", "url": "https://www.ppabsas.com.ar/" }
+      { "nombre": "Bremen", "logo": "https://bremenar.vtexassets.com/assets/vtex.file-manager-graphql/images/929679d8-6818-4504-a16d-d76ebbfe2bc8___df3a039fc3515b5732deac0cd682ba06.svg", "descripcion": "Herramientas para profesionales de la construcción", "url": "https://www.brementools.com/" }
     ],
     "sanitarias": [
       { "nombre": "Escorial", "logo": "https://escorial.com.ar/unregalo/img/logo-escorial.png", "descripcion": "Empresa familiar dedicada a artefactos de cocción", "url": "https://www.escorial.com.ar/" },

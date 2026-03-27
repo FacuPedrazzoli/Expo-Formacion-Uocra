@@ -52,7 +52,7 @@ export default function HomePage() {
                   <p className="text-muted-foreground">Charlas Técnicas</p>
                 </div>
                 <div className="text-center p-6 bg-white rounded-lg shadow-md border border-slate-100">
-                  <div className="text-4xl font-bold text-primary mb-2">40+</div>
+                  <div className="text-4xl font-bold text-primary mb-2">39+</div>
                   <p className="text-muted-foreground">Empresas Expositoras</p>
                 </div>
                 <div className="text-center p-6 bg-white rounded-lg shadow-md border border-slate-100">
