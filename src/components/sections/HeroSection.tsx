@@ -24,41 +24,51 @@ export function HeroSection({
   backgroundImage,
 }: HeroSectionProps) {
   return (
-    <div className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0d1b2a] via-[#124565] to-[#124565]">
+    <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0d1b2a] via-[#0d3650] to-[#0d1b2a]">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10 diagonal-pattern" />
       
-      {/* Floating decorative elements */}
+      {/* Enhanced floating decorative elements */}
       <motion.div 
-        className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full opacity-20"
-        animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        style={{ filter: 'blur(40px)' }}
+        className="absolute top-10 left-0 w-40 h-40 bg-primary rounded-full opacity-30"
+        animate={{ y: [0, -30, 0], rotate: [0, 15, 0], scale: [1, 1.2, 1] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        style={{ filter: 'blur(50px)' }}
       />
       <motion.div 
-        className="absolute top-40 right-20 w-48 h-48 bg-secondary rounded-full opacity-15"
-        animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute top-1/3 right-10 w-56 h-56 bg-secondary rounded-full opacity-25"
+        animate={{ y: [0, 40, 0], rotate: [0, -15, 0], scale: [1, 1.1, 1] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        style={{ filter: 'blur(70px)' }}
+      />
+      <motion.div 
+        className="absolute bottom-20 left-1/4 w-48 h-48 bg-accent rounded-full opacity-20"
+        animate={{ y: [0, -25, 0], scale: [1, 1.3, 1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         style={{ filter: 'blur(60px)' }}
       />
       <motion.div 
-        className="absolute bottom-20 left-1/4 w-40 h-40 bg-accent rounded-full opacity-10"
-        animate={{ y: [0, -15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        style={{ filter: 'blur(50px)' }}
+        className="absolute top-1/2 left-10 w-32 h-32 bg-[#e2c048] rounded-full opacity-15"
+        animate={{ y: [0, 20, 0], rotate: [0, 10, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        style={{ filter: 'blur(40px)' }}
       />
       
-      {/* Geometric shapes */}
-      <div className="absolute top-32 right-1/3 w-0 h-0 border-l-[40px] border-l-transparent border-r-[40px] border-r-transparent border-b-[70px] border-b-primary/20" />
-      <div className="absolute bottom-40 left-20 w-24 h-24 border-2 border-accent/20 rotate-45" />
-      <div className="absolute top-1/2 right-10 w-16 h-16 bg-gradient-to-br from-secondary to-accent opacity-20 rounded-lg rotate-12" />
+      {/* More geometric shapes */}
+      <div className="absolute top-20 right-1/4 w-0 h-0 border-l-[50px] border-l-transparent border-r-[50px] border-r-transparent border-b-[80px] border-b-primary/30" />
+      <div className="absolute bottom-32 left-16 w-28 h-28 border-2 border-accent/30 rotate-45" />
+      <div className="absolute top-1/3 left-1/3 w-20 h-20 bg-gradient-to-br from-secondary to-accent opacity-25 rounded-lg rotate-12" />
+      <div className="absolute bottom-1/4 right-20 w-16 h-16 border border-[#e2c048]/20 rotate-12 rounded-full" />
+      <div className="absolute top-1/2 right-1/3 w-24 h-24 border border-white/10 rotate-45" />
+      <div className="absolute top-10 left-1/4 w-3 h-3 bg-white/50 rounded-full" style={{ boxShadow: '0 0 10px rgba(255,255,255,0.5)' }} />
+      <div className="absolute bottom-1/3 left-20 w-2 h-2 bg-white/40 rounded-full" style={{ boxShadow: '0 0 8px rgba(255,255,255,0.4)' }} />
 
       {/* Background image with overlay if provided */}
       {backgroundImage && (
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(13, 27, 42, 0.8), rgba(18, 69, 101, 0.9)), url(${backgroundImage})`,
+            backgroundImage: `linear-gradient(to bottom, rgba(13, 27, 42, 0.85), rgba(13, 54, 80, 0.95)), url(${backgroundImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
