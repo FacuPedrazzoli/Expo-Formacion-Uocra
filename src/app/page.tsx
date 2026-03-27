@@ -33,8 +33,6 @@ export default function HomePage() {
           subtitle={event?.description || 'El evento anual de formación profesional para el sector de la construcción'}
           ctaText="Registrarse"
           ctaHref="/register"
-          secondaryCtaText="Ver Charlas"
-          secondaryCtaHref="#talks"
           backgroundImage={event?.imageUrl}
           eventDate={eventData.eventInfo.date}
           eventDateIcs={eventData.eventInfo.dateIcs}

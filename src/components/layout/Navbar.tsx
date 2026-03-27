@@ -14,9 +14,9 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { href: '/', label: 'Inicio' },
-    { href: '/#bienvenida', label: 'Bienvenida' },
-    { href: '/#empresas', label: 'Empresas' },
+    { href: '#bienvenida', label: 'Bienvenida' },
+    { href: '#empresas', label: 'Empresas' },
+    { href: '#talks', label: 'Charlas' },
     { href: '/register', label: 'Registrarse' },
   ];
 
