@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   title: "Expo Formación UOCRA",
   description: "Plataforma de registro y gestión para Expo Formación UOCRA",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/images/legacy/logo_expo.png",
+    shortcut: "/images/legacy/logo_expo.png",
   },
 };
 
