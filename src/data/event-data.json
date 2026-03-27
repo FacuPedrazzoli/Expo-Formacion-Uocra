@@ -50,7 +50,7 @@
       { "nombre": "Ferrum S.A.", "logo": "https://ferrum.com/pub/media/athlete2/default/logo_fv.png", "descripcion": "Soluciones para baño, cocina y lavadero", "url": "https://ferrum.com/" },
       { "nombre": "Grupo DEMA", "logo": "https://www.grupodema.com.ar/bundles/app/front/resources/img/dema-logoSombra.jpg", "descripcion": "Empresa dinámica en el sector sanitario", "url": "https://www.grupodema.com.ar/" },
       { "nombre": "Dinatecnica", "logo": "https://http2.mlstatic.com/D_NQ_NP_758107-MLA43580721883_092020-O.webp", "descripcion": "Más de 55 años en soluciones de tuberías", "url": "https://dinatecnica.com.ar/" },
-      { "nombre": "FV", "logo": "https://ferrum.com/pub/media/athlete2/default/logo_fv.png", "descripcion": "Confort en baños y cocinas", "url": "https://fvsa.com/" }
+      { "nombre": "FV", "logo": "https://fvsa.com/wp-content/uploads/2025/11/logo-FV-blanco2.png", "descripcion": "Confort en baños y cocinas", "url": "https://fvsa.com/" }
     ],
     "electricidad": [
       { "nombre": "Conextube", "logo": "https://www.conextube.com/assets/imgs/logo-conextube-light-ss.svg", "descripcion": "Productos para instalaciones eléctricas seguras", "url": "https://www.conextube.com/" },
