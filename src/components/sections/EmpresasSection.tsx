@@ -35,14 +35,11 @@ export function EmpresasSection({
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-sm font-semibold mb-4">
-            CONOCÉ A LOS LÍDERES DEL SECTOR
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-wide">
-            EMPRESAS PARTICIPANTES
+            Empresas Participantes
           </h2>
           <p className="text-lg text-white/70 mt-3 max-w-xl mx-auto">
-            Las empresas más importantes del sector de la construcción te esperan
+            Conocelas en el evento
           </p>
         </motion.div>
 
