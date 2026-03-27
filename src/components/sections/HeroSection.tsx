@@ -28,11 +28,11 @@ export function HeroSection({
   secondaryCtaText,
   secondaryCtaHref,
   backgroundImage,
-  eventDate = '15 al 17 de Septiembre 2026',
-  eventDateIcs = '20260915',
-  eventLocation = 'Club Social y Deportivo UBS',
-  eventAddress = 'Gral. José Gervasio Artigas 2102, Buenos Aires',
-  mapsUrl = 'https://maps.google.com/?q=Club+Social+y+Deportivo+UBS+Buenos+Aires',
+  eventDate = '2 de Julio 2025',
+  eventDateIcs = '20250702',
+  eventLocation = 'CFP N°33 UOCRA',
+  eventAddress = 'Humberto 1º 2260, Buenos Aires',
+  mapsUrl = 'https://maps.google.com/?q=CFP+N33+UOCRA+Humberto+1+2260+Buenos+Aires',
 }: HeroSectionProps) {
   const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Expo+Formación+UOCRA+2026&dates=${eventDateIcs}T090000/${eventDateIcs}T180000&details=El+evento+anual+de+formación+profesional+para+el+sector+de+la+construcción&location=${eventLocation}+-+${encodeURIComponent(eventAddress)}`;
 

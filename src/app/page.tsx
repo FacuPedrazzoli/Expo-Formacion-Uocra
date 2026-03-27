@@ -28,7 +28,7 @@ export default function HomePage() {
       <Navbar eventTitle={event?.title} />
       <main className="flex-1">
         <HeroSection
-          title={event?.title || 'Expo Formación UOCRA'}
+          title={event?.title || 'Expo Formación UOCRA 2025'}
           subtitle={event?.description || 'El evento anual de formación profesional para el sector de la construcción'}
           ctaText="Registrarse"
           ctaHref="/register"

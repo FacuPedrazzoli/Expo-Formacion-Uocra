@@ -1,11 +1,11 @@
 {
   "video": "https://www.youtube.com/watch?v=sdoX3YvrbuA&t=18s",
   "eventInfo": {
-    "date": "15 al 17 de Septiembre 2026",
-    "dateIcs": "20260915",
-    "location": "Club Social y Deportivo UBS",
-    "address": "Gral. José Gervasio Artigas 2102, Buenos Aires, Argentina",
-    "mapsUrl": "https://maps.google.com/?q=Club+Social+y+Deportivo+UBS+Buenos+Aires"
+    "date": "2 de Julio 2025",
+    "dateIcs": "20250702",
+    "location": "CFP N°33 UOCRA",
+    "address": "Humberto 1º 2260, Buenos Aires",
+    "mapsUrl": "https://maps.google.com/?q=CFP+N33+UOCRA+Humberto+1+2260+Buenos+Aires"
   },
   "charlas": [
     { "id": "tal-001", "titulo": "Charla Inaugural: El futuro de la construcción en Argentina", "descripcion": "Apertura oficial de Expo Formación UOCRA 2026. Palabras de autoridades gremiales y presentación de las tendencias del sector para los próximos años.", "horario": "09:00 - 10:00", "capacidad": 500, "sala": "Salón Principal" },
