@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Expo Formación UOCRA",
   description: "Plataforma de registro y gestión para Expo Formación UOCRA",
+  icons: {
+    icon: "/images/casquito.png",
+  },
 };
 
 export default function RootLayout({
