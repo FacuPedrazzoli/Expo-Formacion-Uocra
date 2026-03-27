@@ -29,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
+        <link rel="icon" href="/images/legacy/logo_expo.png" type="image/png" sizes="32x32" />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         {children}
