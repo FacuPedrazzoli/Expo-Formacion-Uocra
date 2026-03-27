@@ -1,5 +1,6 @@
 'use client';
 
+import { Counter } from '@/components/ui/Counter';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { BienvenidaSection } from '@/components/sections/BienvenidaSection';
 import { StandsSection } from '@/components/sections/StandsSection';
@@ -54,15 +55,15 @@ export default function HomePage() {
             <SectionContent>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                  <div className="text-4xl font-bold text-accent mb-2">14+</div>
+                  <Counter target={14} suffix="+" className="text-4xl font-bold text-accent mb-2" />
                   <p className="text-white/80">Charlas Técnicas</p>
                 </div>
                 <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                  <div className="text-4xl font-bold text-accent mb-2">39+</div>
+                  <Counter target={39} suffix="+" className="text-4xl font-bold text-accent mb-2" />
                   <p className="text-white/80">Empresas Expositoras</p>
                 </div>
                 <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                  <div className="text-4xl font-bold text-accent mb-2">3500+</div>
+                  <Counter target={3500} suffix="+" className="text-4xl font-bold text-accent mb-2" />
                   <p className="text-white/80">Participantes</p>
                 </div>
               </div>
