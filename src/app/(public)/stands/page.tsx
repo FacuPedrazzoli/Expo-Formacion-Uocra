@@ -12,9 +12,9 @@ export default function StandsPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <ProximamenteBanner />
       <Navbar />
       <main className="flex-1">
-        <ProximamenteBanner />
         <div className="pt-24 pb-12 bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a]">
           <div className="container mx-auto px-4 text-center">
             <motion.h1
