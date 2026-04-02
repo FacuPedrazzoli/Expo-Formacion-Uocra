@@ -45,7 +45,7 @@ export default function HomePage() {
 
         <SobreEventoSection />
 
-        <TalksSection id="talks" talks={talks} />
+        <TalksSection id="talks" talks={talks} showOverlay={true} />
 
         <EmpresasSection 
           id="empresas" 
@@ -57,7 +57,7 @@ export default function HomePage() {
           }))}
         />
         
-        <StandsSection stands={stands} />
+        <StandsSection stands={stands} showOverlay={true} />
         
         <GallerySection images={images} videoUrl={eventData.video} />
 
