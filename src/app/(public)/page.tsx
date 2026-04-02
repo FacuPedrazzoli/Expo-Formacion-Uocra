@@ -5,13 +5,15 @@ import { StandsSection } from '@/components/sections/StandsSection';
 import { TalksSection } from '@/components/sections/TalksSection';
 import { GallerySection } from '@/components/sections/GallerySection';
 import { SponsorsSection } from '@/components/sections/SponsorsSection';
-import { Section, SectionTitle, SectionContent } from '@/components/sections/Section';
+import { Section, SectionTitle } from '@/components/sections/Section';
 import { Container } from '@/components/layout/Container';
+import { SobreEventoSection } from '@/components/sections/SobreEventoSection';
 import Link from 'next/link';
 import { useEvent } from '@/hooks/useEvent';
 import { useTalks } from '@/hooks/useTalks';
 import { useStands } from '@/hooks/useStands';
 import { useGallery } from '@/hooks/useGallery';
+import eventData from '@/data/event-data.json';
 
 export default function HomePage() {
   const { event } = useEvent();
@@ -29,38 +31,20 @@ export default function HomePage() {
         secondaryCtaText="Ver Charlas"
         secondaryCtaHref="#talks"
         backgroundImage={event?.imageUrl}
+        eventDate={eventData.eventInfo.date}
+        eventDateIcs={eventData.eventInfo.dateIcs}
+        eventLocation={eventData.eventInfo.location}
+        eventAddress={eventData.eventInfo.address}
+        mapsUrl={eventData.eventInfo.mapsUrl}
       />
 
-      <Section id="about">
-        <Container>
-          <SectionTitle 
-            title="Sobre el Evento" 
-            subtitle="Un encuentro único para profesionales del sector"
-          />
-          <SectionContent>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">{talks.length}+</div>
-                <p className="text-muted-foreground">Charlas Técnicas</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">{stands.length}+</div>
-                <p className="text-muted-foreground">Empresas Expositoras</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">2000+</div>
-                <p className="text-muted-foreground">Asistentes</p>
-              </div>
-            </div>
-          </SectionContent>
-        </Container>
-      </Section>
+      <SobreEventoSection />
 
       <StandsSection stands={stands} />
       
       <TalksSection id="talks" talks={talks} />
       
-      <GallerySection images={images} />
+      <GallerySection images={images} videoUrl={eventData.video} />
 
       <SponsorsSection />
 

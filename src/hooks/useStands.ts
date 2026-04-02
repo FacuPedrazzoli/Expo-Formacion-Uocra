@@ -1,55 +1,43 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { createClient } from '@/lib/supabase/browser';
+import eventData from '@/data/event-data.json';
 import type { Stand } from '@/types/stand';
-
-const supabase = createClient();
 
 interface UseStandsReturn {
   stands: Stand[];
   loading: boolean;
-  error: string | null;
+  error: null;
   refetch: () => void;
 }
 
-export function useStands(eventId?: string): UseStandsReturn {
+export function useStands(_eventId?: string): UseStandsReturn {
   const [stands, setStands] = useState<Stand[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  const fetchStands = useCallback(async () => {
+  const fetchStands = useCallback(() => {
     try {
       setLoading(true);
-      setError(null);
-
-      let query = supabase
-        .from('stands')
-        .select('*')
-        .eq('active', true)
-        .order('sort_order', { ascending: true });
-
-      if (eventId) {
-        query = query.eq('event_id', eventId);
-      }
-
-      const { data, error: fetchError } = await query;
-
-      if (fetchError) {
-        setError(fetchError.message);
-      } else {
-        setStands((data || []) as Stand[]);
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error fetching stands');
+      const jsonStands: Stand[] = eventData.stands.map((s, index) => ({
+        id: s.id,
+        eventId: 'static-event',
+        name: s.name,
+        description: s.description,
+        logoUrl: s.logo,
+        imageUrl: s.logo,
+        category: s.category,
+        boothNumber: undefined,
+        order: index,
+      }));
+      setStands(jsonStands);
     } finally {
       setLoading(false);
     }
-  }, [eventId]);
+  }, []);
 
   useEffect(() => {
     fetchStands();
   }, [fetchStands]);
 
-  return { stands, loading, error, refetch: fetchStands };
+  return { stands, loading, error: null, refetch: fetchStands };
 }

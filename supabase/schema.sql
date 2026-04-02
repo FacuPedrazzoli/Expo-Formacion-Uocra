@@ -356,9 +356,9 @@ INSERT INTO events (year, title, description, location, date, active) VALUES
 -- How Found Options
 INSERT INTO how_found (label, sort_order) VALUES 
     ('Redes sociales', 1),
-    ('Correo electrónico', 2),
-    ('Recomendación', 3),
-    ('Prensa', 4),
+    ('Boca a boca', 2),
+    ('Correo electrónico', 3),
+    ('Carteleria/Volantes', 4),
     ('Otro', 5);
 
 -- Sample Talks

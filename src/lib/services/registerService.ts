@@ -1,76 +1,80 @@
 import { createClient } from '@supabase/supabase-js';
 import { userRepo } from '@/lib/repositories/userRepo';
-import { talkRepo } from '@/lib/repositories/talkRepo';
-import type { User } from '@/types/user';
-import type { TalkWithCapacity } from '@/types/talk';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 const adminClient = createClient(supabaseUrl, supabaseServiceKey);
 
 export interface RegisterInput {
-  dni: string;
   name: string;
-  lastname: string;
+  surname: string;
+  dni: string;
   email: string;
-  howFoundId?: string;
-  talkIds: string[];
-  eventId: string;
+  source: string;
 }
 
 export interface RegisterResult {
   success: boolean;
-  user?: User;
+  userId?: string;
+  dni?: string;
   error?: string;
+}
+
+async function getActiveEventId(): Promise<string | null> {
+  const { data, error } = await adminClient
+    .from('events')
+    .select('id')
+    .eq('active', true)
+    .single();
+
+  if (error || !data) return null;
+  return data.id;
+}
+
+async function getHowFoundIdByLabel(label: string): Promise<string | undefined> {
+  const { data, error } = await adminClient
+    .from('how_found')
+    .select('id')
+    .eq('label', label)
+    .eq('active', true)
+    .single();
+
+  if (error || !data) return undefined;
+  return data.id;
 }
 
 export const registerService = {
   async register(input: RegisterInput): Promise<RegisterResult> {
     try {
-      const existingUser = await userRepo.getUserByDNI(input.dni, input.eventId);
+      const eventId = await getActiveEventId();
+      if (!eventId) {
+        return { success: false, error: 'No hay un evento activo' };
+      }
+
+      const existingUser = await userRepo.getUserByDNI(input.dni, eventId);
       if (existingUser) {
         return { success: false, error: 'Ya existe un usuario registrado con este DNI' };
       }
 
+      const howFoundId = await getHowFoundIdByLabel(input.source);
+
       const user = await userRepo.createUser({
-        eventId: input.eventId,
+        eventId,
         dni: input.dni,
         name: input.name,
-        lastname: input.lastname,
+        lastname: input.surname,
         email: input.email,
         userType: 'web',
         hasQR: false,
         checkedIn: false,
-        howFoundId: input.howFoundId,
+        howFoundId,
       });
 
       if (!user) {
         return { success: false, error: 'Error al crear el usuario' };
       }
 
-      if (input.talkIds && input.talkIds.length > 0) {
-        const talks = await talkRepo.getTalksByEvent(input.eventId);
-        
-        for (const talkId of input.talkIds) {
-          const talk = talks.find(t => t.id === talkId);
-          
-          if (!talk) continue;
-          
-          if (talk.isFull) {
-            continue;
-          }
-
-          const { error: regError } = await adminClient
-            .from('talk_registrations')
-            .insert({ user_id: user.id, talk_id: talkId });
-
-          if (regError) {
-            console.error('Error registering for talk:', regError);
-          }
-        }
-      }
-
-      return { success: true, user };
+      return { success: true, userId: user.id, dni: user.dni };
     } catch (error) {
       console.error('Register error:', error);
       return { success: false, error: 'Error inesperado en el registro' };

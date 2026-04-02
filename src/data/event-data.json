@@ -1,80 +1,107 @@
 {
+  "event": {
+    "name": "Expo Formación UOCRA 2026",
+    "date": "2 de Julio 2026",
+    "stats": {
+      "participantes": "3500+",
+      "empresas": "40+",
+      "charlas": "30+"
+    }
+  },
   "video": "https://www.youtube.com/watch?v=sdoX3YvrbuA&t=18s",
   "eventInfo": {
-    "date": "2 de Julio 2025",
-    "dateIcs": "20250702",
+    "date": "2 de Julio 2026",
+    "dateIcs": "20260702",
     "location": "CFP N°33 UOCRA",
     "address": "Humberto 1º 2260, Buenos Aires",
     "mapsUrl": "https://maps.google.com/?q=CFP+N3+UOCRA+Humberto+1+2260+Buenos+Aires"
   },
-  "charlas": [
-    { "id": "tal-001", "titulo": "Charla Inaugural: El futuro de la construcción en Argentina", "descripcion": "Apertura oficial de Expo Formación UOCRA 2026. Palabras de autoridades gremiales y presentación de las tendencias del sector para los próximos años.", "horario": "09:00 - 10:00", "capacidad": 500, "sala": "Salón Principal" },
-    { "id": "tal-002", "titulo": "Normativas de Seguridad Laboral 2026", "descripcion": "Actualización sobre las nuevas normas de seguridad en obras de construcción. Higiene, prevención de accidentes y equipamiento de protección personal.", "horario": "10:30 - 11:30", "capacidad": 150, "sala": "Aula 1" },
-    { "id": "tal-003", "titulo": "Tecnologías BIM en proyectos de construcción", "descripcion": "Introducción a la Modelación de Información de Edificios. Cómo implementar BIM en obras de infraestructura y vivienda.", "horario": "10:30 - 11:30", "capacidad": 80, "sala": "Aula 2" },
-    { "id": "tal-004", "titulo": "Oportunidades de empleo en el sector construcción", "descripcion": "Panel con empresas del sector hablando sobre demanda de trabajadores especializados. Requisitos, beneficios y cómo aplicar.", "horario": "12:00 - 13:00", "capacidad": 300, "sala": "Salón Principal" },
-    { "id": "tal-005", "titulo": "Introducción a la albañilería profesional", "descripcion": "Técnicas actualizadas de albañilería. Materiales, herramientas y procedimientos para obras de calidad.", "horario": "14:00 - 15:00", "capacidad": 100, "sala": "Aula 1" },
-    { "id": "tal-006", "titulo": "Electricidad residencial y comercial", "descripcion": "Fundamentos de instalación eléctrica. Normas IRAM, cableado y sistemas de protección para edificios.", "horario": "14:00 - 15:00", "capacidad": 80, "sala": "Aula 2" },
-    { "id": "tal-007", "titulo": "Construcción sostenible y eficiencia energética", "descripcion": "Materiales ecológicos y técnicas de construcción verde. Certificaciones LEED y estrategias de ahorro energético.", "horario": "15:30 - 16:30", "capacidad": 120, "sala": "Aula 1" },
-    { "id": "tal-008", "titulo": "Manejo de maquinaria pesada", "descripcion": "Operación segura de excavadoras, cargadores y retroexcavadoras. Mantenimiento preventivo y productividad.", "horario": "09:00 - 10:30", "capacidad": 60, "sala": "Aula 1" },
-    { "id": "tal-009", "titulo": "Gestión de obras y presupuestos", "descripcion": "Administración de proyectos de construcción. Control de costos, cronograma y recursos humanos.", "horario": "09:00 - 10:00", "capacidad": 100, "sala": "Aula 2" },
-    { "id": "tal-010", "titulo": "Herramientas eléctricas: mantenimiento y seguridad", "descripcion": "Uso correcto de herramientas eléctricas. Mantenimiento, cuidados y prevención de accidentes.", "horario": "10:30 - 11:30", "capacidad": 80, "sala": "Aula 1" },
-    { "id": "tal-011", "titulo": "Panel: Mujeres en la construcción", "descripcion": "Experiencias y testimonios de mujeres que trabajan en el sector construcción. Desafíos, logros y oportunidades.", "horario": "11:00 - 12:30", "capacidad": 200, "sala": "Salón Principal" },
-    { "id": "tal-012", "titulo": "Soldadura profesional", "descripcion": "Técnicas de soldadura para construcción. Soldadura MIG, TIG y arco manual. Materiales y equipos.", "horario": "14:00 - 15:30", "capacidad": 50, "sala": "Aula 1" },
-    { "id": "tal-013", "titulo": "Carpintería de obra", "descripcion": "Técnicas de carpintería para construcción. Estructuras de madera, encofrados y terminaciones.", "horario": "14:00 - 15:00", "capacidad": 60, "sala": "Aula 2" },
-    { "id": "tal-014", "titulo": "Primeros auxilios en obra", "descripcion": "Capacitación en primeros auxilios especializados para accidentes de construcción. RCP, emergencias y evacuación.", "horario": "15:30 - 17:00", "capacidad": 100, "sala": "Salón Principal" }
+  "talks": [
+    { "id": "tal-001", "title": "Charla Inaugural: El futuro de la construcción en Argentina", "description": "Apertura oficial de Expo Formación UOCRA 2026. Palabras de autoridades gremiales y presentación de las tendencias del sector para los próximos años.", "speaker": "Autoridades UOCRA", "startTime": "09:00", "endTime": "10:00", "room": "Salón Principal" },
+    { "id": "tal-002", "title": "Normativas de Seguridad Laboral 2026", "description": "Actualización sobre las nuevas normas de seguridad en obras de construcción. Higiene, prevención de accidentes y equipamiento de protección personal.", "speaker": "Dr. Carlos López", "startTime": "10:30", "endTime": "11:30", "room": "Aula 1" },
+    { "id": "tal-003", "title": "Tecnologías BIM en proyectos de construcción", "description": "Introducción a la Modelación de Información de Edificios. Cómo implementar BIM en obras de infraestructura y vivienda.", "speaker": "Ing. María García", "startTime": "10:30", "endTime": "11:30", "room": "Aula 2" },
+    { "id": "tal-004", "title": "Oportunidades de empleo en el sector construcción", "description": "Panel con empresas del sector hablando sobre demanda de trabajadores especializados. Requisitos, beneficios y cómo aplicar.", "speaker": "Panel de Empresas", "startTime": "12:00", "endTime": "13:00", "room": "Salón Principal" },
+    { "id": "tal-005", "title": "Introducción a la albañilería profesional", "description": "Técnicas actualizadas de albañilería. Materiales, herramientas y procedimientos para obras de calidad.", "speaker": "Of. Juan Pérez", "startTime": "14:00", "endTime": "15:00", "room": "Aula 1" },
+    { "id": "tal-006", "title": "Electricidad residencial y comercial", "description": "Fundamentos de instalación eléctrica. Normas IRAM, cableado y sistemas de protección para edificios.", "speaker": "Ing. Roberto Sánchez", "startTime": "14:00", "endTime": "15:00", "room": "Aula 2" },
+    { "id": "tal-007", "title": "Construcción sostenible y eficiencia energética", "description": "Materiales ecológicos y técnicas de construcción verde. Certificaciones LEED y estrategias de ahorro energético.", "speaker": "Dra. Ana Martínez", "startTime": "15:30", "endTime": "16:30", "room": "Aula 1" },
+    { "id": "tal-008", "title": "Manejo de maquinaria pesada", "description": "Operación segura de excavadoras, cargadores y retroexcavadoras. Mantenimiento preventivo y productividad.", "speaker": "Tec. Luis Torres", "startTime": "09:00", "endTime": "10:30", "room": "Aula 1" },
+    { "id": "tal-009", "title": "Gestión de obras y presupuestos", "description": "Administración de proyectos de construcción. Control de costos, cronograma y recursos humanos.", "speaker": "Ing. Pablo Fernández", "startTime": "09:00", "endTime": "10:00", "room": "Aula 2" },
+    { "id": "tal-010", "title": "Herramientas eléctricas: mantenimiento y seguridad", "description": "Uso correcto de herramientas eléctricas. Mantenimiento, cuidados y prevención de accidentes.", "speaker": "Of. Miguel Ruiz", "startTime": "10:30", "endTime": "11:30", "room": "Aula 1" },
+    { "id": "tal-011", "title": "Panel: Mujeres en la construcción", "description": "Experiencias y testimonios de mujeres que trabajan en el sector construcción. Desafíos, logros y oportunidades.", "speaker": "Panel de Mujeres UOCRA", "startTime": "11:00", "endTime": "12:30", "room": "Salón Principal" },
+    { "id": "tal-012", "title": "Soldadura profesional", "description": "Técnicas de soldadura para construcción. Soldadura MIG, TIG y arco manual. Materiales y equipos.", "speaker": "Of. Diego Herrera", "startTime": "14:00", "endTime": "15:30", "room": "Aula 1" },
+    { "id": "tal-013", "title": "Carpintería de obra", "description": "Técnicas de carpintería para construcción. Estructuras de madera, encofrados y terminaciones.", "speaker": "Of. Ricardo Acosta", "startTime": "14:00", "endTime": "15:00", "room": "Aula 2" },
+    { "id": "tal-014", "title": "Primeros auxilios en obra", "description": "Capacitación en primeros auxilios especializados para accidentes de construcción. RCP, emergencias y evacuación.", "speaker": "Dr. Jorge Muñoz", "startTime": "15:30", "endTime": "17:00", "room": "Salón Principal" },
+    { "id": "tal-015", "title": "Instalaciones sanitarias modernas", "description": "Nuevas técnicas en instalaciones de agua fría, caliente y desagües. Materiales y normativas actualizadas.", "speaker": "Ing. Sergio Vega", "startTime": "10:30", "endTime": "11:30", "room": "Aula 3" },
+    { "id": "tal-016", "title": "Pintura profesional de edificios", "description": "Técnicas de pintura industrial y decorativa. Preparación de superficies y acabados de calidad.", "speaker": "Of. Marcelo Córdoba", "startTime": "14:00", "endTime": "15:00", "room": "Aula 3" },
+    { "id": "tal-017", "title": "Aislamiento térmico y acústico", "description": "Materiales y técnicas para mejorar la eficiencia energética y el confort en viviendas.", "speaker": "Ing. Laura Díaz", "startTime": "15:30", "endTime": "16:30", "room": "Aula 3" },
+    { "id": "tal-018", "title": "Estructuras metálicas: montaje y soldadura", "description": "Técnicas de armado y unión de estructuras metálicas en obras de gran escala.", "speaker": "Ing. Fernando Ríos", "startTime": "09:00", "endTime": "10:30", "room": "Aula 2" },
+    { "id": "tal-019", "title": "Trabajo en altura:绳索技术", "description": "Seguridad y técnicas de trabajo en alturas. Uso de andamios, arneses y líneas de vida.", "speaker": "Tec. Adrián Ojeda", "startTime": "10:30", "endTime": "12:00", "room": "Aula 4" },
+    { "id": "tal-020", "title": "Demoliciones controladas", "description": "Técnicas seguras para demolición de estructuras. Planificación, ejecución y gestión de residuos.", "speaker": "Ing. Gustavo Peña", "startTime": "14:00", "endTime": "15:00", "room": "Aula 4" },
+    { "id": "tal-021", "title": "Hormigón: dosificación y colocación", "description": "Fundamentos del hormigón fresco y endurecido. Dosificación, transporte y colocación en obra.", "speaker": "Ing. Claudio Mendoza", "startTime": "15:30", "endTime": "16:30", "room": "Aula 4" },
+    { "id": "tal-022", "title": "Automatización residencial", "description": "Introducción a sistemas domóticos. Control de iluminación, climatización y seguridad.", "speaker": "Ing. Daniel Chavez", "startTime": "09:00", "endTime": "10:00", "room": "Aula 5" },
+    { "id": "tal-023", "title": "Ventilación y aire acondicionado", "description": "Sistemas de climatización residenciales y comerciales. Cálculo de carga térmica.", "speaker": "Tec. Martín Sosa", "startTime": "10:30", "endTime": "11:30", "room": "Aula 5" },
+    { "id": "tal-024", "title": "Impermeabilizaciones", "description": "Técnicas de impermeabilización en cubiertas, tanques y subterráneos. Materiales y aplicaciones.", "speaker": "Ing. Natalia Reyes", "startTime": "14:00", "endTime": "15:00", "room": "Aula 5" },
+    { "id": "tal-025", "title": "Colocación de pisos y revestimientos", "description": "Técnicas de colocación de cerámicos, porcelanatos y piedras. Niveles y junquinas.", "speaker": "Of. Carlos Guzman", "startTime": "15:30", "endTime": "16:30", "room": "Aula 5" },
+    { "id": "tal-026", "title": "Seguridad vial en zonas de obra", "description": "Señalización y gestión del tránsito en áreas de trabajo vial. Normativas y buenas prácticas.", "speaker": "Ing. Alejandro Barra", "startTime": "09:00", "endTime": "10:00", "room": "Aula 6" },
+    { "id": "tal-027", "title": "Excavaciones y movimiento de suelos", "description": "Técnicas de excavación, nivelación y compactación de suelos. Equipos y seguridad.", "speaker": "Ing. Eduardo Ruiz", "startTime": "10:30", "endTime": "11:30", "room": "Aula 6" },
+    { "id": "tal-028", "title": "Techumbres y cubierta", "description": "Sistemas de cubierta inclinada y plana. Estructura, aislación y membrana.", "speaker": "Of. Jorge Ibáñez", "startTime": "14:00", "endTime": "15:00", "room": "Aula 6" },
+    { "id": "tal-029", "title": "Cerramientos y aberturas de aluminio", "description": "Ventanas, puertas y frente de vidro. Perfiles, herrajes y vidrios.", "speaker": "Tec. Alberto Nieva", "startTime": "15:30", "endTime": "16:30", "room": "Aula 6" },
+    { "id": "tal-030", "title": "Cierre: palabras de agradecimiento", "description": "Cierre oficial del evento. Reconocimientos y próximos pasos para Expo Formación UOCRA.", "speaker": "Autoridades UOCRA", "startTime": "17:00", "endTime": "18:00", "room": "Salón Principal" }
   ],
-  "empresas": {
-    "construccion": [
-      { "nombre": "Dun Dun", "logo": "https://dundun.com.ar/wp-content/uploads/2016/01/produtividade_1.png", "descripcion": "Mezcla de polímeros para colocación de ladrillos y bloques", "url": "https://dun-dun.com.ar/" },
-      { "nombre": "El Galgo", "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQEKGI7i2yTcWQ/company-logo_200_200/company-logo_200_200/0/1631354576694?e=2147483647&v=beta&t=LM2Z7KoWPJjaKK-eFRmbXifMKtR6hsxKSXIzqEmm-7U", "descripcion": "Empresa líder en fabricación de herramientas profesionales para pintura", "url": "https://www.elgalgo.com.ar/" },
-      { "nombre": "Fischer", "logo": "https://www.fischer.com.ar/-/media/system/user-defined/og-images/fischer-og-image.png", "descripcion": "Empresa multinacional alemana líder en sistemas de fijación", "url": "https://www.fischer.com.ar" },
-      { "nombre": "Mekano", "logo": "https://mekano.com.ar/images/logo_nav-principal-cabecera.png", "descripcion": "Diseño y fabricación de estructuras tubulares y andamios", "url": "https://mekano.com.ar" },
-      { "nombre": "Retak", "logo": "https://retak.com.ar/wp-content/uploads/2024/09/logo_retak_menu.svg", "descripcion": "Ladrillos de Hormarquía Celular Curados en Autoclave (HCCA)", "url": "https://retak.com.ar/" },
-      { "nombre": "Tao", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ0IrDtVEvrfo6kTdSQwFWIzKI4yG5FdYxWg&s", "descripcion": "Tablero estructural con hojuelas de madera orientadas", "url": "https://taopaneles.com/" },
-      { "nombre": "Sinteplast", "logo": "https://http2.mlstatic.com/D_NQ_NP_996466-MLA70931999155_082023-O.webp", "descripcion": "Empresa líder de capitales nacionales en pinturas", "url": "https://www.sinteplast.com.ar/" },
-      { "nombre": "Durlock", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2F5n_mS1D5foPebBFeD2y6goItHGHOmXlgQ&s", "descripcion": "Líder en sistemas de construcción en seco", "url": "https://durlock.com/" },
-      { "nombre": "Saint Gobain", "logo": "https://www.hipco.com/wp-content/uploads/2020/07/Logo-Saint-Gobain.png", "descripcion": "Empresa multinacional fabricante de materiales", "url": "https://www.saint-gobain.ar/es" },
-      { "nombre": "Plavicon", "logo": "https://www.plavicon.com/site/imagenes/logo.png", "descripcion": "Impermeabilizantes y materiales para construcción", "url": "https://www.plavicon.com/site/index.php" },
-      { "nombre": "Ceramica San Lorenzo", "logo": "https://ceramicasanlorenzo.com.ar/wp-content/themes/csl/images/logo.svg", "descripcion": "Fabricación de cerámicas de calidad", "url": "https://ceramicasanlorenzo.com.ar/" },
-      { "nombre": "Loma Negra", "logo": "https://www.lomanegra.com/wp-content/uploads/2022/08/logo-loma-negra.png", "descripcion": "Empresa líder en producción de cemento", "url": "https://www.lomanegra.com/" },
-      { "nombre": "Acerbrag", "logo": "https://www.acerbrag.com/imgs/logo-acerbrag.svg", "descripcion": "Fabricación de productos de acero de alta calidad", "url": "https://www.acerbrag.com/" },
-      { "nombre": "Later-Cer", "logo": "https://later-cersa.com.ar/wp-content/uploads/2022/07/Logo_Encabezado.png", "descripcion": "Grupo líder en fabricación de ladrillo cerámico", "url": "https://later-cersa.com.ar/" },
-      { "nombre": "Aluar", "logo": "https://www.aluar.com.ar/assets/sitio/img/aluar-logo.svg", "descripcion": "Compañía de capitales nacionales en la industria del aluminio", "url": "https://www.aluar.com.ar/" },
-      { "nombre": "Klaukol", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5YiEH3V2n1UhpxqT6kuC2Tc76kppJIUme9g&s", "descripcion": "Líder en adhesivos y pastinas para pisos cerámicos", "url": "https://arg.sika.com/klaukol" },
-      { "nombre": "Alba", "logo": "https://images.akzonobel.com/akzonobel-flourish/alba/ar/es/homepage/logo-alba-100.png?impolicy=.auto", "descripcion": "Marca líder de pinturas decorativas", "url": "https://www.alba.com.ar/es" },
-      { "nombre": "Bremen", "logo": "https://bremenar.vtexassets.com/assets/vtex.file-manager-graphql/images/929679d8-6818-4504-a16d-d76ebbfe2bc8___df3a039fc3515b5732deac0cd682ba06.svg", "descripcion": "Herramientas para profesionales de la construcción", "url": "https://www.brementools.com/" }
-    ],
-    "sanitarias": [
-      { "nombre": "Escorial", "logo": "https://escorial.com.ar/unregalo/img/logo-escorial.png", "descripcion": "Empresa familiar dedicada a artefactos de cocción", "url": "https://www.escorial.com.ar/" },
-      { "nombre": "Latyn", "logo": "https://www.latyn.net/img/logo_header.svg", "descripcion": "Distribución de griferías y equipamiento", "url": "https://www.latyn.net/" },
-      { "nombre": "Ferrum S.A.", "logo": "https://ferrum.com/pub/media/athlete2/default/logo_fv.png", "descripcion": "Soluciones para baño, cocina y lavadero", "url": "https://ferrum.com/" },
-      { "nombre": "Grupo DEMA", "logo": "https://www.grupodema.com.ar/bundles/app/front/resources/img/dema-logoSombra.jpg", "descripcion": "Empresa dinámica en el sector sanitario", "url": "https://www.grupodema.com.ar/" },
-      { "nombre": "Dinatecnica", "logo": "https://http2.mlstatic.com/D_NQ_NP_758107-MLA43580721883_092020-O.webp", "descripcion": "Más de 55 años en soluciones de tuberías", "url": "https://dinatecnica.com.ar/" },
-      { "nombre": "FV", "logo": "https://fvsa.com/wp-content/uploads/2025/11/logo-FV-blanco2.png", "descripcion": "Confort en baños y cocinas", "url": "https://fvsa.com/" }
-    ],
-    "electricidad": [
-      { "nombre": "Conextube", "logo": "https://www.conextube.com/assets/imgs/logo-conextube-light-ss.svg", "descripcion": "Productos para instalaciones eléctricas seguras", "url": "https://www.conextube.com/" },
-      { "nombre": "Schneider Electric", "logo": "https://www.logo.wine/a/logo/Schneider_Electric/Schneider_Electric-Logo.wine.svg", "descripcion": "Sostenibilidad y Eficiencia energética", "url": "https://www.se.com/" },
-      { "nombre": "Gralf", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOqscXAy-E8-bqnun_6EhVQ7ydWj7_xj2SzA&s", "descripcion": "Instrumentos de medición y control eléctrico", "url": "https://www.gralf.com.ar" },
-      { "nombre": "Micro Control", "logo": "https://microcontrol.com.ar/storage/2023/11/isologo-microcontrol-180x80-1.png", "descripcion": "Canalización y conectividad eléctrica", "url": "https://microcontrol.com.ar/" },
-      { "nombre": "Zoloda", "logo": "https://www.zoloda.com.ar/wp-content/uploads/ICONO-1.png", "descripcion": "Soluciones en canalización eléctrica", "url": "https://www.zoloda.com.ar/" },
-      { "nombre": "Genrod", "logo": "https://electricaoscar.com/images/default/productos/genrod52.jpg", "descripcion": "Tecnología y calidad en sector eléctrico", "url": "https://fundacion.uocra.org/" },
-      { "nombre": "Cambre", "logo": "https://migluz.ar/wp-content/uploads/2023/01/logo-cambre.jpg", "descripcion": "Fabricante de material eléctrico", "url": "https://cambre.com.ar/" }
-    ],
-    "informatica": [
-      { "nombre": "Realidad Virtual — Fundación UOCRA", "logo": "https://www.kozoarquitectura.es/wp-content/uploads/2020/08/Realidad-Virtual.jpg", "descripcion": "Proyecto piloto con la OIT para realidad virtual", "url": "https://fundacion.uocra.org/novedades/realidad-virtual-en-la-fundacion-uocra/" },
-      { "nombre": "3D Insumos", "logo": "https://3dinsumos.com.ar/img/Logo.png", "descripcion": "Electrónica e impresoras 3D", "url": "https://3dinsumos.com.ar/" }
-    ],
-    "instituciones": [
-      { "nombre": "Fundación UOCRA", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQriRNbgrf454MsqjE0gXKp86GTp8_vLhLacg&s", "descripcion": "ONG de formación profesional para trabajadores", "url": "https://fundacion.uocra.org/" },
-      { "nombre": "UOCRA Mujeres", "logo": "https://mujeres.uocra.org/wp-content/uploads/2022/11/stickers_5.png", "descripcion": "Asistencia a trabajadoras constructoras", "url": "https://mujeres.uocra.org/" },
-      { "nombre": "MOECRA", "logo": "https://mutual.uocra.org/wp-content/uploads/2023/09/cropped-LogoMOECRA.png", "descripcion": "Mutual para trabajadores constructores", "url": "https://mutual.uocra.org/" },
-      { "nombre": "Construir TV", "logo": "https://www.construirtv.com/wp-content/uploads/2017/09/logo-ctv.jpg", "descripcion": "Canal temático sobre el mundo del trabajo", "url": "https://www.construirtv.com/" },
-      { "nombre": "Consejo de Bomberos", "logo": "https://www.bomberosra.org.ar/wp-content/uploads/2023/06/logo-CNB.jpg.png", "descripcion": "Protección Civil en Argentina", "url": "https://www.bomberosra.org.ar" },
-      { "nombre": "INET", "logo": "https://rfietp.educacion.gob.ar/imagenes/logo-inet.png", "descripcion": "Instituto Nacional de Educación Tecnológica", "url": "https://www.inet.edu.ar/" },
-      { "nombre": "CAMARCO", "logo": "https://www.camarco.org.ar/wp-content/uploads/2022/06/camarco.png", "descripcion": "Cámara Argentina de la Construcción", "url": "https://www.camarco.org.ar/" }
-    ]
-  },
+  "stands": [
+    { "id": "stand-001", "name": "Dun Dun", "description": "Mezcla de polímeros para colocación de ladrillos y bloques", "logo": "https://dundun.com.ar/wp-content/uploads/2016/01/produtividade_1.png", "url": "https://dun-dun.com.ar/", "category": "Construcción" },
+    { "id": "stand-002", "name": "El Galgo", "description": "Empresa líder en fabricación de herramientas profesionales para pintura", "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQEKGI7i2yTcWQ/company-logo_200_200/company-logo_200_200/0/1631354576694?e=2147483647&v=beta&t=LM2Z7KoWPJjaKK-eFRmbXifMKtR6hsxKSXIzqEmm-7U", "url": "https://www.elgalgo.com.ar/", "category": "Construcción" },
+    { "id": "stand-003", "name": "Fischer", "description": "Empresa multinacional alemana líder en sistemas de fijación", "logo": "https://www.fischer.com.ar/-/media/system/user-defined/og-images/fischer-og-image.png", "url": "https://www.fischer.com.ar", "category": "Construcción" },
+    { "id": "stand-004", "name": "Mekano", "description": "Diseño y fabricación de estructuras tubulares y andamios", "logo": "https://mekano.com.ar/images/logo_nav-principal-cabecera.png", "url": "https://mekano.com.ar", "category": "Construcción" },
+    { "id": "stand-005", "name": "Retak", "description": "Ladrillos de Hormarquía Celular Curados en Autoclave (HCCA)", "logo": "https://retak.com.ar/wp-content/uploads/2024/09/logo_retak_menu.svg", "url": "https://retak.com.ar/", "category": "Construcción" },
+    { "id": "stand-006", "name": "Tao", "description": "Tablero estructural con hojuelas de madera orientadas", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ0IrDtVEvrfo6kTdSQwFWIzKI4yG5FdYxWg&s", "url": "https://taopaneles.com/", "category": "Construcción" },
+    { "id": "stand-007", "name": "Sinteplast", "description": "Empresa líder de capitales nacionales en pinturas", "logo": "https://http2.mlstatic.com/D_NQ_NP_996466-MLA70931999155_082023-O.webp", "url": "https://www.sinteplast.com.ar/", "category": "Construcción" },
+    { "id": "stand-008", "name": "Durlock", "description": "Líder en sistemas de construcción en seco", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2F5n_mS1D5foPebBFeD2y6goItHGHOmXlgQ&s", "url": "https://durlock.com/", "category": "Construcción" },
+    { "id": "stand-009", "name": "Saint Gobain", "description": "Empresa multinacional fabricante de materiales", "logo": "https://www.hipco.com/wp-content/uploads/2020/07/Logo-Saint-Gobain.png", "url": "https://www.saint-gobain.ar/es", "category": "Construcción" },
+    { "id": "stand-010", "name": "Plavicon", "description": "Impermeabilizantes y materiales para construcción", "logo": "https://www.plavicon.com/site/imagenes/logo.png", "url": "https://www.plavicon.com/site/index.php", "category": "Construcción" },
+    { "id": "stand-011", "name": "Cerámica San Lorenzo", "description": "Fabricación de cerámicas de calidad", "logo": "https://ceramicasanlorenzo.com.ar/wp-content/themes/csl/images/logo.svg", "url": "https://ceramicasanlorenzo.com.ar/", "category": "Construcción" },
+    { "id": "stand-012", "name": "Loma Negra", "description": "Empresa líder en producción de cemento", "logo": "https://www.lomanegra.com/wp-content/uploads/2022/08/logo-loma-negra.png", "url": "https://www.lomanegra.com/", "category": "Construcción" },
+    { "id": "stand-013", "name": "Acerbrag", "description": "Fabricación de productos de acero de alta calidad", "logo": "https://www.acerbrag.com/imgs/logo-acerbrag.svg", "url": "https://www.acerbrag.com/", "category": "Construcción" },
+    { "id": "stand-014", "name": "Later-Cer", "description": "Grupo líder en fabricación de ladrillo cerámico", "logo": "https://later-cersa.com.ar/wp-content/uploads/2022/07/Logo_Encabezado.png", "url": "https://later-cersa.com.ar/", "category": "Construcción" },
+    { "id": "stand-015", "name": "Aluar", "description": "Compañía de capitales nacionales en la industria del aluminio", "logo": "https://www.aluar.com.ar/assets/sitio/img/aluar-logo.svg", "url": "https://www.aluar.com.ar/", "category": "Construcción" },
+    { "id": "stand-016", "name": "Klaukol", "description": "Líder en adhesivos y pastinas para pisos cerámicos", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5YiEH3V2n1UhpxqT6kuC2Tc76kppJIUme9g&s", "url": "https://arg.sika.com/klaukol", "category": "Construcción" },
+    { "id": "stand-017", "name": "Alba", "description": "Marca líder de pinturas decorativas", "logo": "https://images.akzonobel.com/akzonobel-flourish/alba/ar/es/homepage/logo-alba-100.png?impolicy=.auto", "url": "https://www.alba.com.ar/es", "category": "Construcción" },
+    { "id": "stand-018", "name": "Bremen", "description": "Herramientas para profesionales de la construcción", "logo": "https://bremenar.vtexassets.com/assets/vtex.file-manager-graphql/images/929679d8-6818-4504-a16d-d76ebbfe2bc8___df3a039fc3515b5732deac0cd682ba06.svg", "url": "https://www.brementools.com/", "category": "Construcción" },
+    { "id": "stand-019", "name": "Escorial", "description": "Empresa familiar dedicada a artefactos de cocción", "logo": "https://escorial.com.ar/unregalo/img/logo-escorial.png", "url": "https://www.escorial.com.ar/", "category": "Sanitarias" },
+    { "id": "stand-020", "name": "Latyn", "description": "Distribución de griferías y equipamiento", "logo": "https://www.latyn.net/img/logo_header.svg", "url": "https://www.latyn.net/", "category": "Sanitarias" },
+    { "id": "stand-021", "name": "Ferrum S.A.", "description": "Soluciones para baño, cocina y lavadero", "logo": "https://ferrum.com/pub/media/athlete2/default/logo_fv.png", "url": "https://ferrum.com/", "category": "Sanitarias" },
+    { "id": "stand-022", "name": "Grupo DEMA", "description": "Empresa dinámica en el sector sanitario", "logo": "https://www.grupodema.com.ar/bundles/app/front/resources/img/dema-logoSombra.jpg", "url": "https://www.grupodema.com.ar/", "category": "Sanitarias" },
+    { "id": "stand-023", "name": "Dinatecnica", "description": "Más de 55 años en soluciones de tuberías", "logo": "https://http2.mlstatic.com/D_NQ_NP_758107-MLA43580721883_092020-O.webp", "url": "https://dinatecnica.com.ar/", "category": "Sanitarias" },
+    { "id": "stand-024", "name": "FV", "description": "Confort en baños y cocinas", "logo": "https://fvsa.com/wp-content/uploads/2025/11/logo-FV-blanco2.png", "url": "https://fvsa.com/", "category": "Sanitarias" },
+    { "id": "stand-025", "name": "Conextube", "description": "Productos para instalaciones eléctricas seguras", "logo": "https://www.conextube.com/assets/imgs/logo-conextube-light-ss.svg", "url": "https://www.conextube.com/", "category": "Electricidad" },
+    { "id": "stand-026", "name": "Schneider Electric", "description": "Sostenibilidad y Eficiencia energética", "logo": "https://www.logo.wine/a/logo/Schneider_Electric/Schneider_Electric-Logo.wine.svg", "url": "https://www.se.com/", "category": "Electricidad" },
+    { "id": "stand-027", "name": "Gralf", "description": "Instrumentos de medición y control eléctrico", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOqscXAy-E8-bqnun_6EhVQ7ydWj7_xj2SzA&s", "url": "https://www.gralf.com.ar", "category": "Electricidad" },
+    { "id": "stand-028", "name": "Micro Control", "description": "Canalización y conectividad eléctrica", "logo": "https://microcontrol.com.ar/storage/2023/11/isologo-microcontrol-180x80-1.png", "url": "https://microcontrol.com.ar/", "category": "Electricidad" },
+    { "id": "stand-029", "name": "Zoloda", "description": "Soluciones en canalización eléctrica", "logo": "https://www.zoloda.com.ar/wp-content/uploads/ICONO-1.png", "url": "https://www.zoloda.com.ar/", "category": "Electricidad" },
+    { "id": "stand-030", "name": "Genrod", "description": "Tecnología y calidad en sector eléctrico", "logo": "https://electricaoscar.com/images/default/productos/genrod52.jpg", "url": "https://fundacion.uocra.org/", "category": "Electricidad" },
+    { "id": "stand-031", "name": "Cambre", "description": "Fabricante de material eléctrico", "logo": "https://migluz.ar/wp-content/uploads/2023/01/logo-cambre.jpg", "url": "https://cambre.com.ar/", "category": "Electricidad" },
+    { "id": "stand-032", "name": "Realidad Virtual — Fundación UOCRA", "description": "Proyecto piloto con la OIT para realidad virtual", "logo": "https://www.kozoarquitectura.es/wp-content/uploads/2020/08/Realidad-Virtual.jpg", "url": "https://fundacion.uocra.org/novedades/realidad-virtual-en-la-fundacion-uocra/", "category": "Informática" },
+    { "id": "stand-033", "name": "3D Insumos", "description": "Electrónica e impresoras 3D", "logo": "https://3dinsumos.com.ar/img/Logo.png", "url": "https://3dinsumos.com.ar/", "category": "Informática" },
+    { "id": "stand-034", "name": "Fundación UOCRA", "description": "ONG de formación profesional para trabajadores", "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQriRNbgrf454MsqjE0gXKp86GTp8_vLhLacg&s", "url": "https://fundacion.uocra.org/", "category": "Instituciones" },
+    { "id": "stand-035", "name": "UOCRA Mujeres", "description": "Asistencia a trabajadoras constructoras", "logo": "https://mujeres.uocra.org/wp-content/uploads/2022/11/stickers_5.png", "url": "https://mujeres.uocra.org/", "category": "Instituciones" },
+    { "id": "stand-036", "name": "MOECRA", "description": "Mutual para trabajadores constructores", "logo": "https://mutual.uocra.org/wp-content/uploads/2023/09/cropped-LogoMOECRA.png", "url": "https://mutual.uocra.org/", "category": "Instituciones" },
+    { "id": "stand-037", "name": "Construir TV", "description": "Canal temático sobre el mundo del trabajo", "logo": "https://www.construirtv.com/wp-content/uploads/2017/09/logo-ctv.jpg", "url": "https://www.construirtv.com/", "category": "Instituciones" },
+    { "id": "stand-038", "name": "Consejo de Bomberos", "description": "Protección Civil en Argentina", "logo": "https://www.bomberosra.org.ar/wp-content/uploads/2023/06/logo-CNB.jpg.png", "url": "https://www.bomberosra.org.ar", "category": "Instituciones" },
+    { "id": "stand-039", "name": "INET", "description": "Instituto Nacional de Educación Tecnológica", "logo": "https://rfietp.educacion.gob.ar/imagenes/logo-inet.png", "url": "https://www.inet.edu.ar/", "category": "Instituciones" },
+    { "id": "stand-040", "name": "CAMARCO", "description": "Cámara Argentina de la Construcción", "logo": "https://www.camarco.org.ar/wp-content/uploads/2022/06/camarco.png", "url": "https://www.camarco.org.ar/", "category": "Instituciones" }
+  ],
+  "sponsors": [
+    { "id": "spon-001", "name": "Ministerio de Trabajo", "logo": "", "level": "platinum" },
+    { "id": "spon-002", "name": "Fundación UOCRA", "logo": "", "level": "platinum" },
+    { "id": "spon-003", "name": "Loma Negra", "logo": "", "level": "gold" },
+    { "id": "spon-004", "name": "Saint Gobain", "logo": "", "level": "gold" },
+    { "id": "spon-005", "name": "Aluar", "logo": "", "level": "gold" },
+    { "id": "spon-006", "name": "Durlock", "logo": "", "level": "silver" },
+    { "id": "spon-007", "name": "Fischer", "logo": "", "level": "silver" },
+    { "id": "spon-008", "name": "Schneider Electric", "logo": "", "level": "silver" },
+    { "id": "spon-009", "name": "Cerámica San Lorenzo", "logo": "", "level": "bronze" },
+    { "id": "spon-010", "name": "Sinteplast", "logo": "", "level": "bronze" }
+  ],
   "muestras": [
     { "numero": 1, "muestra": "Laboratorio de informática", "ubicacion": "P.B 1" },
     { "numero": 2, "muestra": "Modelo de impresión 3D", "ubicacion": "P.B 2" },
@@ -95,10 +122,10 @@
   ],
   "competencias": {
     "electricidad": [
-      { "titulo": "Montador Electricista Domiciliario", "descripcion": "Competición de armado de tableros eléctricos según normativa vigente", "horario": "13:00", "fecha": "03/07/2025", "ubicacion": "Centro Evaluador de Competencias IERIC", "imagen": "https://sceu.frba.utn.edu.ar/wp-content/uploads/2022/11/Electricista_domiciliario_2023-1024x373.jpg" }
+      { "titulo": "Montador Electricista Domiciliario", "descripcion": "Competición de armado de tableros eléctricos según normativa vigente", "horario": "13:00", "fecha": "03/07/2026", "ubicacion": "Centro Evaluador de Competencias IERIC", "imagen": "https://sceu.frba.utn.edu.ar/wp-content/uploads/2022/11/Electricista_domiciliario_2023-1024x373.jpg" }
     ],
     "construccion": [
-      { "titulo": "Montador Sanitarista", "descripcion": "Desafíos reales de instalación sanitaria siguiendo normas de calidad y seguridad", "horario": "16:00", "fecha": "03/07/2025", "ubicacion": "Centro Evaluador de Competencias IERIC", "imagen": "https://img.freepik.com/foto-gratis/trabajador-reparando-calentador-agua_23-2149334225.jpg" }
+      { "titulo": "Montador Sanitarista", "descripcion": "Desafíos reales de instalación sanitaria siguiendo normas de calidad y seguridad", "horario": "16:00", "fecha": "03/07/2026", "ubicacion": "Centro Evaluador de Competencias IERIC", "imagen": "https://img.freepik.com/foto-gratis/trabajador-reparando-calentador-agua_23-2149334225.jpg" }
     ]
   }
 }

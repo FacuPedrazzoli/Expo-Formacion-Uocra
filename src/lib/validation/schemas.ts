@@ -1,12 +1,13 @@
 import { z } from 'zod';
 
+const SOURCE_OPTIONS = ['Redes sociales', 'Boca a boca', 'Correo electrónico', 'Carteleria/Volantes', 'Otro'] as const;
+
 export const registrationSchema = z.object({
   name: z.string().min(2, 'Nombre debe tener al menos 2 caracteres'),
-  lastname: z.string().min(2, 'Apellido debe tener al menos 2 caracteres'),
+  surname: z.string().min(2, 'Apellido debe tener al menos 2 caracteres'),
+  dni: z.string().regex(/^\d{7,8}$/, 'DNI debe tener 7 u 8 dígitos numéricos'),
   email: z.string().email('Email inválido'),
-  dni: z.string().min(7, 'DNI debe tener al menos 7 dígitos').max(10, 'DNI debe tener máximo 10 dígitos'),
-  how_found_id: z.string().optional(),
-  talks: z.array(z.string()).optional(),
+  source: z.enum(SOURCE_OPTIONS),
 });
 
 export type RegistrationFormData = z.infer<typeof registrationSchema>;
