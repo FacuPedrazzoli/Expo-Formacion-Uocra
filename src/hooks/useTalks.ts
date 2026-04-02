@@ -32,7 +32,8 @@ export function useTalks(_eventId?: string): UseTalksReturn {
         isFull: false,
         availableSpots: 0,
       }));
-      setTalks(jsonTalks);
+      const sortedTalks = jsonTalks.sort((a, b) => a.startTime.localeCompare(b.startTime));
+      setTalks(sortedTalks);
     } finally {
       setLoading(false);
     }

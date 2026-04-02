@@ -3,12 +3,13 @@
 import { motion } from 'framer-motion';
 import { Container } from '@/components/layout/Container';
 import { SectionTitle } from '@/components/sections/Section';
+import { Counter } from '@/components/ui/Counter';
 import { Users, Building2, Mic2 } from 'lucide-react';
 
 const STATS = [
-  { icon: Mic2, value: '30+', label: 'Charlas Técnicas' },
-  { icon: Building2, value: '40+', label: 'Empresas Expositoras' },
-  { icon: Users, value: '3500+', label: 'Participantes' },
+  { icon: Mic2, value: 30, label: 'Charlas Técnicas' },
+  { icon: Building2, value: 40, label: 'Empresas Expositoras' },
+  { icon: Users, value: 3500, label: 'Participantes' },
 ];
 
 export function SobreEventoSection() {
@@ -37,7 +38,9 @@ export function SobreEventoSection() {
                   <stat.icon className="w-8 h-8 text-accent" />
                 </div>
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">{stat.value}</div>
+              <div className="text-4xl font-bold text-accent mb-2">
+                <Counter target={stat.value} suffix="+" className="text-4xl font-bold text-accent" />
+              </div>
               <p className="text-white/80">{stat.label}</p>
             </motion.div>
           ))}
