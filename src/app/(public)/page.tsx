@@ -40,9 +40,9 @@ export default function HomePage() {
 
       <SobreEventoSection />
 
-      <StandsSection id="stands" stands={stands} showOverlay />
+      <StandsSection id="stands" stands={stands} showOverlay={true} />
       
-      <TalksSection id="talks" talks={talks} showOverlay />
+      <TalksSection id="talks" talks={talks} showOverlay={true} />
       
       <GallerySection images={images} videoUrl={eventData.video} />
 
