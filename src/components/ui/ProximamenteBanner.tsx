@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function ProximamenteBanner() {
   return (
-    <div className="min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a]">
+    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a]">
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
