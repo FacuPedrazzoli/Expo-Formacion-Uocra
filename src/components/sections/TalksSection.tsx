@@ -6,12 +6,14 @@ import { Container } from '@/components/layout/Container';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import type { TalkWithCapacity } from '@/types/talk';
+import ProximamenteOverlay from '@/components/ui/ProximamenteOverlay';
 
 interface TalksSectionProps {
   id?: string;
   title?: string;
   subtitle?: string;
   talks?: TalkWithCapacity[];
+  showOverlay?: boolean;
 }
 
 export function TalksSection({
@@ -19,6 +21,7 @@ export function TalksSection({
   title = 'Charlas y Workshops',
   subtitle = 'Capacitaciones y encuentros técnicos',
   talks = [],
+  showOverlay = false,
 }: TalksSectionProps) {
   return (
     <Section id={id} variant="default" className="relative">
@@ -30,6 +33,8 @@ export function TalksSection({
       
       <Container>
         <SectionTitle title={title} subtitle={subtitle} />
+        
+        {showOverlay && <ProximamenteOverlay />}
         
         <SectionContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
