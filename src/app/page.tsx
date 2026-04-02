@@ -49,15 +49,12 @@ export default function HomePage() {
 
         <EmpresasSection 
           id="empresas" 
-          empresas={eventData.stands
-            .filter(s => s.category === 'Construcción' || s.category === 'Sanitarias' || s.category === 'Electricidad')
-            .slice(0, 20)
-            .map((e) => ({ 
-              id: e.id, 
-              name: e.name, 
-              logo: e.logo || '', 
-              url: e.url || '#' 
-            }))}
+          empresas={eventData.empresas.slice(0, 24).map((e) => ({ 
+            id: e.id, 
+            name: e.name, 
+            logo: e.logo || '', 
+            website: e.website || '#' 
+          }))}
         />
         
         <StandsSection stands={stands} />

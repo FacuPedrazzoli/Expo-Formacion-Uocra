@@ -2,7 +2,8 @@ export interface Stand {
   id: string;
   eventId: string;
   name: string;
-  description?: string;
+  ubicacion?: string;
+  descripcion?: string;
   logoUrl?: string;
   imageUrl?: string;
   category?: string;

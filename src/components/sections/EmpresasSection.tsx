@@ -8,7 +8,7 @@ interface Empresa {
   id: string;
   name: string;
   logo: string;
-  url?: string;
+  website?: string;
 }
 
 interface EmpresasSectionProps {
@@ -22,7 +22,6 @@ export function EmpresasSection({
 }: EmpresasSectionProps) {
   return (
     <Section id={id} className="relative overflow-hidden bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a]">
-      {/* Formas decorativas */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
       <div className="absolute top-1/2 left-1/4 w-32 h-32 border border-accent/20 rotate-12 rounded-lg" />
@@ -52,20 +51,22 @@ export function EmpresasSection({
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.2, delay: index * 0.02 }}
                 viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
               >
                 <a
-                  href={empresa.url || '#'}
+                  href={empresa.website || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-3 bg-white rounded-lg border border-slate-200 hover:border-accent hover:shadow-md transition-all duration-300"
+                  className="block p-3 bg-white rounded-lg border border-slate-200 hover:border-accent hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="aspect-square flex items-center justify-center p-2">
+                  <div className="aspect-square flex items-center justify-center p-2 mb-2">
                     <img
                       src={empresa.logo}
                       alt={empresa.name}
                       className="max-w-full max-h-full w-auto h-auto object-contain"
                     />
                   </div>
+                  <p className="text-xs text-center text-slate-600 truncate">{empresa.name}</p>
                 </a>
               </motion.div>
             ))
@@ -79,9 +80,10 @@ export function EmpresasSection({
                 viewport={{ once: true }}
                 className="p-3 bg-white rounded-lg border border-slate-200"
               >
-                <div className="aspect-square flex items-center justify-center">
+                <div className="aspect-square flex items-center justify-center mb-2">
                   <div className="w-12 h-12 bg-slate-100 rounded-lg" />
                 </div>
+                <p className="text-xs text-center text-slate-400">Empresa</p>
               </motion.div>
             ))
           )}

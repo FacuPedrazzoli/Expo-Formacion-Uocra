@@ -22,11 +22,8 @@ export function useStands(_eventId?: string): UseStandsReturn {
         id: s.id,
         eventId: 'static-event',
         name: s.name,
-        description: s.description,
-        logoUrl: s.logo,
-        imageUrl: s.logo,
-        category: s.category,
-        boothNumber: undefined,
+        ubicacion: s.ubicacion,
+        descripcion: s.descripcion,
         order: index,
       }));
       setStands(jsonStands);
