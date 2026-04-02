@@ -6,7 +6,7 @@ import { Container } from '@/components/layout/Container';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import type { TalkWithCapacity } from '@/types/talk';
-import ProximamenteOverlay from '@/components/ui/ProximamenteOverlay';
+import ProximamenteBanner from '@/components/ui/ProximamenteBanner';
 
 interface TalksSectionProps {
   id?: string;
@@ -34,7 +34,7 @@ export function TalksSection({
       <Container>
         <SectionTitle title={title} subtitle={subtitle} />
         
-        {showOverlay && <ProximamenteOverlay />}
+        {showOverlay && <ProximamenteBanner />}
         
         <SectionContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

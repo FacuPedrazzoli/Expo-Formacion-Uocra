@@ -8,7 +8,6 @@ import { SponsorsSection } from '@/components/sections/SponsorsSection';
 import { Section, SectionTitle } from '@/components/sections/Section';
 import { Container } from '@/components/layout/Container';
 import { SobreEventoSection } from '@/components/sections/SobreEventoSection';
-import ProximamenteBanner from '@/components/ui/ProximamenteBanner';
 import Link from 'next/link';
 import { useEvent } from '@/hooks/useEvent';
 import { useTalks } from '@/hooks/useTalks';
@@ -41,15 +40,9 @@ export default function HomePage() {
 
       <SobreEventoSection />
 
-      <div className="relative">
-        <ProximamenteBanner />
-        <StandsSection stands={stands} />
-      </div>
+      <StandsSection id="stands" stands={stands} showOverlay />
       
-      <div className="relative">
-        <ProximamenteBanner />
-        <TalksSection id="talks" talks={talks} />
-      </div>
+      <TalksSection id="talks" talks={talks} showOverlay />
       
       <GallerySection images={images} videoUrl={eventData.video} />
 

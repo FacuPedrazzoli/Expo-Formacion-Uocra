@@ -5,9 +5,10 @@ import { Section, SectionTitle, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
 import { MapPin } from 'lucide-react';
 import type { Stand } from '@/types/stand';
-import ProximamenteOverlay from '@/components/ui/ProximamenteOverlay';
+import ProximamenteBanner from '@/components/ui/ProximamenteBanner';
 
 interface StandsSectionProps {
+  id?: string;
   title?: string;
   subtitle?: string;
   stands?: Stand[];
@@ -15,17 +16,18 @@ interface StandsSectionProps {
 }
 
 export function StandsSection({
+  id,
   title = 'Stands y Expositores',
   subtitle = 'Conocé a los principales actores del sector',
   stands = [],
   showOverlay = false,
 }: StandsSectionProps) {
   return (
-    <Section variant="accent" className="relative">
+    <Section id={id} variant="accent" className="relative">
       <Container>
         <SectionTitle title={title} subtitle={subtitle} />
         
-        {showOverlay && <ProximamenteOverlay />}
+        {showOverlay && <ProximamenteBanner />}
         
         <SectionContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
