@@ -2,7 +2,7 @@
 
 export default function ProximamenteBanner() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a]">
       <div className="text-center px-6 py-16 max-w-2xl">
         <h1 className="text-5xl md:text-7xl font-bold tracking-widest text-[#56bcb8] mb-6">
           PRÓXIMAMENTE
