@@ -14,6 +14,63 @@ interface StandsSectionProps {
   showOverlay?: boolean;
 }
 
+function ProximamenteBanner({ titulo }: { titulo: string }) {
+  return (
+    <div className="relative min-h-[300px] md:min-h-[400px] w-full bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a] overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#56bcb8]/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#e2c048]/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
+      
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 py-10">
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl md:text-6xl lg:text-7xl font-black tracking-wider text-white mb-4 md:mb-6 drop-shadow-lg"
+        >
+          PRÓXIMAMENTE
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-lg md:text-2xl text-white/90 font-medium mb-6 md:mb-8 max-w-md"
+        >
+          {titulo}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex items-center gap-6 md:gap-10"
+        >
+          <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+            <Wrench className="w-5 h-5 md:w-7 md:h-7 text-[#56bcb8]" />
+          </div>
+          <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+            <HardHat className="w-5 h-5 md:w-7 md:h-7 text-[#56bcb8]" />
+          </div>
+          <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+            <Cog className="w-5 h-5 md:w-7 md:h-7 text-[#56bcb8]" />
+          </div>
+        </motion.div>
+      </div>
+
+      <style jsx>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        .animate-shimmer {
+          animation: shimmer 3s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
+  );
+}
+
 export function StandsSection({
   id,
   title = 'Stands y Expositores',
@@ -23,62 +80,9 @@ export function StandsSection({
 }: StandsSectionProps) {
   return (
     <Section id={id} variant="accent" className="relative">
-      {showOverlay && (
-        <div className="relative min-h-[300px] md:min-h-[400px] w-full bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a] overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#56bcb8]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#e2c048]/10 rounded-full blur-3xl" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
-          
-          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 py-10">
-            <motion.h1
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-black tracking-wider text-white mb-4 md:mb-6 drop-shadow-lg"
-            >
-              PRÓXIMAMENTE
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-lg md:text-2xl text-white/90 font-medium mb-6 md:mb-8 max-w-md"
-            >
-              Vamos a dar a conocer los stands que参与者
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex items-center gap-6 md:gap-10"
-            >
-              <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                <Wrench className="w-5 h-5 md:w-7 md:h-7 text-[#56bcb8]" />
-              </div>
-              <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                <HardHat className="w-5 h-5 md:w-7 md:h-7 text-[#56bcb8]" />
-              </div>
-              <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                <Cog className="w-5 h-5 md:w-7 md:h-7 text-[#56bcb8]" />
-              </div>
-            </motion.div>
-          </div>
-
-          <style jsx>{`
-            @keyframes shimmer {
-              0% { transform: translateX(-100%); }
-              100% { transform: translateX(100%); }
-            }
-            .animate-shimmer {
-              animation: shimmer 3s ease-in-out infinite;
-            }
-          `}</style>
-        </div>
-      )}
-
-      <div className={showOverlay ? 'opacity-0 pointer-events-none' : ''}>
+      {showOverlay ? (
+        <ProximamenteBanner titulo="Vamos a dar a conocer los stands que participerán" />
+      ) : (
         <Container>
           <SectionTitle title={title} subtitle={subtitle} />
           
@@ -134,7 +138,7 @@ export function StandsSection({
             </div>
           </SectionContent>
         </Container>
-      </div>
+      )}
     </Section>
   );
 }
