@@ -17,7 +17,7 @@ const variantClasses = {
 
 export function Section({ children, className, id, variant = 'default' }: SectionProps) {
   return (
-    <section id={id} className={cn('py-16 md:py-20 lg:py-24 relative overflow-hidden', variantClasses[variant], className)}>
+    <section id={id} className={cn('py-16 md:py-20 lg:py-24 relative overflow-hidden scroll-my-16', variantClasses[variant], className)}>
       {/* Decorative geometric shapes for each section */}
       {variant === 'default' && (
         <>
