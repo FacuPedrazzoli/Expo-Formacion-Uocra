@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Section, SectionTitle, SectionContent } from './Section';
+import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
+import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
 
 interface GalleryImage {
   id: string;
@@ -46,10 +47,9 @@ export function GallerySection({
       <div className="absolute top-1/2 left-1/4 w-20 h-20 border border-white/20 rotate-12" />
       
       <Container className="relative z-10">
-        <SectionTitle 
+        <PremiumSectionTitle 
           title={title} 
           subtitle={subtitle}
-          className="[&>h2]:text-white [&>p]:text-white/80"
         />
         
         <SectionContent>

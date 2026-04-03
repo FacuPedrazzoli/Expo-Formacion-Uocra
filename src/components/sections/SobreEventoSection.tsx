@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Container } from '@/components/layout/Container';
-import { SectionTitle } from '@/components/sections/Section';
+import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
 import { Counter } from '@/components/ui/Counter';
 import { Users, Building2, Mic2 } from 'lucide-react';
 
@@ -18,10 +18,9 @@ export function SobreEventoSection() {
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/2" />
       <Container>
-        <SectionTitle 
+        <PremiumSectionTitle 
           title="Sobre el Evento" 
           subtitle="Un encuentro único para profesionales del sector"
-          className="[&>h2]:text-white [&>p]:text-white/80"
         />
         <div className="grid md:grid-cols-3 gap-8">
           {STATS.map((stat, index) => (

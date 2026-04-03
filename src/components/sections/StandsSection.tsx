@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Section, SectionTitle, SectionContent } from './Section';
+import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
 import { MapPin } from 'lucide-react';
 import { ComingSoonBanner } from '@/components/ui/ComingSoonBanner';
+import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
 import type { Stand } from '@/types/stand';
 
 interface StandsSectionProps {
@@ -28,7 +29,7 @@ export function StandsSection({
         <ComingSoonBanner titulo="Vamos a dar a conocer los stands que participerán" />
       ) : (
         <Container>
-          <SectionTitle title={title} subtitle={subtitle} />
+          <PremiumSectionTitle title={title} subtitle={subtitle} />
           
           <SectionContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

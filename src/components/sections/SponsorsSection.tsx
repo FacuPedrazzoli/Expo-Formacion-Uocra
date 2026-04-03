@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Section, SectionTitle, SectionContent } from './Section';
+import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
+import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
 import type { SponsorWithTier } from '@/types/sponsor';
 
 interface SponsorsSectionProps {
@@ -19,7 +20,7 @@ export function SponsorsSection({
   return (
     <Section variant="secondary">
       <Container>
-        <SectionTitle title={title} subtitle={subtitle} />
+        <PremiumSectionTitle title={title} subtitle={subtitle} />
         
         <SectionContent>
           {sponsors.length > 0 ? (

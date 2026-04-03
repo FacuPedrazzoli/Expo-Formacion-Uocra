@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Section, SectionTitle, SectionContent } from './Section';
+import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ComingSoonBanner } from '@/components/ui/ComingSoonBanner';
+import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
 import type { TalkWithCapacity } from '@/types/talk';
 
 interface TalksSectionProps {
@@ -29,7 +30,7 @@ export function TalksSection({
         <ComingSoonBanner titulo="Enterate de todas las capacitaciones y workshops" />
       ) : (
         <Container>
-          <SectionTitle title={title} subtitle={subtitle} />
+          <PremiumSectionTitle title={title} subtitle={subtitle} />
           
           <SectionContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
