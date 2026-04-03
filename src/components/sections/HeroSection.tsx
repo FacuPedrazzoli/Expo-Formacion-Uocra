@@ -32,7 +32,7 @@ export function HeroSection({
   backgroundImage,
   eventDate = '2 de Julio 2025',
   eventDateIcs = '20250702',
-  eventLocation = 'CFP N°33 UOCRA',
+  eventLocation = 'CFP N°3 UOCRA',
   eventAddress = 'Humberto 1º 2260, Buenos Aires',
   mapsUrl = 'https://maps.google.com/?q=CFP+N33+UOCRA+Humberto+1+2260+Buenos+Aires',
 }: HeroSectionProps) {

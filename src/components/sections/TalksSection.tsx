@@ -18,27 +18,47 @@ interface TalksSectionProps {
 
 function ProximamenteBanner({ titulo }: { titulo: string }) {
   return (
-    <div className="relative min-h-[500px] md:min-h-[700px] lg:min-h-[800px] w-full bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a] overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#56bcb8]/25 rounded-full blur-3xl" />
-      <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-[#56bcb8]/15 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#e2c048]/20 rounded-full blur-3xl" />
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+    <div className="relative min-h-[450px] md:min-h-[600px] lg:min-h-[750px] w-full bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a] overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#56bcb8]/30 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#56bcb8]/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-[#e2c048]/25 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent animate-shimmer" />
       
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 py-16 md:py-24 lg:py-32">
+      <div className="absolute top-20 left-10 w-4 h-4 bg-[#56bcb8]/40 rounded-full animate-pulse" />
+      <div className="absolute top-32 right-16 w-3 h-3 bg-[#e2c048]/50 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+      <div className="absolute bottom-40 left-20 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute bottom-60 right-24 w-3 h-3 bg-[#56bcb8]/30 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }} />
+      
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6 py-14 md:py-20 lg:py-28">
+        <div className="flex items-center gap-3 mb-6 md:mb-8">
+          <div className="w-16 md:w-24 h-px bg-gradient-to-r from-transparent to-[#56bcb8]/60" />
+          <span className="text-[#56bcb8] text-sm md:text-base">◆</span>
+          <div className="w-16 md:w-24 h-px bg-gradient-to-l from-transparent to-[#56bcb8]/60" />
+        </div>
+
         <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-black tracking-wider text-white mb-6 md:mb-8 drop-shadow-[0_0_40px_rgba(86,188,184,0.6)]"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-wider text-white mb-4 md:mb-6 drop-shadow-[0_0_50px_rgba(86,188,184,0.8)]"
         >
           PRÓXIMAMENTE
         </motion.h1>
 
         <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="text-xs sm:text-sm md:text-base text-[#e2c048] font-medium tracking-widest uppercase mb-4 md:mb-6"
+        >
+          2 de Julio 2026
+        </motion.p>
+
+        <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-xl md:text-3xl lg:text-4xl text-white/95 font-medium mb-8 md:mb-12 max-w-lg"
+          className="text-base sm:text-lg md:text-2xl lg:text-3xl text-white/95 font-medium mb-6 md:mb-10 max-w-md px-4"
         >
           {titulo}
         </motion.p>
@@ -47,18 +67,24 @@ function ProximamenteBanner({ titulo }: { titulo: string }) {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="flex items-center gap-8 md:gap-14 lg:gap-16"
+          className="flex items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16"
         >
-          <div className="w-14 h-14 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 group hover:scale-110 transition-transform cursor-pointer shadow-[0_0_30px_rgba(86,188,184,0.4)]">
-            <Wrench className="w-7 h-7 md:w-12 md:h-12 lg:w-14 lg:h-14 text-[#56bcb8]" />
+          <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 group hover:scale-110 transition-transform duration-300 cursor-pointer shadow-[0_0_30px_rgba(86,188,184,0.5)]">
+            <Wrench className="w-6 h-6 sm:w-7 sm:h-7 md:w-10 md:h-10 lg:w-12 lg:h-12 text-[#56bcb8] group-hover:text-[#e2c048] transition-colors duration-300" />
           </div>
-          <div className="w-14 h-14 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 group hover:scale-110 transition-transform cursor-pointer shadow-[0_0_30px_rgba(86,188,184,0.4)]">
-            <HardHat className="w-7 h-7 md:w-12 md:h-12 lg:w-14 lg:h-14 text-[#56bcb8]" />
+          <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 group hover:scale-110 transition-transform duration-300 cursor-pointer shadow-[0_0_30px_rgba(86,188,184,0.5)]">
+            <HardHat className="w-6 h-6 sm:w-7 sm:h-7 md:w-10 md:h-10 lg:w-12 lg:h-12 text-[#56bcb8] group-hover:text-[#e2c048] transition-colors duration-300" />
           </div>
-          <div className="w-14 h-14 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 group hover:scale-110 transition-transform cursor-pointer shadow-[0_0_30px_rgba(86,188,184,0.4)]">
-            <Cog className="w-7 h-7 md:w-12 md:h-12 lg:w-14 lg:h-14 text-[#56bcb8]" />
+          <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 group hover:scale-110 transition-transform duration-300 cursor-pointer shadow-[0_0_30px_rgba(86,188,184,0.5)]">
+            <Cog className="w-6 h-6 sm:w-7 sm:h-7 md:w-10 md:h-10 lg:w-12 lg:h-12 text-[#56bcb8] group-hover:text-[#e2c048] transition-colors duration-300" />
           </div>
         </motion.div>
+
+        <div className="flex items-center gap-3 mt-8 md:mt-12">
+          <div className="w-16 md:w-24 h-px bg-gradient-to-r from-transparent to-[#e2c048]/50" />
+          <span className="text-[#e2c048] text-sm md:text-base">●</span>
+          <div className="w-16 md:w-24 h-px bg-gradient-to-l from-transparent to-[#e2c048]/50" />
+        </div>
       </div>
 
       <style jsx>{`
