@@ -1,4 +1,7 @@
 {
+  "features": {
+    "registrationDisabled": true
+  },
   "event": {
     "name": "Expo Formación UOCRA 2026",
     "date": "2 de Julio 2026",
@@ -35,7 +38,7 @@
     { "id": "tal-016", "title": "Pintura profesional de edificios", "description": "Técnicas de pintura industrial y decorativa. Preparación de superficies y acabados de calidad.", "speaker": "Of. Marcelo Córdoba", "startTime": "14:00", "endTime": "15:00", "room": "Aula 3" },
     { "id": "tal-017", "title": "Aislamiento térmico y acústico", "description": "Materiales y técnicas para mejorar la eficiencia energética y el confort en viviendas.", "speaker": "Ing. Laura Díaz", "startTime": "15:30", "endTime": "16:30", "room": "Aula 3" },
     { "id": "tal-018", "title": "Estructuras metálicas: montaje y soldadura", "description": "Técnicas de armado y unión de estructuras metálicas en obras de gran escala.", "speaker": "Ing. Fernando Ríos", "startTime": "09:00", "endTime": "10:30", "room": "Aula 2" },
-    { "id": "tal-019", "title": "Trabajo en altura:绳索技术", "description": "Seguridad y técnicas de trabajo en alturas. Uso de andamios, arneses y líneas de vida.", "speaker": "Tec. Adrián Ojeda", "startTime": "10:30", "endTime": "12:00", "room": "Aula 4" },
+    { "id": "tal-019", "title": "Trabajo en altura:", "description": "Seguridad y técnicas de trabajo en alturas. Uso de andamios, arneses y líneas de vida.", "speaker": "Tec. Adrián Ojeda", "startTime": "10:30", "endTime": "12:00", "room": "Aula 4" },
     { "id": "tal-020", "title": "Demoliciones controladas", "description": "Técnicas seguras para demolición de estructuras. Planificación, ejecución y gestión de residuos.", "speaker": "Ing. Gustavo Peña", "startTime": "14:00", "endTime": "15:00", "room": "Aula 4" },
     { "id": "tal-021", "title": "Hormigón: dosificación y colocación", "description": "Fundamentos del hormigón fresco y endurecido. Dosificación, transporte y colocación en obra.", "speaker": "Ing. Claudio Mendoza", "startTime": "15:30", "endTime": "16:30", "room": "Aula 4" },
     { "id": "tal-022", "title": "Automatización residencial", "description": "Introducción a sistemas domóticos. Control de iluminación, climatización y seguridad.", "speaker": "Ing. Daniel Chavez", "startTime": "09:00", "endTime": "10:00", "room": "Aula 5" },

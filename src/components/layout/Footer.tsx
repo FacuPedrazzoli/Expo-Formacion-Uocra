@@ -27,9 +27,9 @@ export function Footer({ year = 2026, eventTitle = 'Expo Formación UOCRA' }: Fo
                 </Link>
               </li>
               <li>
-                <Link href="/register" className="text-sm text-muted-foreground hover:text-primary">
-                  Registrarse
-                </Link>
+<Link href="#registro" className="text-sm text-muted-foreground hover:text-primary">
+                   Registrarse
+                 </Link>
               </li>
             </ul>
           </div>

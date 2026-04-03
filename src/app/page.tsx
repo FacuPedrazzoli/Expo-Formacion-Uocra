@@ -32,7 +32,7 @@ export default function HomePage() {
           title={event?.title || 'Expo Formación UOCRA 2026'}
           subtitle={event?.description || 'El evento anual de formación profesional para el sector de la construcción'}
           ctaText="Registrarse"
-          ctaHref="/register"
+          ctaHref="#registro"
           backgroundImage={event?.imageUrl}
           eventDate={eventData.eventInfo.date}
           eventDateIcs={eventData.eventInfo.dateIcs}
@@ -61,7 +61,7 @@ export default function HomePage() {
         
         <GallerySection images={images} videoUrl={eventData.video} />
 
-        <Section variant="dark" className="py-20">
+        <Section id="registro" variant="dark" className="py-20">
           <Container>
             <div className="text-center">
               <SectionTitle 
@@ -69,12 +69,21 @@ export default function HomePage() {
                 subtitle="Asegurá tu lugar en el evento más importante del año"
                 className="text-white [&>h2]:text-white [&>p]:text-white/80"
               />
-              <Link 
-                href="/register"
-                className="inline-flex items-center justify-center rounded-lg bg-white text-primary px-8 py-3 text-lg font-semibold transition-all duration-300 hover:bg-accent hover:scale-105 shadow-lg"
-              >
-                Registrarse Ahora
-              </Link>
+              {eventData.features?.registrationDisabled ? (
+                <button 
+                  disabled
+                  className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#56bcb8] to-[#25848d] text-white px-10 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(86,188,184,0.5)] animate-pulse cursor-pointer"
+                >
+                  Registrate proximamente!
+                </button>
+              ) : (
+                <Link 
+                  href="#registro"
+                  className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#56bcb8] to-[#25848d] text-white px-10 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(86,188,184,0.5)]"
+                >
+                  Registrate proximamente!
+                </Link>
+              )}
             </div>
           </Container>
         </Section>

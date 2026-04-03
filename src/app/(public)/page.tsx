@@ -26,7 +26,7 @@ export default function HomePage() {
       <HeroSection
         title={event?.title || 'Expo Formación UOCRA'}
         subtitle={event?.description || 'El evento anual de formación profesional para el sector de la construcción'}
-        ctaText="Inscribite proximamente!!"
+        ctaText="Registrate proximamente!"
         ctaHref="/register"
         ctaDisabled={true}
         secondaryCtaText="Ver Charlas"
@@ -61,7 +61,7 @@ export default function HomePage() {
               href="#registro"
               className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#56bcb8] to-[#25848d] text-white px-10 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(86,188,184,0.5)] animate-pulse"
             >
-              Inscribite proximamente!!
+              Registrate proximamente!
             </Link>
           </div>
         </Container>

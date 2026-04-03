@@ -17,7 +17,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
     { href: '#bienvenida', label: 'Bienvenida' },
     { href: '#empresas', label: 'Empresas' },
     { href: '#talks', label: 'Charlas' },
-    { href: '/register', label: 'Registrarse' },
+    { href: '#registro', label: 'Registrarse' },
   ];
 
   return (
