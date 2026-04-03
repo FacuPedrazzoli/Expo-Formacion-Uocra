@@ -53,7 +53,7 @@ export function EmpresasSection({
                     href={empresa.website || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-shrink-0 w-32 h-32 p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 flex items-center justify-center hover:bg-white/20 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 hover:scale-105"
+                    className="flex-shrink-0 w-32 h-32 p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 flex items-center justify-center hover:bg-white/20 hover:border-[#D4A853]/50 hover:shadow-lg hover:shadow-[#D4A853]/20 transition-all duration-300 hover:scale-105"
                   >
                     <img 
                       src={empresa.logo} 
@@ -78,7 +78,7 @@ export function EmpresasSection({
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.02 }}
               viewport={{ once: true }}
-              className="group flex flex-col items-center p-4 md:p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10 transition-all duration-300 hover:-translate-y-1"
+              className="group flex flex-col items-center p-4 md:p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 hover:border-[#D4A853]/50 hover:shadow-xl hover:shadow-[#D4A853]/10 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-3">
                 <img 

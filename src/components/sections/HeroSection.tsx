@@ -43,13 +43,13 @@ export function HeroSection({
       <div className="absolute inset-0 opacity-10 diagonal-pattern" />
       
       <motion.div 
-        className="absolute top-10 left-0 w-48 h-48 bg-primary rounded-full opacity-25"
+        className="absolute top-10 left-0 w-48 h-48 bg-[#D4A853] rounded-full opacity-25"
         animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         style={{ filter: 'blur(60px)' }}
       />
       <motion.div 
-        className="absolute bottom-20 right-10 w-64 h-64 bg-secondary rounded-full opacity-20"
+        className="absolute bottom-20 right-10 w-64 h-64 bg-[#D4A853] rounded-full opacity-20"
         animate={{ y: [0, 30, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         style={{ filter: 'blur(80px)' }}
@@ -136,7 +136,7 @@ export function HeroSection({
             ) : (
               <Link 
                 href={ctaHref}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white text-primary font-bold text-lg shadow-2xl shadow-white/25 hover:bg-accent hover:text-white hover:shadow-2xl hover:shadow-accent/30 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#D4A853] text-white font-bold text-lg shadow-2xl shadow-[#D4A853]/30 hover:bg-[#B8923E] hover:shadow-2xl hover:shadow-[#D4A853]/40 transition-all duration-300"
               >
                 {ctaText}
                 <ArrowRight className="w-5 h-5" />

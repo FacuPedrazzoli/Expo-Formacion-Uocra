@@ -59,7 +59,7 @@ export default function HomePage() {
             />
             <Link 
               href="#registro"
-              className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#56bcb8] to-[#25848d] text-white px-10 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(86,188,184,0.5)] animate-pulse"
+              className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#D4A853] to-[#B8923E] text-white px-10 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(212,168,83,0.5)] animate-pulse"
             >
               Registrate proximamente!
             </Link>

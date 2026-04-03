@@ -42,9 +42,9 @@ export function TalksSection({
                     transition={{ duration: 0.2, delay: index * 0.05 }}
                     viewport={{ once: true }}
                   >
-                    <div className="group h-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-0.5">
-                      <div className="h-1.5 bg-gradient-to-r from-primary via-accent to-primary transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                      <CardHeader className="pb-2 bg-gradient-to-r from-primary/5 to-transparent">
+                    <div className="group h-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#D4A853]/50 hover:-translate-y-0.5">
+                      <div className="h-1.5 bg-gradient-to-r from-[#D4A853] via-[#E8C47A] to-[#D4A853] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                      <CardHeader className="pb-2 bg-gradient-to-r from-[#D4A853]/5 to-transparent">
                         <div className="flex justify-between items-start gap-2">
                           <CardTitle className="text-lg text-primary line-clamp-2">{talk.title}</CardTitle>
                           {talk.room && <Badge variant="secondary" className="shrink-0">{talk.room}</Badge>}
@@ -79,8 +79,8 @@ export function TalksSection({
                     viewport={{ once: true }}
                   >
                     <div className="h-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                      <div className="h-1.5 bg-gradient-to-r from-primary via-accent to-primary" />
-                      <CardHeader className="pb-2 bg-gradient-to-r from-primary/5 to-transparent">
+                      <div className="h-1.5 bg-gradient-to-r from-[#D4A853] via-[#E8C47A] to-[#D4A853]" />
+                      <CardHeader className="pb-2 bg-gradient-to-r from-[#D4A853]/5 to-transparent">
                         <div className="flex justify-between items-start">
                           <CardTitle className="text-lg text-primary">Charla {index + 1}</CardTitle>
                           <Badge variant="secondary">Sala {index + 1}</Badge>

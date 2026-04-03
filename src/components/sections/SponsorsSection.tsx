@@ -31,7 +31,7 @@ export function SponsorsSection({
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="flex items-center justify-center p-4 bg-white rounded-lg border border-slate-100 shadow-sm hover:shadow-md hover:border-accent transition-all duration-300"
+                  className="flex items-center justify-center p-4 bg-white rounded-lg border border-slate-100 shadow-sm hover:shadow-md hover:border-[#D4A853] transition-all duration-300"
                 >
                   <div className="text-center">
                     {sponsor.logoUrl ? (

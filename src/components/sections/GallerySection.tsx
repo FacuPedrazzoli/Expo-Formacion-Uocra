@@ -41,8 +41,8 @@ export function GallerySection({
     <Section variant="primary" className="relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
-      <div className="absolute top-1/3 left-0 w-32 h-32 bg-[#e2c048]/10 rounded-full blur-2xl" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 left-0 w-32 h-32 bg-[#D4A853]/10 rounded-full blur-2xl" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#D4A853]/10 rounded-full blur-3xl" />
       <div className="absolute top-1/2 left-1/4 w-20 h-20 border border-white/20 rotate-12" />
       
       <Container className="relative z-10">

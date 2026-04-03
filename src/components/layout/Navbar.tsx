@@ -47,7 +47,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
             ))}
             <Link 
               href="#registro"
-              className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white font-semibold text-sm shadow-lg shadow-primary/25 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 transition-all duration-200"
+              className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm shadow-lg shadow-[#D4A853]/25 hover:bg-[#B8923E] hover:shadow-xl hover:shadow-[#D4A853]/30 transition-all duration-200"
             >
               Registrarse
             </Link>
@@ -85,7 +85,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
                 ))}
                 <Link 
                   href="#registro"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white font-semibold text-sm w-full"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm w-full"
                   onClick={() => setIsOpen(false)}
                 >
                   Registrarse
