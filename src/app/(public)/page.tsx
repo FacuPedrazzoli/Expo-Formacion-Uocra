@@ -49,7 +49,7 @@ export default function HomePage() {
 
       <SponsorsSection />
 
-      <Section className="bg-primary text-primary-foreground">
+      <Section id="registro" className="bg-primary text-primary-foreground">
         <Container>
           <div className="text-center">
             <SectionTitle 
@@ -57,7 +57,7 @@ export default function HomePage() {
               subtitle="Asegurá tu lugar en el evento más importante del año"
               className="text-primary-foreground [&>h2]:text-white [&>p]:text-white/80"
             />
-            <span className="inline-flex items-center justify-center rounded-lg bg-white/50 text-primary/50 px-8 py-3 text-lg font-medium cursor-not-allowed">
+            <span className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#56bcb8] to-[#25848d] text-white px-10 py-4 text-xl font-bold shadow-lg hover:shadow-[0_0_30px_rgba(86,188,184,0.5)] animate-pulse cursor-default">
               Inscribite proximamente!!
             </span>
           </div>

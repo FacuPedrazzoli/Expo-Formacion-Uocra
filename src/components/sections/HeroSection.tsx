@@ -156,9 +156,12 @@ export function HeroSection({
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             {ctaDisabled ? (
-              <span className="inline-flex items-center justify-center rounded-lg bg-white/50 text-primary/50 px-8 py-3 text-lg font-semibold cursor-not-allowed">
+              <Link 
+                href="#registro"
+                className="inline-flex items-center justify-center rounded-lg bg-white text-primary px-8 py-3 text-lg font-semibold transition-all duration-300 hover:bg-accent hover:scale-105 shadow-lg"
+              >
                 {ctaText}
-              </span>
+              </Link>
             ) : (
               <Link 
                 href={ctaHref}
