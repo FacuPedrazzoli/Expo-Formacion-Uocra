@@ -15,7 +15,7 @@
   "eventInfo": {
     "date": "2 de Julio 2026",
     "dateIcs": "20260702",
-    "location": "CFP N°3 UOCRA",
+    "location": "CFP N°33 UOCRA",
     "address": "Humberto 1º 2260, Buenos Aires",
     "mapsUrl": "https://maps.google.com/?q=CFP+N3+UOCRA+Humberto+1+2260+Buenos+Aires"
   },
@@ -93,7 +93,12 @@
     { "id": "emp-039", "name": "CAMARCO", "logo": "https://www.camarco.org.ar/wp-content/uploads/2022/06/camarco.png", "website": "https://www.camarco.org.ar/" },
     { "id": "emp-040", "name": "Realidad Virtual UOCRA", "logo": "https://www.kozoarquitectura.es/wp-content/uploads/2020/08/Realidad-Virtual.jpg", "website": "https://fundacion.uocra.org/novedades/realidad-virtual-en-la-fundacion-uocra/" },
     { "id": "emp-041", "name": "Rotoplas", "logo": "https://rotoplas.com.ar/wp-content/uploads/2017/09/logo-rotoplas.png", "website": "https://rotoplas.com.ar/" },
-    { "id": "emp-041", "name": "", "logo": "", "website": "" }
+    { "id": "emp-042", "name": "Gamma", "logo": "https://gammaherramientas.com.ar/web/wp-content/uploads/2024/12/logo_top-2.png", "website": "https://www.gammaherramientas.com.ar/" },
+    { "id": "emp-043", "name": "Sica", "logo": "https://sicaelec.vtexassets.com/arquivos/logo-header.png", "website": "https://tienda.sicaelec.com/" },
+    { "id": "emp-044", "name": "Legrand", "logo": "https://www.legrand.ar/themes/custom/legrand_wf/logo.svg", "website": "https://www.legrand.ar/es" },
+    { "id": "emp-045", "name": "Cophisema", "logo": "https://cdn.bitrix24.es/b14024119/landing/509/5099261fdd2ae24785afd72207928063/captura_de_pantalla_2024_08_15_a_la_s_4_12_00_p_m_1x.png", "website": "https://caec.cophisema.com.ar/diplomatura-consultoria-servicio-HyST/" }
+    
+    
     
   ],
   "stands": [
