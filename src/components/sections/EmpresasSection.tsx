@@ -42,9 +42,9 @@ export function EmpresasSection({
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3 md:gap-4">
           {empresas.length > 0 ? (
-            empresas.map((empresa, index) => (
+            [...empresas].sort((a, b) => a.name.localeCompare(b.name)).map((empresa, index) => (
               <motion.div
                 key={empresa.id}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -57,16 +57,15 @@ export function EmpresasSection({
                   href={empresa.website || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-3 bg-white rounded-lg border border-slate-200 hover:border-accent hover:shadow-lg transition-all duration-300"
+                  className="block p-2 sm:p-3 bg-white/95 backdrop-blur-sm rounded-lg border border-white/20 hover:border-[#56bcb8] hover:shadow-[0_0_20px_rgba(86,188,184,0.3)] hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="aspect-square flex items-center justify-center p-2 mb-2">
+                  <div className="aspect-square flex items-center justify-center p-1 sm:p-2">
                     <img
                       src={empresa.logo}
                       alt={empresa.name}
                       className="max-w-full max-h-full w-auto h-auto object-contain"
                     />
                   </div>
-                  <p className="text-xs text-center text-slate-600 truncate">{empresa.name}</p>
                 </a>
               </motion.div>
             ))
@@ -78,12 +77,11 @@ export function EmpresasSection({
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="p-3 bg-white rounded-lg border border-slate-200"
+                className="p-3 bg-white/95 rounded-lg border border-white/20"
               >
-                <div className="aspect-square flex items-center justify-center mb-2">
+                <div className="aspect-square flex items-center justify-center">
                   <div className="w-12 h-12 bg-slate-100 rounded-lg" />
                 </div>
-                <p className="text-xs text-center text-slate-400">Empresa</p>
               </motion.div>
             ))
           )}

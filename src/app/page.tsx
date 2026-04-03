@@ -49,7 +49,7 @@ export default function HomePage() {
 
         <EmpresasSection 
           id="empresas" 
-          empresas={eventData.empresas.slice(0, 24).map((e) => ({ 
+          empresas={eventData.empresas.map((e) => ({ 
             id: e.id, 
             name: e.name, 
             logo: e.logo || '', 
