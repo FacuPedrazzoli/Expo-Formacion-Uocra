@@ -16,44 +16,45 @@ interface StandsSectionProps {
 
 function ProximamenteBanner({ titulo }: { titulo: string }) {
   return (
-    <div className="relative min-h-[300px] md:min-h-[400px] w-full bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a] overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#56bcb8]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#e2c048]/10 rounded-full blur-3xl" />
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
+    <div className="relative min-h-[500px] md:min-h-[700px] lg:min-h-[800px] w-full bg-gradient-to-br from-[#0d1b2a] via-[#124565] to-[#0d1b2a] overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#56bcb8]/25 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-[#56bcb8]/15 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#e2c048]/20 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
       
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 py-10">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 py-16 md:py-24 lg:py-32">
         <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-black tracking-wider text-white mb-4 md:mb-6 drop-shadow-lg"
+          className="text-5xl md:text-7xl lg:text-8xl font-black tracking-wider text-white mb-6 md:mb-8 drop-shadow-[0_0_40px_rgba(86,188,184,0.6)]"
         >
           PRÓXIMAMENTE
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-lg md:text-2xl text-white/90 font-medium mb-6 md:mb-8 max-w-md"
+          className="text-xl md:text-3xl lg:text-4xl text-white/95 font-medium mb-8 md:mb-12 max-w-lg"
         >
           {titulo}
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="flex items-center gap-6 md:gap-10"
+          className="flex items-center gap-8 md:gap-14 lg:gap-16"
         >
-          <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-            <Wrench className="w-5 h-5 md:w-7 md:h-7 text-[#56bcb8]" />
+          <div className="w-14 h-14 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 group hover:scale-110 transition-transform cursor-pointer shadow-[0_0_30px_rgba(86,188,184,0.4)]">
+            <Wrench className="w-7 h-7 md:w-12 md:h-12 lg:w-14 lg:h-14 text-[#56bcb8]" />
           </div>
-          <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-            <HardHat className="w-5 h-5 md:w-7 md:h-7 text-[#56bcb8]" />
+          <div className="w-14 h-14 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 group hover:scale-110 transition-transform cursor-pointer shadow-[0_0_30px_rgba(86,188,184,0.4)]">
+            <HardHat className="w-7 h-7 md:w-12 md:h-12 lg:w-14 lg:h-14 text-[#56bcb8]" />
           </div>
-          <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-            <Cog className="w-5 h-5 md:w-7 md:h-7 text-[#56bcb8]" />
+          <div className="w-14 h-14 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/30 group hover:scale-110 transition-transform cursor-pointer shadow-[0_0_30px_rgba(86,188,184,0.4)]">
+            <Cog className="w-7 h-7 md:w-12 md:h-12 lg:w-14 lg:h-14 text-[#56bcb8]" />
           </div>
         </motion.div>
       </div>
@@ -64,7 +65,7 @@ function ProximamenteBanner({ titulo }: { titulo: string }) {
           100% { transform: translateX(100%); }
         }
         .animate-shimmer {
-          animation: shimmer 3s ease-in-out infinite;
+          animation: shimmer 2.5s ease-in-out infinite;
         }
       `}</style>
     </div>
