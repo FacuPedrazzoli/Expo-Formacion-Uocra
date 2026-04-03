@@ -24,12 +24,6 @@ export function PremiumSectionTitle({
       viewport={{ once: true }}
       className={cn('mb-10 md:mb-14', centered ? 'text-center' : 'text-left')}
     >
-      <div className={cn('flex items-center gap-3 mb-2', centered ? 'justify-center' : '')}>
-        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#D4A853]/20 text-[#D4A853] border border-[#D4A853]/30">
-          Premium
-        </span>
-      </div>
-      
       <div className="relative inline-block">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-[#D4A853] to-[#F4D03F] bg-clip-text text-transparent">
           {title}

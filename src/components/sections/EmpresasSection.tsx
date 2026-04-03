@@ -180,12 +180,12 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
       </Container>
 
       <style jsx>{`
-        @keyframes marquee {
+        @keyframes carouselInfinite {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: carouselInfinite 40s linear infinite;
         }
         .animate-marquee:hover {
           animation-play-state: paused;
