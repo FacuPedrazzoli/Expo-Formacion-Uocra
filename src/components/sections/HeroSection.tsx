@@ -10,6 +10,7 @@ interface HeroSectionProps {
   subtitle?: string;
   ctaText?: string;
   ctaHref?: string;
+  ctaDisabled?: boolean;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
   backgroundImage?: string;
@@ -25,6 +26,7 @@ export function HeroSection({
   subtitle,
   ctaText = 'Registrarse',
   ctaHref = '/register',
+  ctaDisabled = false,
   secondaryCtaText,
   secondaryCtaHref,
   backgroundImage,
@@ -153,12 +155,18 @@ export function HeroSection({
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link 
-              href={ctaHref}
-              className="inline-flex items-center justify-center rounded-lg bg-white text-primary px-8 py-3 text-lg font-semibold transition-all duration-300 hover:bg-accent hover:scale-105 shadow-lg"
-            >
-              {ctaText}
-            </Link>
+            {ctaDisabled ? (
+              <span className="inline-flex items-center justify-center rounded-lg bg-white/50 text-primary/50 px-8 py-3 text-lg font-semibold cursor-not-allowed">
+                {ctaText}
+              </span>
+            ) : (
+              <Link 
+                href={ctaHref}
+                className="inline-flex items-center justify-center rounded-lg bg-white text-primary px-8 py-3 text-lg font-semibold transition-all duration-300 hover:bg-accent hover:scale-105 shadow-lg"
+              >
+                {ctaText}
+              </Link>
+            )}
             
             {secondaryCtaText && secondaryCtaHref && (
               <Link 
