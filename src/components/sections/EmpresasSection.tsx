@@ -75,13 +75,9 @@ const categories = [
   { id: 'Organizaciones', label: 'Organizaciones' },
   { id: 'Tecnología', label: 'Tecnología' },
   { id: 'Sanitarios', label: 'Sanitarios' },
-  { id: 'Químicos', label: 'Químicos' },
 ];
 
-export function EmpresasSection({
-  id,
-  empresas = [],
-}: EmpresasSectionProps) {
+export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const sortedEmpresas = [...empresas].sort((a, b) => a.name.localeCompare(b.name));
@@ -149,16 +145,7 @@ export function EmpresasSection({
                     href={empresa.website || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-shrink-0 w-36 h-36 p-4
-                               bg-gradient-to-br from-white/15 via-white/10 to-white/5
-                               backdrop-blur-md rounded-2xl 
-                               border border-white/20
-                               flex items-center justify-center
-                               hover:from-[#D4A853]/25 hover:via-[#D4A853]/15 hover:to-[#D4A853]/5
-                               hover:border-[#D4A853]/60
-                               hover:shadow-[0_0_35px_rgba(212,168,83,0.35)]
-                               hover:scale-105
-                               transition-all duration-300"
+                    className="flex-shrink-0 w-36 h-36 p-4 bg-slate-800/50 backdrop-blur-md rounded-2xl border border-white/20 flex items-center justify-center hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-lg hover:shadow-[#D4A853]/20 hover:scale-105 transition-all duration-300"
                   >
                     <img 
                       src={empresa.logo} 
@@ -183,36 +170,21 @@ export function EmpresasSection({
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.02 }}
               viewport={{ once: true }}
-              className="group flex flex-col items-center p-4 md:p-5
-                         bg-gradient-to-br from-white/12 via-white/8 to-white/5
-                         backdrop-blur-sm rounded-2xl 
-                         border border-white/15
-                         hover:from-[#D4A853]/20 hover:via-[#D4A853]/12 hover:to-[#D4A853]/5
-                         hover:border-[#D4A853]/50
-                         hover:shadow-[0_0_35px_rgba(212,168,83,0.25)]
-                         hover:-translate-y-1.5
-                         transition-all duration-300"
+              className="group flex flex-col items-center p-4 md:p-5 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-white/15 hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-xl hover:shadow-[#D4A853]/20 hover:-translate-y-1.5 transition-all duration-300"
             >
-              <div className="relative w-16 h-16 md:w-20 md:h-20 mb-3 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-xl" />
+              <div className="relative w-16 h-16 md:w-20 md:h-20 mb-3 flex items-center justify-center bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-xl">
                 <img 
                   src={empresa.logo} 
                   alt={empresa.name}
-                  className="relative z-10 max-w-full max-h-full object-contain
-                             group-hover:scale-110 transition-transform duration-300" 
+                  className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300" 
                 />
               </div>
               
-              <span className="text-xs text-white/80 text-center font-medium
-                               group-hover:text-[#D4A853] transition-colors
-                               line-clamp-2 text-center w-full">
+              <span className="text-xs text-white/80 text-center font-medium group-hover:text-[#D4A853] transition-colors line-clamp-2 text-center w-full">
                 {empresa.name}
               </span>
               
-              <span className="mt-2 px-2 py-0.5 rounded-full 
-                               bg-white/10 text-white/50 text-[10px]
-                               group-hover:bg-[#D4A853]/20 group-hover:text-[#D4A853]
-                               transition-colors">
+              <span className="mt-2 px-2 py-0.5 rounded-full bg-white/10 text-white/50 text-[10px] group-hover:bg-[#D4A853]/20 group-hover:text-[#D4A853] transition-colors">
                 {getCategory(empresa.name)}
               </span>
             </motion.a>
