@@ -116,7 +116,7 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.02 }}
               viewport={{ once: true }}
-              className="group flex flex-col items-center p-4 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-white/15 hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-xl hover:shadow-[#D4A853]/20 hover:-translate-y-1.5 transition-all duration-300"
+              className="group flex flex-col items-center p-4 bg-white rounded-2xl border border-white/15 hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-xl hover:shadow-[#D4A853]/20 hover:-translate-y-1.5 transition-all duration-300"
             >
               <div className="relative w-14 h-14 md:w-16 md:h-16 mb-2 flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-xl" />
