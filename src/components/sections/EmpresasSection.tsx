@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { Section } from './Section';
 import { Container } from '@/components/layout/Container';
 import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
@@ -66,25 +65,8 @@ function getCategory(name: string): string {
   return categoryMap[name] || 'General';
 }
 
-const categories = [
-  { id: 'all', label: 'Todos' },
-  { id: 'Materiales', label: 'Materiales' },
-  { id: 'Herramientas', label: 'Herramientas' },
-  { id: 'Electricidad', label: 'Electricidad' },
-  { id: 'Pinturas', label: 'Pinturas' },
-  { id: 'Organizaciones', label: 'Organizaciones' },
-  { id: 'Tecnología', label: 'Tecnología' },
-  { id: 'Sanitarios', label: 'Sanitarios' },
-];
-
 export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
-  const [activeFilter, setActiveFilter] = useState('all');
-
   const sortedEmpresas = [...empresas].sort((a, b) => a.name.localeCompare(b.name));
-
-  const filteredEmpresas = activeFilter === 'all'
-    ? sortedEmpresas
-    : sortedEmpresas.filter(emp => getCategory(emp.name) === activeFilter);
 
   return (
     <Section id={id} className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-primary to-slate-900">
@@ -94,36 +76,14 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
           subtitle={`${empresas.length} empresas nos acompañan`}
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
-        >
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveFilter(cat.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                activeFilter === cat.id
-                  ? "bg-[#D4A853] text-[#1A1918] shadow-lg shadow-[#D4A853]/30"
-                  : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white border border-white/10"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </motion.div>
-
-        {filteredEmpresas.length > 0 && (
+        {sortedEmpresas.length > 0 && (
           <div className="relative mb-16 overflow-hidden">
             <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none" />
             
             <div className="overflow-hidden">
               <div className="flex gap-4 animate-marquee">
-                {[...filteredEmpresas, ...filteredEmpresas].map((empresa, i) => (
+                {[...sortedEmpresas, ...sortedEmpresas].map((empresa, i) => (
                   <a 
                     key={`${empresa.id}-${i}`} 
                     href={empresa.website || '#'}
@@ -146,7 +106,7 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
         )}
 
         <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-4">
-          {filteredEmpresas.map((empresa, index) => (
+          {sortedEmpresas.map((empresa, index) => (
             <motion.a
               key={empresa.id}
               href={empresa.website || '#'}

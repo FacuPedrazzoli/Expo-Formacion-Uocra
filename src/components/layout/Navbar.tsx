@@ -21,11 +21,19 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { href: '#bienvenida', label: 'Bienvenida' },
-    { href: '#empresas', label: 'Empresas' },
-    { href: '#talks', label: 'Charlas' },
-    { href: '#registro', label: 'Registrarse' },
+    { href: '#bienvenida', label: 'Bienvenida', sectionId: 'bienvenida' },
+    { href: '#empresas', label: 'Empresas', sectionId: 'empresas' },
+    { href: '#talks', label: 'Charlas', sectionId: 'talks' },
+    { href: '#registro', label: 'Registrarse', sectionId: 'registro' },
   ];
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setIsOpen(false);
+    }
+  };
 
   return (
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white/95 shadow-sm' : 'bg-white/80'} backdrop-blur-md supports-[backdrop-filter]:bg-white/80 border-b`}>
@@ -37,20 +45,20 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
 
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.href}
-                href={link.href}
-                className="relative text-sm font-medium text-slate-600 transition-colors hover:text-primary py-2"
+                onClick={() => scrollToSection(link.sectionId)}
+                className="relative text-sm font-medium text-slate-600 transition-colors hover:text-primary py-2 cursor-pointer bg-transparent border-none"
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
-            <Link 
-              href="#registro"
-              className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm shadow-lg shadow-[#D4A853]/25 hover:bg-[#B8923E] hover:shadow-xl hover:shadow-[#D4A853]/30 transition-all duration-200"
+            <button 
+              onClick={() => scrollToSection('registro')}
+              className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm shadow-lg shadow-[#D4A853]/25 hover:bg-[#B8923E] hover:shadow-xl hover:shadow-[#D4A853]/30 transition-all duration-200 cursor-pointer bg-transparent border-none"
             >
               Registrarse
-            </Link>
+            </button>
           </nav>
 
           <button
@@ -74,22 +82,20 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
             <Container className="py-4">
               <nav className="flex flex-col gap-4">
                 {navLinks.map((link) => (
-                  <Link
+                  <button
                     key={link.href}
-                    href={link.href}
-                    className="text-sm font-medium text-slate-600 hover:text-primary py-2"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => scrollToSection(link.sectionId)}
+                    className="text-sm font-medium text-slate-600 hover:text-primary py-2 cursor-pointer bg-transparent border-none text-left"
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 ))}
-                <Link 
-                  href="#registro"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm w-full"
-                  onClick={() => setIsOpen(false)}
+                <button 
+                  onClick={() => scrollToSection('registro')}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm w-full cursor-pointer bg-transparent border-none"
                 >
                   Registrarse
-                </Link>
+                </button>
               </nav>
             </Container>
           </motion.div>
