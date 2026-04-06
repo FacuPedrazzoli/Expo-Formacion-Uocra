@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { AgentationWrapper } from '@/components/ui/AgentationWrapper';
 
 export default function PublicLayout({ children }: { children: ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
+      <AgentationWrapper />
     </div>
   );
 }
