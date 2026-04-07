@@ -89,7 +89,7 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
                     href={empresa.website || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-shrink-0 w-24 h-24 p-3 bg-white rounded-xl border border-slate-200 flex items-center justify-center hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-lg hover:shadow-[#D4A853]/20 hover:scale-105 transition-all duration-300"
+                    className="flex-shrink-0 w-24 h-24 p-3 bg-slate-300 rounded-xl border border-slate-400 flex items-center justify-center hover:bg-slate-400 hover:border-slate-500 hover:shadow-lg hover:shadow-[#D4A853]/20 hover:scale-105 transition-all duration-300"
                   >
                     <div className="w-full h-full flex items-center justify-center rounded-lg p-1">
                       <img 
@@ -116,24 +116,15 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.02 }}
               viewport={{ once: true }}
-              className="group flex flex-col items-center p-4 bg-white rounded-2xl border border-white/15 hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-xl hover:shadow-[#D4A853]/20 hover:-translate-y-1.5 transition-all duration-300"
+              className="group flex flex-col items-center p-4 bg-slate-300 rounded-2xl border border-slate-400 hover:bg-slate-400 hover:border-slate-500 hover:shadow-xl hover:shadow-[#D4A853]/20 hover:-translate-y-1.5 transition-all duration-300"
             >
-              <div className="relative w-16 h-16 md:w-20 md:h-20 mb-2 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-xl" />
+              <div className="w-full aspect-square flex items-center justify-center bg-slate-300 rounded-xl p-2">
                 <img 
                   src={empresa.logo} 
                   alt={empresa.name}
-                  className="relative z-10 max-w-[90%] max-h-[90%] object-contain group-hover:scale-110 transition-transform duration-300" 
+                  className="w-full h-full object-contain" 
                 />
               </div>
-              
-              <span className="text-sm text-white/80 text-center font-medium group-hover:text-[#D4A853] transition-colors line-clamp-2 text-center w-full">
-                {empresa.name}
-              </span>
-              
-              <span className="mt-1 px-2 py-0.5 rounded-full bg-white/10 text-white/50 text-[10px] group-hover:bg-[#D4A853]/20 group-hover:text-[#D4A853] transition-colors">
-                {getCategory(empresa.name)}
-              </span>
             </motion.a>
           ))}
         </div>
