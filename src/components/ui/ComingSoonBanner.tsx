@@ -43,7 +43,7 @@ export function ComingSoonBanner({ titulo }: ComingSoonBannerProps) {
           transition={{ delay: 0.2 }}
           className="text-xs sm:text-sm md:text-base text-[#D4A853] font-bold uppercase tracking-widest mb-4"
         >
-          2 de Julio 2026
+          25 de Junio 2026
         </motion.p>
 
         <motion.p
