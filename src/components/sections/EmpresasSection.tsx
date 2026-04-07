@@ -69,7 +69,7 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
   const sortedEmpresas = [...empresas].sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <Section id={id} className="relative overflow-hidden bg-gradient-to-br from-slate-100 via-slate-200 to-slate-100">
+    <Section id={id} className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-primary to-slate-900">
       <Container className="relative z-10">
         <PremiumSectionTitle 
           title="Empresas"
@@ -78,8 +78,8 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
 
         {sortedEmpresas.length > 0 && (
           <div className="relative mb-16 overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-100 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-100 to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none" />
             
             <div className="overflow-hidden">
               <div className="flex gap-4 animate-marquee">
