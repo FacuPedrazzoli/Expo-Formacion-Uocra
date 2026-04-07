@@ -105,7 +105,7 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
           </div>
         )}
 
-        <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-6">
           {sortedEmpresas.map((empresa, index) => (
             <motion.a
               key={empresa.id}
@@ -116,9 +116,9 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.02 }}
               viewport={{ once: true }}
-              className="group flex flex-col items-center p-4 bg-white rounded-2xl border border-white/15 hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-xl hover:shadow-[#D4A853]/20 hover:-translate-y-1.5 transition-all duration-300"
+              className="group flex flex-col items-center p-6 bg-white rounded-2xl border border-white/15 hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-xl hover:shadow-[#D4A853]/20 hover:-translate-y-1.5 transition-all duration-300"
             >
-              <div className="relative w-14 h-14 md:w-16 md:h-16 mb-2 flex items-center justify-center">
+              <div className="relative w-20 h-20 md:w-24 md:h-24 mb-2 flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-xl" />
                 <img 
                   src={empresa.logo} 
@@ -127,7 +127,7 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
                 />
               </div>
               
-              <span className="text-xs text-white/80 text-center font-medium group-hover:text-[#D4A853] transition-colors line-clamp-2 text-center w-full">
+              <span className="text-sm text-white/80 text-center font-medium group-hover:text-[#D4A853] transition-colors line-clamp-2 text-center w-full">
                 {empresa.name}
               </span>
               
