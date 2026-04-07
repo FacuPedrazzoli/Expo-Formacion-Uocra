@@ -24,7 +24,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
     { href: '#bienvenida', label: 'Bienvenida', sectionId: 'bienvenida' },
     { href: '#empresas', label: 'Empresas', sectionId: 'empresas' },
     { href: '#talks', label: 'Charlas', sectionId: 'talks' },
-    { href: '#registro', label: 'Registrarse', sectionId: 'registro' },
+    { href: '#registro', label: 'Registrate', sectionId: 'registro' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -57,7 +57,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
               onClick={() => scrollToSection('registro')}
               className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm shadow-lg shadow-[#D4A853]/25 hover:bg-[#D4A853] hover:shadow-xl hover:shadow-[#D4A853]/30 transition-all duration-200 cursor-pointer border-none"
             >
-              Registrarse
+              Registrate
             </button>
           </nav>
 
@@ -94,7 +94,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
                   onClick={() => scrollToSection('registro')}
                   className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm w-full cursor-pointer border-none"
                 >
-                  Registrarse
+                  Registrate
                 </button>
               </nav>
             </Container>

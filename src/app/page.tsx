@@ -31,7 +31,7 @@ export default function HomePage() {
         <HeroSection
           title={event?.title || 'Expo Formación UOCRA 2026'}
           subtitle={event?.description || 'El evento anual de formación profesional para el sector de la construcción'}
-          ctaText="Registrarse"
+          ctaText="Registrate"
           ctaHref="#registro"
           backgroundImage={event?.imageUrl}
           eventDate={eventData.eventInfo.date}
