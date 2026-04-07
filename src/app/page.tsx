@@ -74,14 +74,14 @@ export default function HomePage() {
                   disabled
                   className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#56bcb8] to-[#25848d] text-white px-10 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(86,188,184,0.5)] animate-pulse cursor-pointer"
                 >
-                  Registrate proximamente!
+                  Proximamente
                 </button>
               ) : (
                 <Link 
                   href="#registro"
                   className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#56bcb8] to-[#25848d] text-white px-10 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(86,188,184,0.5)]"
                 >
-                  Registrate proximamente!
+                  Proximamente
                 </Link>
               )}
             </div>

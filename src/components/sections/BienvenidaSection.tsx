@@ -125,7 +125,7 @@ export function BienvenidaSection() {
               className="pt-4"
             >
               <a
-                href="https://www.fundacionuocra.org/"
+                href="https://fundacion.uocra.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors"
