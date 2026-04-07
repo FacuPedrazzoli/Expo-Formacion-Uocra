@@ -105,7 +105,7 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
           </div>
         )}
 
-        <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-4">
           {sortedEmpresas.map((empresa, index) => (
             <motion.a
               key={empresa.id}
@@ -116,14 +116,14 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.02 }}
               viewport={{ once: true }}
-              className="group flex flex-col items-center p-6 bg-white rounded-2xl border border-white/15 hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-xl hover:shadow-[#D4A853]/20 hover:-translate-y-1.5 transition-all duration-300"
+              className="group flex flex-col items-center p-4 bg-white rounded-2xl border border-white/15 hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-xl hover:shadow-[#D4A853]/20 hover:-translate-y-1.5 transition-all duration-300"
             >
-              <div className="relative w-20 h-20 md:w-24 md:h-24 mb-2 flex items-center justify-center">
+              <div className="relative w-16 h-16 md:w-20 md:h-20 mb-2 flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-xl" />
                 <img 
                   src={empresa.logo} 
                   alt={empresa.name}
-                  className="relative z-10 max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300" 
+                  className="relative z-10 max-w-[90%] max-h-[90%] object-contain group-hover:scale-110 transition-transform duration-300" 
                 />
               </div>
               
