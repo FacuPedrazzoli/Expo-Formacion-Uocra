@@ -79,7 +79,7 @@ export function HeroSection({
             className="mb-10"
           >
             <img 
-              src="/images/logo-expo-formacion-nuevo.jpeg" 
+              src="/images/logo-expo-formacion-nuevo.png" 
               alt="Expo Formación UOCRA" 
               className="max-w-[280px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[580px] w-auto h-auto mx-auto drop-shadow-2xl"
             />
