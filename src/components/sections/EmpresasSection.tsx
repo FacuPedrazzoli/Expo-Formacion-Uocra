@@ -69,7 +69,7 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
   const sortedEmpresas = [...empresas].sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <Section id={id} className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-primary to-slate-900">
+    <Section id={id} className="relative overflow-hidden bg-gradient-to-br from-slate-100 via-slate-200 to-slate-100">
       <Container className="relative z-10">
         <PremiumSectionTitle 
           title="Empresas"
@@ -78,8 +78,8 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
 
         {sortedEmpresas.length > 0 && (
           <div className="relative mb-16 overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-100 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-100 to-transparent z-10 pointer-events-none" />
             
             <div className="overflow-hidden">
               <div className="flex gap-4 animate-marquee">
@@ -89,9 +89,9 @@ export function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
                     href={empresa.website || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-shrink-0 w-24 h-24 p-3 bg-slate-800/50 backdrop-blur-md rounded-xl border border-white/20 flex items-center justify-center hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-lg hover:shadow-[#D4A853]/20 hover:scale-105 transition-all duration-300"
+                    className="flex-shrink-0 w-24 h-24 p-3 bg-white rounded-xl border border-slate-200 flex items-center justify-center hover:bg-[#D4A853]/20 hover:border-[#D4A853]/50 hover:shadow-lg hover:shadow-[#D4A853]/20 hover:scale-105 transition-all duration-300"
                   >
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-lg p-1">
+                    <div className="w-full h-full flex items-center justify-center rounded-lg p-1">
                       <img 
                         src={empresa.logo} 
                         alt={empresa.name}
