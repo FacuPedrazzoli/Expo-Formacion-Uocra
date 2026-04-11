@@ -16,23 +16,23 @@ const audienceChips = [
 const benefits = [
   {
     icon: Star,
-    title: 'Conocé las últimas tendencias del sector...',
+    title: 'Conocér las últimas tendencias del sector...',
   },
   {
     icon: Users,
-    title: 'Conectá con empresas líderes...',
+    title: 'Conectár con empresas líderes...',
   },
   {
     icon: GraduationCap,
-    title: 'Accedé a charlas y capacitaciones gratuitas...',
+    title: 'Accedér a charlas y capacitaciones gratuitas...',
   },
   {
     icon: Briefcase,
-    title: 'Descubrí oportunidades laborales y educativas...',
+    title: 'Descubrír oportunidades laborales y educativas...',
   },
   {
     icon: Globe,
-    title: 'Viví una experiencia única de networking...',
+    title: 'Vivír una experiencia única de networking...',
   },
 ];
 
