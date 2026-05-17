@@ -27,7 +27,7 @@ export function TalksSection({
   return (
     <Section id={id} variant="default" className="relative">
       {showOverlay ? (
-        <ComingSoonBanner titulo="Enterate de todas las capacitaciones y workshops" />
+        <ComingSoonBanner titulo="Entérate de todas las capacitaciones y workshops" />
       ) : (
         <Container>
           <PremiumSectionTitle title={title} subtitle={subtitle} />

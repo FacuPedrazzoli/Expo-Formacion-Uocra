@@ -17,7 +17,7 @@ const SOURCE_OPTIONS = [
   { value: 'Redes sociales', label: 'Redes sociales' },
   { value: 'Boca a boca', label: 'Boca a boca' },
   { value: 'Correo electrónico', label: 'Correo electrónico' },
-  { value: 'Carteleria/Volantes', label: 'Carteleria/Volantes' },
+  { value: 'Carteleria/Volantes', label: 'Cartelería/Volantes' },
   { value: 'Otro', label: 'Otro' },
 ];
 

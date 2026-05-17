@@ -104,7 +104,7 @@ export async function registerUser(formData: RegistrationFormData): Promise<Regi
     console.error('Registration error:', error);
     return {
       success: false,
-      error: 'Error inesperado en el registro. Por favor intentá más tarde.',
+      error: 'Error inesperado en el registro. Por favor, intentá más tarde.',
       errorCode: 'UNKNOWN'
     };
   }

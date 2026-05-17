@@ -4,7 +4,7 @@
   },
   "event": {
     "name": "Expo Formación UOCRA 2026",
-    "date": "2 de Julio 2026",
+    "date": "2 de julio 2026",
     "stats": {
       "participantes": "3500+",
       "empresas": "40+",
@@ -13,7 +13,7 @@
   },
   "video": "https://www.youtube.com/watch?v=sdoX3YvrbuA&t=18s",
   "eventInfo": {
-    "date": "25 de Junio 2026",
+    "date": "25 de junio 2026",
     "dateIcs": "20260625",
     "location": "CFP N°3 UOCRA",
     "address": "Humberto 1º 2260, Buenos Aires",
@@ -48,7 +48,7 @@
     { "id": "tal-026", "title": "Seguridad vial en zonas de obra", "description": "Señalización y gestión del tránsito en áreas de trabajo vial. Normativas y buenas prácticas.", "speaker": "Ing. Alejandro Barra", "startTime": "09:00", "endTime": "10:00", "room": "Aula 6" },
     { "id": "tal-027", "title": "Excavaciones y movimiento de suelos", "description": "Técnicas de excavación, nivelación y compactación de suelos. Equipos y seguridad.", "speaker": "Ing. Eduardo Ruiz", "startTime": "10:30", "endTime": "11:30", "room": "Aula 6" },
     { "id": "tal-028", "title": "Techumbres y cubierta", "description": "Sistemas de cubierta inclinada y plana. Estructura, aislación y membrana.", "speaker": "Of. Jorge Ibáñez", "startTime": "14:00", "endTime": "15:00", "room": "Aula 6" },
-    { "id": "tal-029", "title": "Cerramientos y aberturas de aluminio", "description": "Ventanas, puertas y frente de vidro. Perfiles, herrajes y vidrios.", "speaker": "Tec. Alberto Nieva", "startTime": "15:30", "endTime": "16:30", "room": "Aula 6" },
+    { "id": "tal-029", "title": "Cerramientos y aberturas de aluminio", "description": "Ventanas, puertas y frente de vidrio. Perfiles, herrajes y vidrios.", "speaker": "Tec. Alberto Nieva", "startTime": "15:30", "endTime": "16:30", "room": "Aula 6" },
     { "id": "tal-030", "title": "Cierre: palabras de agradecimiento", "description": "Cierre oficial del evento. Reconocimientos y próximos pasos para Expo Formación UOCRA.", "speaker": "Autoridades UOCRA", "startTime": "17:00", "endTime": "18:00", "room": "Salón Principal" }
   ],
   "empresas": [
@@ -106,7 +106,7 @@
     { "id": "stand-002", "name": "Stand El Galgo", "ubicacion": "Zona A - Stand 2", "descripcion": "Empresa líder en fabricación de herramientas profesionales para pintura" },
     { "id": "stand-003", "name": "Stand Fischer", "ubicacion": "Zona A - Stand 3", "descripcion": "Empresa multinacional alemana líder en sistemas de fijación" },
     { "id": "stand-004", "name": "Stand Mekano", "ubicacion": "Zona A - Stand 4", "descripcion": "Diseño y fabricación de estructuras tubulares y andamios" },
-    { "id": "stand-005", "name": "Stand Retak", "ubicacion": "Zona A - Stand 5", "descripcion": "Ladrillos de Hormarquía Celular Curados en Autoclave (HCCA)" },
+    { "id": "stand-005", "name": "Stand Retak", "ubicacion": "Zona A - Stand 5", "descripcion": "Ladrillos de Hormigón Celular Curados en Autoclave (HCCA)" },
     { "id": "stand-006", "name": "Stand Tao", "ubicacion": "Zona A - Stand 6", "descripcion": "Tablero estructural con hojuelas de madera orientadas" },
     { "id": "stand-007", "name": "Stand Sinteplast", "ubicacion": "Zona B - Stand 7", "descripcion": "Empresa líder de capitales nacionales en pinturas" },
     { "id": "stand-008", "name": "Stand Durlock", "ubicacion": "Zona B - Stand 8", "descripcion": "Líder en sistemas de construcción en seco" },
@@ -127,11 +127,11 @@
     { "id": "stand-023", "name": "Stand Dinatecnica", "ubicacion": "Zona D - Stand 23", "descripcion": "Más de 55 años en soluciones de tuberías" },
     { "id": "stand-024", "name": "Stand FV", "ubicacion": "Zona D - Stand 24", "descripcion": "Confort en baños y cocinas" },
     { "id": "stand-025", "name": "Stand Conextube", "ubicacion": "Zona E - Stand 25", "descripcion": "Productos para instalaciones eléctricas seguras" },
-    { "id": "stand-026", "name": "Stand Schneider Electric", "ubicacion": "Zona E - Stand 26", "descripcion": "Sostenibilidad y Eficiencia energética" },
+    { "id": "stand-026", "name": "Stand Schneider Electric", "ubicacion": "Zona E - Stand 26", "descripcion": "Sostenibilidad y eficiencia energética" },
     { "id": "stand-027", "name": "Stand Gralf", "ubicacion": "Zona E - Stand 27", "descripcion": "Instrumentos de medición y control eléctrico" },
     { "id": "stand-028", "name": "Stand Micro Control", "ubicacion": "Zona E - Stand 28", "descripcion": "Canalización y conectividad eléctrica" },
     { "id": "stand-029", "name": "Stand Zoloda", "ubicacion": "Zona E - Stand 29", "descripcion": "Soluciones en canalización eléctrica" },
-    { "id": "stand-030", "name": "Stand Genrod", "ubicacion": "Zona E - Stand 30", "descripcion": "Tecnología y calidad en sector eléctrico" },
+    { "id": "stand-030", "name": "Stand Genrod", "ubicacion": "Zona E - Stand 30", "descripcion": "Tecnología y calidad en el sector eléctrico" },
     { "id": "stand-031", "name": "Stand Cambre", "ubicacion": "Zona F - Stand 31", "descripcion": "Fabricante de material eléctrico" },
     { "id": "stand-032", "name": "Stand Realidad Virtual UOCRA", "ubicacion": "Zona F - Stand 32", "descripcion": "Proyecto piloto con la OIT para realidad virtual" },
     { "id": "stand-033", "name": "Stand 3D Insumos", "ubicacion": "Zona F - Stand 33", "descripcion": "Electrónica e impresoras 3D" },

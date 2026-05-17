@@ -26,7 +26,7 @@ export function StandsSection({
   return (
     <Section id={id} variant="accent" className="relative">
       {showOverlay ? (
-        <ComingSoonBanner titulo="Vamos a dar a conocer los stands que participerán" />
+        <ComingSoonBanner titulo="Vamos a dar a conocer los stands que partecipán" />
       ) : (
         <Container>
           <PremiumSectionTitle title={title} subtitle={subtitle} />

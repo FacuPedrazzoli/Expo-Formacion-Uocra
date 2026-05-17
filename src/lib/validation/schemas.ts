@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const SOURCE_OPTIONS = ['Redes sociales', 'Boca a boca', 'Correo electrónico', 'Carteleria/Volantes', 'Otro'] as const;
+const SOURCE_OPTIONS = ['Redes sociales', 'Boca a boca', 'Correo electrónico', 'Cartelería/Volantes', 'Otro'] as const;
 
 export const registrationSchema = z.object({
   name: z.string().min(2, 'Nombre debe tener al menos 2 caracteres'),
