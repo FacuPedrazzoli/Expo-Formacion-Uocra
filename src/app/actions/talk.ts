@@ -4,13 +4,20 @@ import { createClient } from '@supabase/supabase-js';
 import { revalidatePath } from 'next/cache';
 import { logger } from '@/lib/logger';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const adminClient = createClient(supabaseUrl, supabaseServiceKey);
+let _adminClient: ReturnType<typeof createClient> | null = null;
+
+function getAdminClient() {
+  if (!_adminClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    _adminClient = createClient(supabaseUrl, supabaseServiceKey);
+  }
+  return _adminClient;
+}
 
 export async function registerUserToTalk(userId: string, talkId: string, eventId: string) {
   try {
-    const { data: talk } = await adminClient
+    const { data: talk } = await getAdminClient()
       .from('talks')
       .select('capacity')
       .eq('id', talkId)
@@ -20,16 +27,17 @@ export async function registerUserToTalk(userId: string, talkId: string, eventId
       return { success: false, error: 'Charla no encontrada' };
     }
 
-    const { count } = await adminClient
+    const talkData = talk as { capacity: number };
+    const { count } = await getAdminClient()
       .from('talk_registrations')
       .select('*', { count: 'exact', head: true })
       .eq('talk_id', talkId);
 
-    if (count && count >= talk.capacity) {
+    if (count && count >= talkData.capacity) {
       return { success: false, error: 'Charla completa' };
     }
 
-    const { error: insertError } = await adminClient
+    const { error: insertError } = await getAdminClient()
       .from('talk_registrations')
       .insert({ user_id: userId, talk_id: talkId } as never);
 
@@ -50,7 +58,7 @@ export async function registerUserToTalk(userId: string, talkId: string, eventId
 
 export async function unregisterFromTalk(userId: string, talkId: string) {
   try {
-    const { error } = await adminClient
+    const { error } = await getAdminClient()
       .from('talk_registrations')
       .delete()
       .eq('user_id', userId)
