@@ -20,12 +20,6 @@ export default function SurveysPage() {
     getActiveEventId().then(setEventId);
   }, []);
 
-  useEffect(() => {
-    if (eventId) {
-      loadSurveyData();
-    }
-  }, [eventId, loadSurveyData]);
-
   const loadSurveyData = useCallback(async () => {
     if (!eventId) return;
 
@@ -43,6 +37,12 @@ export default function SurveysPage() {
       setLoading(false);
     }
   }, [eventId]);
+
+  useEffect(() => {
+    if (eventId) {
+      loadSurveyData();
+    }
+  }, [eventId, loadSurveyData]);
 
   const handleExportCSV = async () => {
     if (!eventId || answers.length === 0) return;
