@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { Search, Download, Filter, ChevronLeft, ChevronRight, Eye, UserCheck, UserX, FileText } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Search, Download, Filter, ChevronLeft, ChevronRight, Eye, UserCheck, UserX } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -33,7 +33,7 @@ export default function UsersPage() {
     if (eventId) {
       loadUsers();
     }
-  }, [eventId, page, filterStatus]);
+  }, [eventId, page, filterStatus, loadUsers]);
 
   const loadUsers = useCallback(async () => {
     if (!eventId) return;
@@ -103,20 +103,20 @@ export default function UsersPage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-bold">Usuarios</h1>
+          <h1 className="text-3xl font-bold text-[#124565]">Usuarios</h1>
           <p className="text-muted-foreground">{totalCount} inscriptos en total</p>
         </div>
         <Button 
           onClick={handleExportCSV} 
           disabled={exporting || users.length === 0}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 bg-gradient-to-r from-[#124565] to-[#25848d] hover:from-[#1a5a80] hover:to-[#2a9aa3] text-white shadow-lg shadow-primary/20"
         >
           <Download className="h-4 w-4" />
           {exporting ? 'Exportando...' : 'Exportar CSV'}
         </Button>
       </div>
 
-      <Card className="mb-6">
+      <Card className="mb-6 border border-[#e8e6e1] shadow-sm">
         <CardContent className="pt-6">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 relative">
@@ -126,7 +126,7 @@ export default function UsersPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                className="pl-10"
+                className="pl-10 focus:border-[#124565] focus:ring-[#124565]"
               />
             </div>
             <div className="flex gap-2">
@@ -136,7 +136,7 @@ export default function UsersPage() {
                   setFilterStatus(e.target.value as FilterStatus);
                   setPage(1);
                 }}
-                className="h-10 px-3 rounded-md border bg-background"
+                className="h-10 px-3 rounded-md border border-input bg-background focus:border-[#124565] focus:ring-[#124565] focus:outline-none focus:ring-1"
               >
                 <option value="all">Todos</option>
                 <option value="checked_in">Check-in: Sí</option>

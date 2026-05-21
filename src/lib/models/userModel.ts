@@ -1,4 +1,4 @@
-import type { User, UserRegistration, UserType } from '@/types/user';
+import type { User, UserType } from '@/types/user';
 
 export interface UserRow {
   id: string;

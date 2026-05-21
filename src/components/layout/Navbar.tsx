@@ -11,7 +11,7 @@ interface NavbarProps {
   eventTitle?: string;
 }
 
-export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
+export function Navbar({ eventTitle: _eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

@@ -6,7 +6,6 @@ import { registrationSchema } from '@/lib/validation/schemas';
 import { generateQRDataURL } from '@/lib/qr';
 import { logger } from '@/lib/logger';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://expoformacion.uocra.org';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 const supabase = createClient(supabaseUrl, supabaseServiceKey);

@@ -23,7 +23,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({
-  title,
+  title: _title,
   subtitle,
   ctaText = 'Registrate',
   ctaHref = '/register',

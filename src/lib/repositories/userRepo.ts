@@ -103,7 +103,7 @@ export const userRepo = {
   },
 
   async getUsersCount(eventId: string): Promise<number> {
-    const { count, error } = await adminClient
+    const { count } = await adminClient
       .from('users')
       .select('*', { count: 'exact', head: true })
       .eq('event_id', eventId);

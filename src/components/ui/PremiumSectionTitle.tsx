@@ -13,7 +13,7 @@ interface PremiumSectionTitleProps {
 export function PremiumSectionTitle({ 
   title, 
   subtitle, 
-  icon, 
+  icon: _icon, 
   centered = true 
 }: PremiumSectionTitleProps) {
   return (

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -192,13 +193,13 @@ export default function CredentialsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold">Credenciales y QR</h1>
+        <h1 className="text-3xl font-bold text-[#124565]">Credenciales y QR</h1>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mb-8">
-        <Card>
+        <Card className="border-[#e8e6e1] shadow-sm border-t-4 border-t-[#124565]">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-[#124565]">
               <Search className="h-5 w-5" />
               Buscar por DNI
             </CardTitle>
@@ -211,8 +212,9 @@ export default function CredentialsPage() {
                 value={dniSearch}
                 onChange={(e) => setDniSearch(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                className="focus:border-[#124565] focus:ring-[#124565]"
               />
-              <Button onClick={handleSearch} disabled={loading}>
+              <Button onClick={handleSearch} disabled={loading} className="bg-gradient-to-r from-[#124565] to-[#25848d] text-white hover:opacity-90">
                 {loading ? 'Buscando...' : 'Buscar'}
               </Button>
             </div>
@@ -229,12 +231,14 @@ export default function CredentialsPage() {
                 
                 {qrDataUrl && (
                   <div className="flex flex-col items-center gap-4">
-                    <img 
+                    <Image 
                       src={qrDataUrl} 
                       alt="QR Code" 
-                      className="w-48 h-48 border rounded-lg"
+                      width={192}
+                      height={192}
+                      className="border rounded-lg"
                     />
-                    <Button onClick={handleDownloadQR} className="flex items-center gap-2">
+                    <Button onClick={handleDownloadQR} className="flex items-center gap-2 bg-gradient-to-r from-[#124565] to-[#25848d] text-white hover:opacity-90">
                       <Download className="h-4 w-4" />
                       Descargar QR
                     </Button>
@@ -245,9 +249,9 @@ export default function CredentialsPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-[#e8e6e1] shadow-sm border-t-4 border-t-[#25848d]">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-[#25848d]">
               <Users className="h-5 w-5" />
               Exportar Credenciales
             </CardTitle>
@@ -266,7 +270,7 @@ export default function CredentialsPage() {
             <Button 
               onClick={handleExportAllPDF} 
               disabled={exporting || allUsers.length === 0}
-              className="w-full flex items-center gap-2"
+              className="w-full flex items-center gap-2 bg-gradient-to-r from-[#124565] to-[#25848d] text-white hover:opacity-90"
             >
               <QrCode className="h-4 w-4" />
               {exporting ? 'Generando...' : 'Exportar PDF con todos los QR'}
@@ -275,9 +279,9 @@ export default function CredentialsPage() {
         </Card>
       </div>
 
-      <Card>
+      <Card className="border-[#e8e6e1] shadow-sm border-t-4 border-t-[#124565]">
         <CardHeader>
-          <CardTitle>Lista de Inscriptos</CardTitle>
+          <CardTitle className="text-[#124565]">Lista de Inscriptos</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
@@ -303,7 +307,7 @@ export default function CredentialsPage() {
                         size="sm" 
                         variant="outline"
                         onClick={() => handleDownloadIndividualQR(user.dni, user.name, user.lastname)}
-                        className="flex items-center gap-1"
+                        className="flex items-center gap-1 bg-gradient-to-r from-[#124565] to-[#25848d] text-white hover:opacity-90 border-0"
                       >
                         <Download className="h-3 w-3" />
                         QR

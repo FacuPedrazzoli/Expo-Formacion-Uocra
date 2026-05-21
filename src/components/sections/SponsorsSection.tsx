@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
@@ -37,10 +38,12 @@ export const SponsorsSection = React.memo(function SponsorsSection({
                 >
                   <div className="text-center">
                     {sponsor.logoUrl ? (
-                      <img 
+                      <Image 
                         src={sponsor.logoUrl} 
                         alt={sponsor.name}
-                        className="h-12 w-auto mx-auto grayscale hover:grayscale-0 transition-all duration-300"
+                        width={120}
+                        height={48}
+                        className="mx-auto grayscale hover:grayscale-0 transition-all duration-300"
                       />
                     ) : (
                       <span className="text-lg font-semibold text-primary">{sponsor.name}</span>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, XCircle, User, Scan, RotateCcw, Clock } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
@@ -183,19 +183,22 @@ export default function CheckinPage() {
   return (
     <div className="max-w-xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Check-in</h1>
+        <h1 className="text-3xl font-bold text-[#124565] mb-2">Check-in</h1>
         <p className="text-muted-foreground">Ingresá el DNI o escaneá el código QR</p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4 mb-8">
-        <Card>
+        <Card className="border border-[#e8e6e1] shadow-sm overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#124565] to-[#25848d]" />
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">Check-ins Hoy</p>
-                <p className="text-3xl font-bold">{todayCount}</p>
+                <p className="text-3xl font-bold text-[#124565]">{todayCount}</p>
               </div>
-              <Clock className="h-10 w-10 text-blue-600" />
+              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#124565] to-[#25848d] flex items-center justify-center shadow-md shadow-primary/20">
+                <Clock className="h-6 w-6 text-white" />
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -225,9 +228,10 @@ export default function CheckinPage() {
         )}
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+      <Card className="border border-[#e8e6e1] shadow-sm overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#25848d] to-[#56bcb8]" />
+        <CardHeader className="pb-2">
+          <CardTitle className="flex items-center gap-2 text-[#25848d]">
             <Scan className="h-5 w-5" />
             Validar Asistente
           </CardTitle>
@@ -239,7 +243,7 @@ export default function CheckinPage() {
               value={dni}
               onChange={(e) => setDni(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 text-lg h-12"
+              className="flex-1 text-lg h-12 border-[#e8e6e1] focus:border-[#124565] focus:ring-[#124565]"
               maxLength={8}
               minLength={7}
             />
@@ -247,14 +251,14 @@ export default function CheckinPage() {
               variant="outline"
               onClick={handleValidate} 
               disabled={loading || !dni.trim()}
-              className="h-12 px-6"
+              className="h-12 px-6 border-2 border-[#25848d] text-[#25848d] hover:bg-[#25848d] hover:text-white transition-all duration-200"
             >
               {loading ? 'Buscando...' : 'Validar'}
             </Button>
             <Button 
               onClick={handleCheckin} 
               disabled={loading || !dni.trim()}
-              className="h-12 px-6"
+              className="h-12 px-6 bg-gradient-to-r from-[#124565] to-[#25848d] hover:from-[#1a5a80] hover:to-[#2a9aa3] text-white shadow-lg shadow-primary/20 transition-all duration-200"
             >
               {loading ? 'Procesando...' : 'Check-in'}
             </Button>
@@ -296,8 +300,8 @@ export default function CheckinPage() {
         </CardContent>
       </Card>
 
-      <div className="mt-6 p-4 bg-muted rounded-lg">
-        <h3 className="font-medium mb-2">Cómo usar:</h3>
+      <div className="mt-6 p-4 bg-gradient-to-r from-[#124565]/5 to-[#25848d]/5 rounded-xl border border-[#e8e6e1]">
+        <h3 className="font-medium mb-2 text-[#124565]">Cómo usar:</h3>
         <ol className="text-sm text-muted-foreground space-y-1">
           <li>1. Ingresá el DNI del asistente</li>
           <li>2. Hacé clic en &quot;Validar&quot; para verificar si está registrado</li>
