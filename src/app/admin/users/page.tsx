@@ -29,12 +29,6 @@ export default function UsersPage() {
     getActiveEventId().then(setEventId);
   }, []);
 
-  useEffect(() => {
-    if (eventId) {
-      loadUsers();
-    }
-  }, [eventId, page, filterStatus, loadUsers]);
-
   const loadUsers = useCallback(async () => {
     if (!eventId) return;
     
@@ -68,6 +62,12 @@ export default function UsersPage() {
       setLoading(false);
     }
   }, [eventId, page, filterStatus, searchQuery]);
+
+  useEffect(() => {
+    if (eventId) {
+      loadUsers();
+    }
+  }, [eventId, page, filterStatus, loadUsers]);
 
   const handleSearch = useCallback(() => {
     setPage(1);

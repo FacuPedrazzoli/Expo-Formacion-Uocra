@@ -28,12 +28,6 @@ export default function UserDetailPage() {
     getActiveEventId().then(setEventId);
   }, []);
 
-  useEffect(() => {
-    if (eventId) {
-      loadUser();
-    }
-  }, [params.id, eventId, loadUser]);
-
   const loadUser = useCallback(async () => {
     if (!eventId) return;
     try {
@@ -58,6 +52,12 @@ export default function UserDetailPage() {
       setLoading(false);
     }
   }, [eventId, params.id]);
+
+  useEffect(() => {
+    if (eventId) {
+      loadUser();
+    }
+  }, [params.id, eventId, loadUser]);
 
   async function handleSave() {
     if (!user) return;

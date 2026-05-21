@@ -21,8 +21,8 @@ export default function TalksAdminPage() {
     return talks.filter((talk) => {
       const matchesSearch =
         talk.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        talk.speaker.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        talk.description.toLowerCase().includes(searchTerm.toLowerCase());
+        talk.speaker?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        talk.description?.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesRoom = selectedRoom === 'all' || talk.room === selectedRoom;
       return matchesSearch && matchesRoom;
     });
