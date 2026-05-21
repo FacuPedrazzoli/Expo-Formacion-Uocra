@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
 import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
@@ -38,11 +37,9 @@ export const SponsorsSection = React.memo(function SponsorsSection({
                 >
                   <div className="text-center">
                     {sponsor.logoUrl ? (
-                      <Image 
+                      <img 
                         src={sponsor.logoUrl} 
                         alt={sponsor.name}
-                        width={120}
-                        height={60}
                         className="h-12 w-auto mx-auto grayscale hover:grayscale-0 transition-all duration-300"
                       />
                     ) : (

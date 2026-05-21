@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 import { Section } from './Section';
 import { Container } from '@/components/layout/Container';
@@ -53,11 +52,9 @@ export const EmpresasSection = React.memo(function EmpresasSection({ id, empresa
                     className="flex-shrink-0 w-28 h-28 p-3 bg-slate-300 rounded-xl border border-slate-400 flex items-center justify-center hover:bg-slate-400 hover:border-slate-500 hover:shadow-lg hover:shadow-accent/20 hover:scale-105 transition-all duration-300"
                   >
                     <div className="w-full h-full flex items-center justify-center rounded-lg p-1">
-                      <Image 
+                      <img 
                         src={empresa.logo} 
                         alt={empresa.name}
-                        width={112}
-                        height={112}
                         className="w-full h-full object-contain" 
                       />
                     </div>
@@ -82,11 +79,9 @@ export const EmpresasSection = React.memo(function EmpresasSection({ id, empresa
               className="group flex flex-col items-center p-1.5 bg-slate-300 rounded-lg border border-slate-400 hover:bg-slate-400 hover:border-slate-500 hover:shadow-xl hover:shadow-accent/20 hover:-translate-y-0.5 transition-all duration-300"
             >
               <div className="w-full aspect-square flex items-center justify-center bg-slate-300 rounded-lg p-0.5">
-                <Image 
+                <img 
                   src={empresa.logo} 
                   alt={empresa.name}
-                  width={112}
-                  height={112}
                   className="w-full h-full object-contain" 
                 />
               </div>
