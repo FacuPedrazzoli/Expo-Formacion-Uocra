@@ -16,22 +16,3 @@ export interface User {
   howFoundId?: string;
   createdAt: string;
 }
-
-export interface UserRegistration {
-  dni: string;
-  name: string;
-  lastname: string;
-  email: string;
-  howFoundId?: string;
-  talkIds: string[];
-}
-
-export interface UserSearchResult extends User {
-  registeredTalks: string[];
-}
-
-export interface CheckinResult {
-  success: boolean;
-  user?: User;
-  message: string;
-}

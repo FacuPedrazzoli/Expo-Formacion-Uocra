@@ -118,21 +118,6 @@ export const userRepo = {
     return count || 0;
   },
 
-  async checkinUser(dni: string, eventId: string): Promise<boolean> {
-    const { error } = await getAdminClient()
-      .from('users')
-      .update({ checked_in: true, checked_in_at: new Date().toISOString() } as never)
-      .eq('dni', dni)
-      .eq('event_id', eventId);
-
-    if (error) {
-      logger.error('Error checking in user', error);
-      return false;
-    }
-
-    return true;
-  },
-
   async updateUser(userId: string, updates: Partial<User>): Promise<boolean> {
     const { error } = await getAdminClient()
       .from('users')
@@ -146,20 +131,6 @@ export const userRepo = {
 
     if (error) {
       logger.error('Error updating user', error);
-      return false;
-    }
-
-    return true;
-  },
-
-  async deleteUser(userId: string): Promise<boolean> {
-    const { error } = await getAdminClient()
-      .from('users')
-      .delete()
-      .eq('id', userId);
-
-    if (error) {
-      logger.error('Error deleting user', error);
       return false;
     }
 

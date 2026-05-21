@@ -35,15 +35,3 @@ export async function submitSurvey(eventId: string, dni: string, answers: Record
 
   return submitResult;
 }
-
-export async function getSurveyQuestions(eventId: string) {
-  return surveyService.getQuestions(eventId);
-}
-
-export async function getSurveyAnswers(eventId: string) {
-  return surveyService.getAnswers(eventId);
-}
-
-export async function getSurveyStats(eventId: string) {
-  return surveyService.getSurveyStats(eventId);
-}

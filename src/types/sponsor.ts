@@ -4,13 +4,6 @@ export interface Sponsor {
   name: string;
   logoUrl?: string;
   website?: string;
-  tier: SponsorTier;
+  tier: string;
   order: number;
-}
-
-export type SponsorTier = 'platinum' | 'gold' | 'silver' | 'bronze' | 'support';
-
-export interface SponsorWithTier extends Sponsor {
-  tierLabel: string;
-  tierColor: string;
 }

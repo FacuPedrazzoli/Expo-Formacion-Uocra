@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: 'Expo Formación UOCRA',
     locale: 'es_AR',
     type: 'website',
-    images: [{ url: '/images/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/logo-expo-formacion-nuevo.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',

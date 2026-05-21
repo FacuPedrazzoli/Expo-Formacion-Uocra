@@ -11,12 +11,6 @@ export interface Talk {
   registeredCount?: number;
 }
 
-export interface TalkRegistration {
-  id: string;
-  userId: string;
-  talkId: string;
-}
-
 export type TalkWithCapacity = Talk & {
   isFull: boolean;
   availableSpots: number;

@@ -44,23 +44,3 @@ export async function getEventStats(eventId: string): Promise<EventStats> {
     };
   }
 }
-
-export async function getTodayCheckinCount(eventId: string): Promise<number> {
-  const supabase = getAdminClient();
-  const today = new Date().toISOString().split('T')[0];
-
-  try {
-    const { count } = await supabase
-      .from('users')
-      .select('*', { count: 'exact', head: true })
-      .eq('event_id', eventId)
-      .eq('checked_in', true)
-      .gte('checked_in_at', `${today}T00:00:00`)
-      .lte('checked_in_at', `${today}T23:59:59`);
-
-    return count || 0;
-  } catch (error) {
-    console.error('Error fetching today checkin count:', error);
-    return 0;
-  }
-}

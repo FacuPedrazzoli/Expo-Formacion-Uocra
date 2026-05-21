@@ -2,10 +2,7 @@
 
 import { userRepo } from '@/lib/repositories/userRepo';
 import { surveyRepo } from '@/lib/repositories/surveyRepo';
-import { eventRepo } from '@/lib/repositories/eventRepo';
-import { getEventStats as getEventStatsFromRepo } from '@/lib/repositories/statsRepo';
 import { createClient } from '@supabase/supabase-js';
-import type { Event } from '@/types/event';
 
 let _adminClient: ReturnType<typeof createClient> | null = null;
 
@@ -24,10 +21,6 @@ export async function getUsers(eventId: string, page = 1, limit = 20) {
 
 export async function getUsersCount(eventId: string) {
   return userRepo.getUsersCount(eventId);
-}
-
-export async function searchUsers(eventId: string, query: string) {
-  return userRepo.searchUsers(eventId, query);
 }
 
 export async function getUserById(userId: string) {
@@ -103,20 +96,4 @@ export async function undoCheckin(userId: string, eventId: string): Promise<bool
     .eq('event_id', eventId);
   
   return !error;
-}
-
-export async function getEvent(eventId: string) {
-  return eventRepo.getEventById(eventId);
-}
-
-export async function createEvent(event: { title: string; year: number; date: string; location?: string; active: boolean }) {
-  return eventRepo.createEvent(event);
-}
-
-export async function updateEvent(id: string, updates: Partial<Event>) {
-  return eventRepo.updateEvent(id, updates);
-}
-
-export async function getEventStats(eventId: string) {
-  return getEventStatsFromRepo(eventId);
 }

@@ -10,16 +10,6 @@ export interface Event {
   createdAt: string;
 }
 
-export interface EventContent {
-  id: string;
-  eventId: string;
-  section: string;
-  title: string;
-  content: string;
-  imageUrl?: string;
-  order: number;
-}
-
 export interface EventStats {
   totalUsers: number;
   registeredUsers: number;

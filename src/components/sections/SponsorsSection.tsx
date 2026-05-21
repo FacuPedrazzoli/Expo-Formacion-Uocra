@@ -6,12 +6,12 @@ import { motion } from 'framer-motion';
 import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
 import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
-import type { SponsorWithTier } from '@/types/sponsor';
+import type { Sponsor } from '@/types/sponsor';
 
 interface SponsorsSectionProps {
   title?: string;
   subtitle?: string;
-  sponsors?: SponsorWithTier[];
+  sponsors?: Sponsor[];
 }
 
 export const SponsorsSection = React.memo(function SponsorsSection({

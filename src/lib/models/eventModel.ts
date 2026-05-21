@@ -44,14 +44,3 @@ export function mapRowToEventStats(row: EventStatsRow): EventStats {
     totalStands: Number(row.total_stands) || 0,
   };
 }
-
-export function createEmptyEvent(year: number): Event {
-  return {
-    id: '',
-    year,
-    title: `Expo Formación UOCRA ${year}`,
-    date: '',
-    active: false,
-    createdAt: new Date().toISOString(),
-  };
-}

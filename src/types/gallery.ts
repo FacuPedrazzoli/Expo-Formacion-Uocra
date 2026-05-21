@@ -6,9 +6,3 @@ export interface GalleryImage {
   caption?: string;
   order: number;
 }
-
-export interface GalleryCategory {
-  id: string;
-  name: string;
-  images: GalleryImage[];
-}

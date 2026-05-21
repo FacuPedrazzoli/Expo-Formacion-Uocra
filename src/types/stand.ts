@@ -10,9 +10,3 @@ export interface Stand {
   boothNumber?: string;
   order: number;
 }
-
-export interface StandCategory {
-  id: string;
-  name: string;
-  order: number;
-}

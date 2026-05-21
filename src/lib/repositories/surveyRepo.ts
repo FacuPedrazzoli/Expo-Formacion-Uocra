@@ -67,17 +67,6 @@ export const surveyRepo = {
 
     return (data || []) as SurveyAnswer[];
   },
-
-  async hasAnswered(eventId: string, dni: string): Promise<boolean> {
-    const { data, error } = await getAdminClient()
-      .from('survey_answers')
-      .select('id')
-      .eq('event_id', eventId)
-      .eq('dni', dni)
-      .single();
-
-    return !error && !!data;
-  },
 };
 
 interface SurveyQuestion {
