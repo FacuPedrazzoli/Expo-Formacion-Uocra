@@ -40,7 +40,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
       <Container className="max-w-7xl">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/images/logo-expo-formacion-nuevo.png" alt="Expo Formación UOCRA" width={96} height={48} priority className="h-12 w-auto" />
+            <Image src="/images/logo-expo-formacion-nuevo.png" alt="Expo Formación UOCRA" width={200} height={100} priority className="h-12 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
