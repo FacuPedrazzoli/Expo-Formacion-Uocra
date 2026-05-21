@@ -27,7 +27,7 @@ export const StandsSection = memo(function StandsSection({
   return (
     <Section id={id} variant="accent" className="relative">
       {showOverlay ? (
-        <ComingSoonBanner titulo="Próximamente daremos a conocer los stands que participarán" />
+        <ComingSoonBanner />
       ) : (
         <Container>
           <PremiumSectionTitle title={title} subtitle={subtitle} />

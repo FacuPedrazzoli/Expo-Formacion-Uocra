@@ -11,7 +11,7 @@ export interface SurveyQuestion {
   event_id: string;
   question: string;
   question_type: string;
-  options: string[];
+  options: string[] | null;
   required: boolean;
   sort_order: number;
 }

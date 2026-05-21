@@ -27,7 +27,7 @@ export async function processMassiveLoad(
   const errors: MassLoadResult['errors'] = [];
   let success = 0;
 
-  const validRows: { name: string; lastname: string; dni: string; email: string; phone: string | null }[] = [];
+  const validRows: { name: string; lastname: string; dni: string; email: string; phone: string | null; rowNumber: number }[] = [];
   const rowErrors: { row: number; dni: string; error: string }[] = [];
 
   for (let i = 0; i < rows.length; i++) {
@@ -46,7 +46,7 @@ export async function processMassiveLoad(
       rowErrors.push({
         row: rowNumber,
         dni: row.dni,
-        error: validation.error.errors.map(e => e.message).join(', '),
+        error: validation.error.issues.map(e => e.message).join(', '),
       });
     } else {
       validRows.push({
@@ -55,6 +55,7 @@ export async function processMassiveLoad(
         dni: row.dni,
         email: row.email,
         phone: row.telefono || null,
+        rowNumber,
       });
     }
 
@@ -82,9 +83,9 @@ export async function processMassiveLoad(
         for (let j = 0; j < batch.length; j++) {
           const user = batch[j];
           if (error.code === '23505') {
-            errors.push({ row: validRows[i + j].dni, dni: user.dni, error: 'DNI duplicado' });
+            errors.push({ row: validRows[i + j].rowNumber, dni: user.dni, error: 'DNI duplicado' });
           } else {
-            errors.push({ row: validRows[i + j].dni, dni: user.dni, error: error.message });
+            errors.push({ row: validRows[i + j].rowNumber, dni: user.dni, error: error.message });
           }
         }
         logger.error('Massive load batch insert error', error);

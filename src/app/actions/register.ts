@@ -116,7 +116,7 @@ export async function registerUser(formData: unknown): Promise<RegisterResult> {
       };
     }
 
-    const qrDataUrl = await generateQRDataURL(dni, baseUrl);
+    const qrDataUrl = await generateQRDataURL(dni);
 
     const { error: updateError } = await supabase
       .from('users')

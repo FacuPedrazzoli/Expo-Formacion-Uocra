@@ -10,7 +10,7 @@ export type { Stand } from './stand';
 
 export type { Sponsor } from './sponsor';
 
-export type { Gallery } from './gallery';
+export type { GalleryCategory, GalleryImage } from './gallery';
 
 export interface ApiResponse<T> {
   data?: T;

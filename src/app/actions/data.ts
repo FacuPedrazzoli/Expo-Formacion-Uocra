@@ -2,7 +2,8 @@
 
 import { userRepo } from '@/lib/repositories/userRepo';
 import { surveyRepo } from '@/lib/repositories/surveyRepo';
-import { statsRepo } from '@/lib/repositories/statsRepo';
+import { eventRepo } from '@/lib/repositories/eventRepo';
+import { getEventStats as getEventStatsFromRepo } from '@/lib/repositories/statsRepo';
 import { createClient } from '@supabase/supabase-js';
 import type { Event } from '@/types/event';
 
@@ -101,7 +102,7 @@ export async function getEvent(eventId: string) {
   return eventRepo.getEventById(eventId);
 }
 
-export async function createEvent(event: { name: string; year: number; date: string; location?: string; active?: boolean }) {
+export async function createEvent(event: { title: string; year: number; date: string; location?: string; active: boolean }) {
   return eventRepo.createEvent(event);
 }
 
@@ -110,5 +111,5 @@ export async function updateEvent(id: string, updates: Partial<Event>) {
 }
 
 export async function getEventStats(eventId: string) {
-  return statsRepo.getEventStats(eventId);
+  return getEventStatsFromRepo(eventId);
 }

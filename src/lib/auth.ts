@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/client';
+import { supabase } from '@/lib/supabase/client';
 import type { User } from '@/types/user';
 
 export interface AuthUser {
@@ -8,8 +8,6 @@ export interface AuthUser {
 }
 
 export async function getCurrentUser(): Promise<AuthUser | null> {
-  const supabase = createClient();
-  
   const { data: { user }, error } = await supabase.auth.getUser();
   
   if (error || !user) {
@@ -35,6 +33,5 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
 }
 
 export async function signOut(): Promise<void> {
-  const supabase = createClient();
   await supabase.auth.signOut();
 }

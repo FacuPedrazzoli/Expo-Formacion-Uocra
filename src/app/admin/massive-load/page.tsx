@@ -97,7 +97,7 @@ export default function MassiveLoadPage() {
     reader.onload = async (event) => {
       const content = event.target?.result as string;
       const { rows } = parseCSV(content);
-      const rowsTyped = rows as ParsedRow[];
+      const rowsTyped = rows as unknown as ParsedRow[];
 
       setProgress({ current: 0, total: rowsTyped.length });
 

@@ -9,12 +9,12 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { getUserById, updateUser, getUserSurveyAnswers, undoCheckin } from '@/app/actions/data';
 import { getActiveEventId } from '@/app/actions/checkin';
-import type { User } from '@/types/user';
+import type { User as UserType } from '@/types/user';
 
 export default function UserDetailPage() {
   const router = useRouter();
   const params = useParams();
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserType | null>(null);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(false);
   const [editForm, setEditForm] = useState({ name: '', lastname: '', email: '', phone: '' });

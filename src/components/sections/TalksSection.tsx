@@ -28,7 +28,7 @@ export const TalksSection = React.memo(function TalksSection({
   return (
     <Section id={id} variant="default" className="relative">
       {showOverlay ? (
-        <ComingSoonBanner titulo="Entérate de todas las capacitaciones y workshops" />
+        <ComingSoonBanner />
       ) : (
         <Container>
           <PremiumSectionTitle title={title} subtitle={subtitle} />

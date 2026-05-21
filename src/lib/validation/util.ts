@@ -6,7 +6,7 @@ export function validateUUID(id: string): boolean {
 }
 
 export class ValidationError extends Error {
-  constructor(public readonly errors: z.ZodError['flatten']) {
+  constructor(public readonly errors: ReturnType<z.ZodError<unknown>['flatten']>) {
     super('Validation failed');
     this.name = 'ValidationError';
   }

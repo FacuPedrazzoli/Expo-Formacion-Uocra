@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Users, UserCheck, ClipboardCheck, Calendar, QrCode, Mic, ArrowRight, CheckCircle } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { getCheckinStats, getActiveEventId } from '@/app/actions/data';
+import { getCheckinStats } from '@/app/actions/data';
 import { surveyRepo } from '@/lib/repositories/surveyRepo';
 import { eventRepo } from '@/lib/repositories/eventRepo';
 
@@ -36,17 +36,17 @@ export default function AdminDashboard() {
 
   async function loadStats() {
     try {
-      const eventId = await getActiveEventId();
-      if (!eventId) {
+      const event = await eventRepo.getActiveEvent();
+      if (!event) {
         setLoading(false);
         return;
       }
+      const eventId = event.id;
       setActiveEvent(eventId);
       
-      const [checkinStats, surveyResponses, event] = await Promise.all([
+      const [checkinStats, surveyResponses] = await Promise.all([
         getCheckinStats(eventId),
         surveyRepo.getAnswersByEvent(eventId),
-        eventRepo.getActiveEvent(),
       ]);
       
       setStats({

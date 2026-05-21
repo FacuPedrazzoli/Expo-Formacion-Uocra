@@ -8,7 +8,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     globals: true,
-    coverage: { reporter: ['text', 'html'], outDir: 'coverage' },
+    coverage: { reporter: ['text', 'html'] },
   },
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },
 });
