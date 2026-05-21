@@ -7,7 +7,7 @@ import type { Event } from '@/types/event';
 interface UseEventReturn {
   event: Event | null;
   loading: boolean;
-  error: null;
+  error: string | null;
   refetch: () => void;
 }
 

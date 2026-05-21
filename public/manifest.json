@@ -1,0 +1,13 @@
+{
+  "name": "Expo Formación UOCRA",
+  "short_name": "ExpoUOCRA",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/images/logo-expo-formacion-nuevo.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import type { Stand } from '@/types/stand';
 interface UseStandsReturn {
   stands: Stand[];
   loading: boolean;
-  error: null;
+  error: string | null;
   refetch: () => void;
 }
 

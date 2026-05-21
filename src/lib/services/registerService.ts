@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { userRepo } from '@/lib/repositories/userRepo';
+import { logger } from '@/lib/logger';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -76,7 +77,7 @@ export const registerService = {
 
       return { success: true, userId: user.id, dni: user.dni };
     } catch (error) {
-      console.error('Register error:', error);
+      logger.error('Register error', error);
       return { success: false, error: 'Error inesperado en el registro' };
     }
   },
@@ -111,7 +112,7 @@ export const registerService = {
           failed++;
         }
       } catch (error) {
-        console.error('CSV import error:', error);
+        logger.error('CSV import error', error);
         failed++;
       }
     }

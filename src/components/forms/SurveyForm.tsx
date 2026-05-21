@@ -1,8 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+
+export type SurveyQuestionType = 'rating' | 'select' | 'text';
+
+export interface SurveyQuestion {
+  id: string;
+  type: SurveyQuestionType;
+  question: string;
+  options?: { value: string; label: string }[];
+  required?: boolean;
+}
 
 interface RatingQuestionProps {
   question: string;
@@ -10,6 +20,7 @@ interface RatingQuestionProps {
   onChange: (value: number) => void;
   maxRating?: number;
   labels?: string[];
+  required?: boolean;
 }
 
 export function RatingQuestion({
@@ -18,10 +29,14 @@ export function RatingQuestion({
   onChange,
   maxRating = 5,
   labels = ['Muy malo', 'Malo', 'Regular', 'Bueno', 'Excelente'],
+  required,
 }: RatingQuestionProps) {
   return (
     <div className="space-y-3">
-      <label className="text-sm font-medium block">{question}</label>
+      <label className="text-sm font-medium block">
+        {question}
+        {required && <span className="text-destructive ml-1">*</span>}
+      </label>
       <div className="flex flex-wrap gap-2">
         {Array.from({ length: maxRating }, (_, i) => i + 1).map((rating) => (
           <motion.button
@@ -56,6 +71,7 @@ interface SelectQuestionProps {
   value: string;
   onChange: (value: string) => void;
   options: { value: string; label: string }[];
+  required?: boolean;
 }
 
 export function SelectQuestion({
@@ -63,10 +79,14 @@ export function SelectQuestion({
   value,
   onChange,
   options,
+  required,
 }: SelectQuestionProps) {
   return (
     <div className="space-y-3">
-      <label className="text-sm font-medium block">{question}</label>
+      <label className="text-sm font-medium block">
+        {question}
+        {required && <span className="text-destructive ml-1">*</span>}
+      </label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -88,6 +108,7 @@ interface TextQuestionProps {
   onChange: (value: string) => void;
   placeholder?: string;
   rows?: number;
+  required?: boolean;
 }
 
 export function TextQuestion({
@@ -96,10 +117,14 @@ export function TextQuestion({
   onChange,
   placeholder = 'Tu respuesta...',
   rows = 3,
+  required,
 }: TextQuestionProps) {
   return (
     <div className="space-y-3">
-      <label className="text-sm font-medium block">{question}</label>
+      <label className="text-sm font-medium block">
+        {question}
+        {required && <span className="text-destructive ml-1">*</span>}
+      </label>
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -111,21 +136,12 @@ export function TextQuestion({
   );
 }
 
-export type SurveyQuestionType = 'rating' | 'select' | 'text';
-
-export interface SurveyQuestion {
-  id: string;
-  type: SurveyQuestionType;
-  question: string;
-  options?: { value: string; label: string }[];
-  required?: boolean;
-}
-
 interface SurveyFormProps {
   questions: SurveyQuestion[];
   answers: Record<string, string | number>;
   onAnswer: (questionId: string, value: string | number) => void;
   onSubmit?: () => void;
+  errors?: Record<string, string>;
 }
 
 export function SurveyForm({
@@ -133,7 +149,12 @@ export function SurveyForm({
   answers,
   onAnswer,
   onSubmit,
+  errors = {},
 }: SurveyFormProps) {
+  const handleAnswer = useCallback((questionId: string, value: string | number) => {
+    onAnswer(questionId, value);
+  }, [onAnswer]);
+
   return (
     <form
       onSubmit={(e) => {
@@ -148,28 +169,35 @@ export function SurveyForm({
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3, delay: index * 0.1 }}
+          className="space-y-2"
         >
           {q.type === 'rating' && (
             <RatingQuestion
               question={q.question}
               value={answers[q.id] as number | undefined}
-              onChange={(value) => onAnswer(q.id, value)}
+              onChange={(value) => handleAnswer(q.id, value)}
+              required={q.required}
             />
           )}
           {q.type === 'select' && q.options && (
             <SelectQuestion
               question={q.question}
               value={answers[q.id] as string || ''}
-              onChange={(value) => onAnswer(q.id, value)}
+              onChange={(value) => handleAnswer(q.id, value)}
               options={q.options}
+              required={q.required}
             />
           )}
           {q.type === 'text' && (
             <TextQuestion
               question={q.question}
               value={answers[q.id] as string || ''}
-              onChange={(value) => onAnswer(q.id, value)}
+              onChange={(value) => handleAnswer(q.id, value)}
+              required={q.required}
             />
+          )}
+          {errors[q.id] && (
+            <p className="text-sm text-destructive">{errors[q.id]}</p>
           )}
         </motion.div>
       ))}

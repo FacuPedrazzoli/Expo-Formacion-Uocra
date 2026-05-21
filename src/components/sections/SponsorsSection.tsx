@@ -1,6 +1,8 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
 import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
@@ -12,7 +14,7 @@ interface SponsorsSectionProps {
   sponsors?: SponsorWithTier[];
 }
 
-export function SponsorsSection({
+export const SponsorsSection = React.memo(function SponsorsSection({
   title = 'Sponsors',
   subtitle = 'Empresas que nos acompañan',
   sponsors = [],
@@ -32,13 +34,15 @@ export function SponsorsSection({
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="flex items-center justify-center p-4 bg-white rounded-lg border border-slate-100 shadow-sm hover:shadow-md hover:border-[#D4A853] transition-all duration-300"
+                  className="flex items-center justify-center p-4 bg-white rounded-lg border border-slate-100 shadow-sm hover:shadow-md hover:border-accent transition-all duration-300"
                 >
                   <div className="text-center">
                     {sponsor.logoUrl ? (
-                      <img 
+                      <Image 
                         src={sponsor.logoUrl} 
                         alt={sponsor.name}
+                        width={120}
+                        height={60}
                         className="h-12 w-auto mx-auto grayscale hover:grayscale-0 transition-all duration-300"
                       />
                     ) : (
@@ -57,4 +61,4 @@ export function SponsorsSection({
       </Container>
     </Section>
   );
-}
+});

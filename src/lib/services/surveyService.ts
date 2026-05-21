@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { surveyRepo } from '@/lib/repositories/surveyRepo';
+import { logger } from '@/lib/logger';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -27,20 +28,15 @@ export const surveyService = {
 
   async submitSurvey(eventId: string, dni: string, answers: Record<string, unknown>): Promise<SurveyResult> {
     try {
-      const hasAnswered = await surveyRepo.hasAnswered(eventId, dni);
-      if (hasAnswered) {
-        return { success: false, error: 'Ya has completado la encuesta anteriormente' };
-      }
-
       const saved = await surveyRepo.saveAnswers(eventId, dni, answers);
       
       if (!saved) {
-        return { success: false, error: 'Error al guardar las respuestas' };
+        return { success: false, error: 'Ya has completado la encuesta anteriormente' };
       }
 
       return { success: true };
     } catch (error) {
-      console.error('Survey submit error:', error);
+      logger.error('Survey submit error', error);
       return { success: false, error: 'Error inesperado al enviar la encuesta' };
     }
   },

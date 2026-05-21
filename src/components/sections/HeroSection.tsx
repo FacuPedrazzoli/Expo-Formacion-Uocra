@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
 import Link from 'next/link';
 import { Calendar, MapPin, ExternalLink, ArrowRight } from 'lucide-react';
@@ -43,13 +44,13 @@ export function HeroSection({
       <div className="absolute inset-0 opacity-10 diagonal-pattern" />
       
       <motion.div 
-        className="absolute top-10 left-0 w-48 h-48 bg-[#D4A853] rounded-full opacity-25"
+        className="absolute top-10 left-0 w-48 h-48 bg-accent rounded-full opacity-25"
         animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         style={{ filter: 'blur(60px)' }}
       />
       <motion.div 
-        className="absolute bottom-20 right-10 w-64 h-64 bg-[#D4A853] rounded-full opacity-20"
+        className="absolute bottom-20 right-10 w-64 h-64 bg-accent rounded-full opacity-20"
         animate={{ y: [0, 30, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         style={{ filter: 'blur(80px)' }}
@@ -78,9 +79,12 @@ export function HeroSection({
             transition={{ duration: 0.8, delay: 0.1 }}
             className="mb-10"
           >
-            <img 
+            <Image 
               src="/images/logo-expo-formacion-nuevo.png" 
               alt="Expo Formación UOCRA" 
+              width={580}
+              height={290}
+              priority
               className="max-w-[280px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[580px] w-auto h-auto mx-auto drop-shadow-2xl"
             />
           </motion.div>
@@ -108,7 +112,7 @@ export function HeroSection({
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 backdrop-blur-md bg-white/10 border border-white/20 rounded-xl text-white text-sm font-medium hover:bg-white/20 hover:border-white/30 transition-all"
             >
-              <Calendar className="w-4 h-4 text-[#D4A853]" />
+              <Calendar className="w-4 h-4 text-accent" />
               {eventDate}
             </a>
             <a
@@ -136,7 +140,7 @@ export function HeroSection({
             ) : (
               <Link 
                 href={ctaHref}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#D4A853] text-white font-bold text-lg shadow-2xl shadow-[#D4A853]/30 hover:bg-[#B8923E] hover:shadow-2xl hover:shadow-[#D4A853]/40 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-accent text-white font-bold text-lg shadow-2xl shadow-accent/30 hover:bg-accent-dark hover:shadow-2xl hover:shadow-accent/40 transition-all duration-300"
               >
                 {ctaText}
                 <ArrowRight className="w-5 h-5" />

@@ -1,5 +1,6 @@
 'use client';
 
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
@@ -16,7 +17,7 @@ interface StandsSectionProps {
   showOverlay?: boolean;
 }
 
-export function StandsSection({
+export const StandsSection = memo(function StandsSection({
   id,
   title = 'Stands y Expositores',
   subtitle = 'Conocé a los principales actores del sector',
@@ -26,7 +27,7 @@ export function StandsSection({
   return (
     <Section id={id} variant="accent" className="relative">
       {showOverlay ? (
-        <ComingSoonBanner titulo="Vamos a dar a conocer los stands que partecipán" />
+        <ComingSoonBanner titulo="Próximamente daremos a conocer los stands que participarán" />
       ) : (
         <Container>
           <PremiumSectionTitle title={title} subtitle={subtitle} />
@@ -43,9 +44,9 @@ export function StandsSection({
                     viewport={{ once: true }}
                     className="group"
                   >
-                    <div className="h-full bg-white rounded-2xl border border-slate-200 shadow-sm p-6 transition-all duration-300 hover:shadow-xl hover:border-[#D4A853]/50 hover:-translate-y-0.5">
-                      <div className="w-12 h-12 rounded-xl bg-[#D4A853]/10 flex items-center justify-center mb-4 group-hover:bg-[#D4A853] group-hover:text-white transition-colors">
-                        <MapPin className="w-5 h-5 text-[#D4A853] group-hover:text-white" />
+                    <div className="h-full bg-white rounded-2xl border border-slate-200 shadow-sm p-6 transition-all duration-300 hover:shadow-xl hover:border-accent/50 hover:-translate-y-0.5">
+                      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-colors">
+                        <MapPin className="w-5 h-5 text-accent group-hover:text-white" />
                       </div>
                       <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">{stand.name}</h3>
                       {stand.ubicacion && (
@@ -68,8 +69,8 @@ export function StandsSection({
                     className="group"
                   >
                     <div className="h-full bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-                      <div className="w-12 h-12 rounded-xl bg-[#D4A853]/10 flex items-center justify-center mb-4">
-                        <MapPin className="w-5 h-5 text-[#D4A853]" />
+                      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                        <MapPin className="w-5 h-5 text-accent" />
                       </div>
                       <h3 className="text-lg font-bold text-slate-900 mb-1">Stand {index + 1}</h3>
                       <p className="text-sm text-slate-500 mb-3">Zona A - Stand {index + 1}</p>
@@ -86,4 +87,4 @@ export function StandsSection({
       )}
     </Section>
   );
-}
+});

@@ -1,3 +1,8 @@
+export const goldenGlow = 'golden-glow 3s ease-in-out infinite';
+export const goldenShimmer = 'golden-shimmer 3s linear infinite';
+export const float = 'float 6s ease-in-out infinite';
+export const floatReverse = 'float-reverse 6s ease-in-out infinite';
+
 export const goldenHour = {
   colors: {
     gold: {
@@ -17,10 +22,10 @@ export const goldenHour = {
     },
   },
   animation: {
-    goldenGlow: 'golden-glow 3s ease-in-out infinite',
-    goldenShimmer: 'golden-shimmer 3s linear infinite',
-    float: 'float 6s ease-in-out infinite',
-    floatReverse: 'float-reverse 6s ease-in-out infinite',
+    goldenGlow,
+    goldenShimmer,
+    float,
+    floatReverse,
   },
   shadows: {
     golden: '0 4px 20px rgba(212, 168, 83, 0.3)',

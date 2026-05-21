@@ -4,12 +4,13 @@ import { ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { LayoutDashboard, Users, QrCode, Mic, Calendar, FileText, ClipboardList, Upload } from 'lucide-react';
+import { LayoutDashboard, Users, QrCode, Mic, Calendar, FileText, ClipboardList, Upload, CreditCard } from 'lucide-react';
 
 const navItems = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/users', label: 'Usuarios', icon: Users },
   { href: '/admin/checkin', label: 'Check-in', icon: QrCode },
+  { href: '/admin/credentials', label: 'Credenciales', icon: CreditCard },
   { href: '/admin/talks', label: 'Charlas', icon: Mic },
   { href: '/admin/events', label: 'Eventos', icon: Calendar },
   { href: '/admin/content', label: 'Contenido', icon: FileText },

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Container } from './Container';
@@ -24,7 +25,6 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
     { href: '#bienvenida', label: 'Bienvenida', sectionId: 'bienvenida' },
     { href: '#empresas', label: 'Empresas', sectionId: 'empresas' },
     { href: '#talks', label: 'Charlas', sectionId: 'talks' },
-    { href: '#registro', label: 'Regístrate', sectionId: 'registro' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -40,7 +40,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
       <Container className="max-w-7xl">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/images/logo-expo-formacion-nuevo.png" alt="Expo Formación UOCRA" className="h-12 w-auto" />
+            <Image src="/images/logo-expo-formacion-nuevo.png" alt="Expo Formación UOCRA" width={48} height={48} priority className="h-12 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -55,9 +55,9 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
             ))}
             <button 
               onClick={() => scrollToSection('registro')}
-              className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm shadow-lg shadow-[#D4A853]/25 hover:bg-[#D4A853] hover:shadow-xl hover:shadow-[#D4A853]/30 transition-all duration-200 cursor-pointer border-none"
+              className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-accent text-white font-semibold text-sm shadow-lg shadow-accent/25 hover:bg-accent hover:shadow-xl hover:shadow-accent/30 transition-all duration-200 cursor-pointer border-none"
             >
-              Regístrate
+              Registrate
             </button>
           </nav>
 
@@ -92,9 +92,9 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
                 ))}
                 <button 
                   onClick={() => scrollToSection('registro')}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4A853] text-white font-semibold text-sm w-full cursor-pointer border-none"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-accent text-white font-semibold text-sm w-full cursor-pointer border-none"
                 >
-                  Regístrate
+                  Registrate
                 </button>
               </nav>
             </Container>

@@ -1,5 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
-import type { User, UserSearchResult } from '@/types/user';
+import type { User } from '@/types/user';
+import { mapRowToUser } from '@/lib/models/userModel';
+import { NotFoundError } from '@/lib/errors';
+import { logger } from '@/lib/logger';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -16,14 +19,14 @@ export const userRepo = {
 
     if (error) {
       if (error.code === 'PGRST116') return null;
-      console.error('Error fetching user:', error);
+      logger.error('Error fetching user', error);
       return null;
     }
 
-    return data as User;
+    return data ? mapRowToUser(data as any) : null;
   },
 
-  async getUserById(userId: string): Promise<User | null> {
+  async getUserById(userId: string): Promise<User> {
     const { data, error } = await adminClient
       .from('users')
       .select('*')
@@ -31,11 +34,10 @@ export const userRepo = {
       .single();
 
     if (error || !data) {
-      console.error('Error fetching user:', error);
-      return null;
+      throw new NotFoundError('Usuario');
     }
 
-    return data as User;
+    return mapRowToUser(data as any);
   },
 
   async createUser(user: Omit<User, 'id' | 'createdAt' | 'updatedAt'>): Promise<User | null> {
@@ -57,11 +59,11 @@ export const userRepo = {
       .single();
 
     if (error) {
-      console.error('Error creating user:', error);
+      logger.error('Error creating user', error);
       return null;
     }
 
-    return data as User;
+    return data ? mapRowToUser(data as any) : null;
   },
 
   async searchUsers(eventId: string, query: string, limit = 10): Promise<User[]> {
@@ -74,11 +76,11 @@ export const userRepo = {
       .limit(limit);
 
     if (error) {
-      console.error('Error searching users:', error);
+      logger.error('Error searching users', error);
       return [];
     }
 
-    return (data || []) as User[];
+    return (data || []).map(row => mapRowToUser(row as any));
   },
 
   async getUsersByEvent(eventId: string, page = 1, limit = 20): Promise<User[]> {
@@ -92,11 +94,11 @@ export const userRepo = {
       .range(offset, offset + limit - 1);
 
     if (error) {
-      console.error('Error fetching users:', error);
+      logger.error('Error fetching users', error);
       return [];
     }
 
-    return (data || []) as User[];
+    return (data || []).map(row => mapRowToUser(row as any));
   },
 
   async getUsersCount(eventId: string): Promise<number> {
@@ -116,7 +118,7 @@ export const userRepo = {
       .eq('event_id', eventId);
 
     if (error) {
-      console.error('Error checking in user:', error);
+      logger.error('Error checking in user', error);
       return false;
     }
 
@@ -135,7 +137,7 @@ export const userRepo = {
       .eq('id', userId);
 
     if (error) {
-      console.error('Error updating user:', error);
+      logger.error('Error updating user', error);
       return false;
     }
 
@@ -149,10 +151,38 @@ export const userRepo = {
       .eq('id', userId);
 
     if (error) {
-      console.error('Error deleting user:', error);
+      logger.error('Error deleting user', error);
       return false;
     }
 
     return true;
+  },
+
+  async markAsCheckedIn(userId: string): Promise<boolean> {
+    const { error } = await adminClient
+      .from('users')
+      .update({ checked_in: true, checked_in_at: new Date().toISOString() })
+      .eq('id', userId);
+
+    if (error) {
+      logger.error('Error marking user as checked in', error);
+      return false;
+    }
+
+    return true;
+  },
+
+  async isCheckedIn(userId: string): Promise<boolean> {
+    const { data, error } = await adminClient
+      .from('users')
+      .select('checked_in')
+      .eq('id', userId)
+      .single();
+
+    if (error || !data) {
+      return false;
+    }
+
+    return data.checked_in === true;
   },
 };

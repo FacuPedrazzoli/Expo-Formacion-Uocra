@@ -2,8 +2,11 @@
 
 import { createClient } from '@supabase/supabase-js';
 import { revalidatePath } from 'next/cache';
-import type { RegistrationFormData } from '@/lib/validation/schemas';
+import { registrationSchema } from '@/lib/validation/schemas';
+import { generateQRDataURL } from '@/lib/qr';
+import { logger } from '@/lib/logger';
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://expoformacion.uocra.org';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
@@ -13,7 +16,7 @@ export interface RegisterResult {
   userId?: string;
   dni?: string;
   error?: string;
-  errorCode?: 'DUPLICATE_DNI' | 'NO_ACTIVE_EVENT' | 'UNKNOWN';
+  errorCode?: 'DUPLICATE_DNI' | 'NO_ACTIVE_EVENT' | 'DUPLICATE_EMAIL' | 'UNKNOWN';
 }
 
 async function getActiveEventId(): Promise<string | null> {
@@ -39,7 +42,14 @@ async function getHowFoundIdByLabel(label: string): Promise<string | null> {
   return data.id;
 }
 
-export async function registerUser(formData: RegistrationFormData): Promise<RegisterResult> {
+export async function registerUser(formData: unknown): Promise<RegisterResult> {
+  const validated = registrationSchema.safeParse(formData);
+  if (!validated.success) {
+    return { success: false, error: 'Datos inválidos', errorCode: 'UNKNOWN' };
+  }
+
+  const { name, surname, dni, email, source } = validated.data;
+
   try {
     const eventId = await getActiveEventId();
     if (!eventId) {
@@ -50,14 +60,14 @@ export async function registerUser(formData: RegistrationFormData): Promise<Regi
       };
     }
 
-    const { data: existingUser } = await supabase
+    const { data: existingUserByDNI } = await supabase
       .from('users')
       .select('id')
-      .eq('dni', formData.dni)
+      .eq('dni', dni)
       .eq('event_id', eventId)
       .single();
 
-    if (existingUser) {
+    if (existingUserByDNI) {
       return {
         success: false,
         error: 'DNI ya registrado para este evento',
@@ -65,16 +75,31 @@ export async function registerUser(formData: RegistrationFormData): Promise<Regi
       };
     }
 
-    const howFoundId = await getHowFoundIdByLabel(formData.source);
+    const { data: existingUserByEmail } = await supabase
+      .from('users')
+      .select('id')
+      .eq('email', email)
+      .eq('event_id', eventId)
+      .single();
+
+    if (existingUserByEmail) {
+      return {
+        success: false,
+        error: 'Email ya registrado para este evento',
+        errorCode: 'DUPLICATE_EMAIL'
+      };
+    }
+
+    const howFoundId = await getHowFoundIdByLabel(source);
 
     const { data: newUser, error: userError } = await supabase
       .from('users')
       .insert({
         event_id: eventId,
-        dni: formData.dni,
-        name: formData.name,
-        lastname: formData.surname,
-        email: formData.email,
+        dni: dni,
+        name: name,
+        lastname: surname,
+        email: email,
         user_type: 'web',
         has_qr: false,
         checked_in: false,
@@ -91,6 +116,17 @@ export async function registerUser(formData: RegistrationFormData): Promise<Regi
       };
     }
 
+    const qrDataUrl = await generateQRDataURL(dni, baseUrl);
+
+    const { error: updateError } = await supabase
+      .from('users')
+      .update({ has_qr: true, qr_code: qrDataUrl })
+      .eq('id', newUser.id);
+
+    if (updateError) {
+      logger.error('Error updating QR', updateError);
+    }
+
     revalidatePath('/');
     revalidatePath('/register');
 
@@ -101,7 +137,7 @@ export async function registerUser(formData: RegistrationFormData): Promise<Regi
     };
 
   } catch (error) {
-    console.error('Registration error:', error);
+    logger.error('Registration error', error);
     return {
       success: false,
       error: 'Error inesperado en el registro. Por favor, intentá más tarde.',

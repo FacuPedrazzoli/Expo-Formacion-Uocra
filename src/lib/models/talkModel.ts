@@ -1,4 +1,5 @@
 import type { Talk, TalkWithCapacity } from '@/types/talk';
+import { formatTalkTime, getTalkDuration } from '@/lib/utils/format';
 
 export interface TalkRow {
   id: string;
@@ -36,14 +37,4 @@ export function mapRowToTalkWithCapacity(row: TalkRow, registeredCount: number =
   };
 }
 
-export function formatTalkTime(startTime: string, endTime: string): string {
-  const start = startTime.slice(0, 5);
-  const end = endTime.slice(0, 5);
-  return `${start} - ${end}`;
-}
-
-export function getTalkDuration(startTime: string, endTime: string): number {
-  const start = new Date(`2000-01-01T${startTime}`);
-  const end = new Date(`2000-01-01T${endTime}`);
-  return Math.round((end.getTime() - start.getTime()) / 60000);
-}
+export { formatTalkTime, getTalkDuration };

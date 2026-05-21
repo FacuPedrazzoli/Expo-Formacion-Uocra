@@ -5,37 +5,26 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Container } from '@/components/layout/Container';
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, XCircle, Clock, User } from 'lucide-react';
-import type { User as UserType } from '@/types/user';
-
-type QRStatus = 'loading' | 'not_found' | 'not_checked' | 'checked' | 'survey';
+import { CheckCircle } from 'lucide-react';
+import { getUserByDNI } from '@/app/actions/checkin';
+import eventData from '@/data/event-data.json';
 
 export default function QRPage() {
   const params = useParams();
   const dni = params?.dni as string;
   
-  const [status, setStatus] = useState<QRStatus>('loading');
-  const [user, setUser] = useState<UserType | null>(null);
+  const [status, setStatus] = useState<'loading' | 'found' | 'not_found'>('loading');
 
   useEffect(() => {
     async function fetchUser() {
-      setTimeout(() => {
-        setUser({
-          id: '1',
-          eventId: '1',
-          dni: dni,
-          name: 'Juan',
-          lastname: 'Pérez',
-          email: 'juan@example.com',
-          userType: 'web',
-          hasQR: false,
-          checkedIn: false,
-          createdAt: new Date().toISOString(),
-        });
-        setStatus('not_checked');
-      }, 500);
+      try {
+        const user = await getUserByDNI(dni);
+        setStatus(user ? 'found' : 'not_found');
+      } catch {
+        setStatus('not_found');
+      }
     }
 
     if (dni) {
@@ -43,54 +32,16 @@ export default function QRPage() {
     }
   }, [dni]);
 
-  const handleCheckin = () => {
-    if (user) {
-      setUser({ ...user, checkedIn: true });
-      setStatus('checked');
-    }
-  };
-
-  const handleGoToSurvey = () => {
-    window.location.href = '/survey';
-  };
-
   if (status === 'loading') {
     return (
       <Container className="py-12">
         <div className="text-center">
           <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4" />
-          <p className="text-muted-foreground">Buscando usuario...</p>
+          <p className="text-muted-foreground">Cargando...</p>
         </div>
       </Container>
     );
   }
-
-  const statusConfig = {
-    not_found: {
-      icon: XCircle,
-      color: 'text-destructive',
-      bgColor: 'bg-destructive/10',
-      title: 'Usuario no encontrado',
-      description: 'No existe registro con este DNI',
-    },
-    not_checked: {
-      icon: Clock,
-      color: 'text-yellow-600',
-      bgColor: 'bg-yellow-50',
-      title: 'Pendiente de check-in',
-      description: 'Tu registro está confirmado. Por favor realizá el check-in.',
-    },
-    checked: {
-      icon: CheckCircle,
-      color: 'text-green-600',
-      bgColor: 'bg-green-50',
-      title: 'Check-in completado',
-      description: 'Ya estás registrado en el evento.',
-    },
-  };
-
-  const config = statusConfig[status as keyof typeof statusConfig] || statusConfig.not_found;
-  const Icon = config.icon;
 
   return (
     <Container className="py-12">
@@ -101,43 +52,32 @@ export default function QRPage() {
         >
           <Card>
             <CardHeader className="text-center">
-              <div className={`w-16 h-16 rounded-full ${config.bgColor} flex items-center justify-center mx-auto mb-4`}>
-                <Icon className={`w-8 h-8 ${config.color}`} />
+              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
-              <CardTitle className="text-xl">{config.title}</CardTitle>
+              <h1 className="text-2xl font-bold text-primary">¡Te esperamos!</h1>
             </CardHeader>
             
-            <CardContent className="text-center">
-              {user && (
-                <div className="space-y-2 mb-6">
-                  <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                    <User className="w-4 h-4" />
-                    <span>{user.name} {user.lastname}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">DNI: {user.dni}</p>
-                  <p className="text-sm text-muted-foreground">{user.email}</p>
-                </div>
-              )}
+            <CardContent className="text-center space-y-4">
+              <p className="text-lg text-foreground">
+                Tu registro está confirmado para Expo Formación UOCRA 2026.
+              </p>
               
-              <p className="text-muted-foreground">{config.description}</p>
+              <div className="py-4 border-y">
+                <p className="font-semibold text-lg">{eventData.eventInfo.date}</p>
+                <p className="text-muted-foreground">{eventData.eventInfo.location}</p>
+                <p className="text-sm text-muted-foreground">{eventData.eventInfo.address}</p>
+              </div>
+
+              <p className="text-sm text-muted-foreground">
+                Presentá tu DNI en el ingreso para realizar el check-in.
+              </p>
             </CardContent>
 
-            <CardFooter className="flex flex-col gap-2">
-              {status === 'not_checked' && (
-                <Button onClick={handleCheckin} className="w-full">
-                  Realizar Check-in
-                </Button>
-              )}
-              
-              {status === 'checked' && (
-                <Button onClick={handleGoToSurvey} className="w-full">
-                  Completar Encuesta
-                </Button>
-              )}
-              
-              <Link href="/" className="w-full">
-                <Button variant="outline" className="w-full">
-                  Volver al Inicio
+            <CardFooter className="flex justify-center">
+              <Link href="/">
+                <Button variant="outline">
+                  Volver al inicio
                 </Button>
               </Link>
             </CardFooter>

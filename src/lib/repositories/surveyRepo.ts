@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { logger } from '@/lib/logger';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -14,7 +15,7 @@ export const surveyRepo = {
       .order('sort_order', { ascending: true });
 
     if (error) {
-      console.error('Error fetching questions:', error);
+      logger.error('Error fetching questions', error);
       return [];
     }
 
@@ -22,23 +23,27 @@ export const surveyRepo = {
   },
 
   async saveAnswers(eventId: string, dni: string, answers: Record<string, unknown>): Promise<boolean> {
-    const { error } = await adminClient
+    const { data, error } = await adminClient
       .from('survey_answers')
-      .upsert({
+      .insert({
         event_id: eventId,
         dni: dni,
         answers_json: answers,
-        created_at: new Date().toISOString(),
-      }, {
-        onConflict: 'event_id,dni',
-      });
+      })
+      .select('id')
+      .single();
 
     if (error) {
-      console.error('Error saving survey answers:', error);
+      if (error.code === '23505') {
+        logger.warn('Duplicate survey submission', { eventId, dni });
+        return false;
+      }
+      logger.error('Error saving survey answers', error);
       return false;
     }
 
-    return true;
+    logger.info('Survey submitted', { eventId, dni });
+    return !!data;
   },
 
   async getAnswersByEvent(eventId: string): Promise<SurveyAnswer[]> {
@@ -49,7 +54,7 @@ export const surveyRepo = {
       .order('created_at', { ascending: false });
 
     if (error) {
-      console.error('Error fetching answers:', error);
+      logger.error('Error fetching answers', error);
       return [];
     }
 
@@ -73,7 +78,7 @@ interface SurveyQuestion {
   event_id: string;
   question: string;
   question_type: string;
-  options: string[];
+  options: string[] | null;
   required: boolean;
   sort_order: number;
 }

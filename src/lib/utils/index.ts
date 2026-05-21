@@ -25,3 +25,6 @@ export function formatTime(time: string): string {
 export function getInitials(name: string, lastname: string): string {
   return `${name.charAt(0)}${lastname.charAt(0)}`.toUpperCase();
 }
+
+export { formatTalkTime, getTalkDuration } from './format';
+export { APP_NAME, DEFAULT_EVENT_DATE, DATE_FORMAT, QR_PREFIX } from './constants';

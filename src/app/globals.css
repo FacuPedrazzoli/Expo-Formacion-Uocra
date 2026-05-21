@@ -179,9 +179,6 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   body {
     @apply bg-background text-foreground leading-relaxed;
   }
@@ -192,9 +189,12 @@
   p {
     @apply leading-relaxed;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-zinc-900 font-semibold;
-  }
+  h1 { @apply text-3xl font-bold text-foreground; }
+  h2 { @apply text-2xl font-semibold text-foreground; }
+  h3 { @apply text-xl font-semibold text-foreground; }
+  h4 { @apply text-lg font-semibold text-foreground; }
+  h5 { @apply text-base font-semibold text-foreground; }
+  h6 { @apply text-sm font-semibold text-foreground; }
 }
 
 /* Geometric decorative shapes */
@@ -234,6 +234,11 @@
   50% {
     transform: translateY(20px) rotate(-5deg);
   }
+}
+
+@keyframes carouselInfinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-66.666%); }
 }
 
 /* Diagonal pattern background */
@@ -368,5 +373,5 @@
 /* Premium badge style */
 .premium-badge {
   @apply px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest;
-  @apply bg-[#D4A853]/20 text-[#D4A853] border border-[#D4A853]/30;
+  @apply bg-accent/20 text-accent border border-accent/30;
 }

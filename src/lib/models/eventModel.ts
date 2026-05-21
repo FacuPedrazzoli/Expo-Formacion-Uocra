@@ -26,7 +26,16 @@ export function mapRowToEvent(row: EventRow): Event {
   };
 }
 
-export function mapRowToEventStats(row: Record<string, unknown>): EventStats {
+export interface EventStatsRow {
+  event_id: string;
+  total_users: number;
+  registered_users: number;
+  checked_in_users: number;
+  total_talks: number;
+  total_stands: number;
+}
+
+export function mapRowToEventStats(row: EventStatsRow): EventStats {
   return {
     totalUsers: Number(row.total_users) || 0,
     registeredUsers: Number(row.registered_users) || 0,

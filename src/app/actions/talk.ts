@@ -2,6 +2,7 @@
 
 import { createClient } from '@supabase/supabase-js';
 import { revalidatePath } from 'next/cache';
+import { logger } from '@/lib/logger';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -42,7 +43,7 @@ export async function registerUserToTalk(userId: string, talkId: string, eventId
     revalidatePath('/register');
     return { success: true };
   } catch (error) {
-    console.error('Register to talk error:', error);
+    logger.error('Register to talk error', error);
     return { success: false, error: 'Error inesperado' };
   }
 }
@@ -62,7 +63,7 @@ export async function unregisterFromTalk(userId: string, talkId: string) {
     revalidatePath('/register');
     return { success: true };
   } catch (error) {
-    console.error('Unregister from talk error:', error);
+    logger.error('Unregister from talk error', error);
     return { success: false, error: 'Error inesperado' };
   }
 }

@@ -1,6 +1,8 @@
 'use client';
 
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Section, SectionContent } from './Section';
 import { Container } from '@/components/layout/Container';
 import { PremiumSectionTitle } from '@/components/ui/PremiumSectionTitle';
@@ -29,7 +31,7 @@ interface GallerySectionProps {
   videoUrl?: string;
 }
 
-export function GallerySection({
+export const GallerySection = memo(function GallerySection({
   title = 'Galería',
   subtitle = 'Momentos del evento',
   images = [],
@@ -42,8 +44,8 @@ export function GallerySection({
     <Section variant="primary" className="relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
-      <div className="absolute top-1/3 left-0 w-32 h-32 bg-[#D4A853]/10 rounded-full blur-2xl" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#D4A853]/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 left-0 w-32 h-32 bg-accent/10 rounded-full blur-2xl" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
       <div className="absolute top-1/2 left-1/4 w-20 h-20 border border-white/20 rotate-12" />
       
       <Container className="relative z-10">
@@ -83,9 +85,11 @@ export function GallerySection({
                 viewport={{ once: true }}
                 className="aspect-square relative overflow-hidden rounded-lg group cursor-pointer"
               >
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt || ''}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -96,4 +100,4 @@ export function GallerySection({
       </Container>
     </Section>
   );
-}
+});

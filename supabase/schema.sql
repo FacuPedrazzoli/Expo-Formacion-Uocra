@@ -47,7 +47,8 @@ CREATE TABLE users (
     how_found_id UUID REFERENCES how_found(id),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    CONSTRAINT users_event_dni_unique UNIQUE (event_id, dni)
+    CONSTRAINT users_event_dni_unique UNIQUE (event_id, dni),
+    CONSTRAINT users_event_email_unique UNIQUE (event_id, email)
 );
 
 -- Indexes for performance
@@ -321,18 +322,18 @@ CREATE POLICY "Public can read active content" ON event_content FOR SELECT USING
 CREATE POLICY "Public can read active questions" ON survey_questions FOR SELECT USING (active = true);
 
 -- Admin policies (full access via service role)
-CREATE POLICY "Admins can manage events" ON events FOR ALL USING (true);
-CREATE POLICY "Admins can manage users" ON users FOR ALL USING (true);
-CREATE POLICY "Admins can manage how_found" ON how_found FOR ALL USING (true);
-CREATE POLICY "Admins can manage talks" ON talks FOR ALL USING (true);
-CREATE POLICY "Admins can manage talk_registrations" ON talk_registrations FOR ALL USING (true);
-CREATE POLICY "Admins can manage survey_questions" ON survey_questions FOR ALL USING (true);
-CREATE POLICY "Admins can manage survey_answers" ON survey_answers FOR ALL USING (true);
-CREATE POLICY "Admins can manage stands" ON stands FOR ALL USING (true);
-CREATE POLICY "Admins can manage sponsors" ON sponsors FOR ALL USING (true);
-CREATE POLICY "Admins can manage gallery" ON gallery FOR ALL USING (true);
-CREATE POLICY "Admins can manage event_content" ON event_content FOR ALL USING (true);
-CREATE POLICY "Admins can manage event_stats" ON event_stats FOR ALL USING (true);
+CREATE POLICY "Admins can manage events" ON events FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage users" ON users FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage how_found" ON how_found FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage talks" ON talks FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage talk_registrations" ON talk_registrations FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage survey_questions" ON survey_questions FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage survey_answers" ON survey_answers FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage stands" ON stands FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage sponsors" ON sponsors FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage gallery" ON gallery FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage event_content" ON event_content FOR ALL USING (auth.role() = 'service_role');
+CREATE POLICY "Admins can manage event_stats" ON event_stats FOR ALL USING (auth.role() = 'service_role');
 
 -- =============================================================================
 -- STORAGE BUCKETS

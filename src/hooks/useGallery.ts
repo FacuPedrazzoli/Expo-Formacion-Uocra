@@ -1,10 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { createClient } from '@/lib/supabase/browser';
 import type { GalleryImage } from '@/types/gallery';
-
-const supabase = createClient();
 
 interface UseGalleryReturn {
   images: GalleryImage[];
@@ -13,12 +11,20 @@ interface UseGalleryReturn {
   refetch: () => void;
 }
 
+const supabase = createClient();
+
 export function useGallery(eventId?: string): UseGalleryReturn {
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   const fetchImages = useCallback(async () => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    abortControllerRef.current = new AbortController();
+
     try {
       setLoading(true);
       setError(null);
@@ -41,6 +47,7 @@ export function useGallery(eventId?: string): UseGalleryReturn {
         setImages((data || []) as GalleryImage[]);
       }
     } catch (err) {
+      if (err instanceof Error && err.name === 'AbortError') return;
       setError(err instanceof Error ? err.message : 'Error fetching gallery');
     } finally {
       setLoading(false);
@@ -49,6 +56,11 @@ export function useGallery(eventId?: string): UseGalleryReturn {
 
   useEffect(() => {
     fetchImages();
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
   }, [fetchImages]);
 
   return { images, loading, error, refetch: fetchImages };

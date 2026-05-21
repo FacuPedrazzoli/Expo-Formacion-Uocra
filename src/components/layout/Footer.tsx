@@ -37,7 +37,7 @@ export function Footer({ year = 2026, eventTitle = 'Expo Formación UOCRA' }: Fo
           <div>
             <h4 className="text-sm font-semibold mb-4">Contacto</h4>
             <p className="text-sm text-muted-foreground">
-              Consulta información sobre el evento.
+              Para más información sobre el evento, contactanos.
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
               <span className="font-medium text-foreground">Dirección:</span> Humberto Primo 2260 - CABA

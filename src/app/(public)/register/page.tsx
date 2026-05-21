@@ -12,14 +12,12 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { registrationSchema, type RegistrationFormData } from '@/lib/validation/schemas';
 import { registerUser } from '@/app/actions/register';
+import { SOURCE_OPTIONS } from '@/lib/constants/source-options';
+import { Lock } from 'lucide-react';
 
-const SOURCE_OPTIONS = [
-  { value: 'Redes sociales', label: 'Redes sociales' },
-  { value: 'Boca a boca', label: 'Boca a boca' },
-  { value: 'Correo electrónico', label: 'Correo electrónico' },
-  { value: 'Carteleria/Volantes', label: 'Cartelería/Volantes' },
-  { value: 'Otro', label: 'Otro' },
-];
+const SOURCE_OPTIONS_SELECT = SOURCE_OPTIONS.map(opt => ({ value: opt, label: opt }));
+
+const IS_INTERNAL = process.env.NEXT_PUBLIC_INTERNAL_REGISTRATION === 'true';
 
 export default function RegisterPage() {
   const [serverError, setServerError] = useState<string | null>(null);
@@ -39,6 +37,33 @@ export default function RegisterPage() {
       source: undefined,
     },
   });
+
+  const isRegistrationDisabled = !IS_INTERNAL;
+
+  if (isRegistrationDisabled) {
+    return (
+      <Section className="bg-muted/30">
+        <Container>
+          <div className="max-w-2xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              <Card>
+                <CardContent className="pt-6">
+                  <h2 className="text-2xl font-bold text-primary mb-4">Inscripción cerrada</h2>
+                  <p className="text-muted-foreground">
+                    La inscripción está cerrada. Encontrá a un referente UOCRA para registrarte.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </Container>
+      </Section>
+    );
+  }
 
   const onSubmit = async (data: RegistrationFormData) => {
     setServerError(null);
@@ -95,6 +120,10 @@ export default function RegisterPage() {
           >
             <Card>
               <CardContent className="pt-6">
+                <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground bg-muted p-3 rounded-lg">
+                  <Lock className="h-4 w-4" />
+                  <span>Uso interno - Registro administrativo</span>
+                </div>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Nombre <span className="text-destructive">*</span></Label>
@@ -157,7 +186,7 @@ export default function RegisterPage() {
                       className="w-full h-10 px-3 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
                     >
                       <option value="">Seleccionar opción</option>
-                      {SOURCE_OPTIONS.map((opt) => (
+                      {SOURCE_OPTIONS_SELECT.map((opt) => (
                         <option key={opt.value} value={opt.value}>
                           {opt.label}
                         </option>

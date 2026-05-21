@@ -1,12 +1,6 @@
 'use client';
 
-import { HeroSection } from '@/components/sections/HeroSection';
-import { BienvenidaSection } from '@/components/sections/BienvenidaSection';
-import { StandsSection } from '@/components/sections/StandsSection';
-import { EmpresasSection } from '@/components/sections/EmpresasSection';
-import { TalksSection } from '@/components/sections/TalksSection';
-import { GallerySection } from '@/components/sections/GallerySection';
-import { SobreEventoSection } from '@/components/sections/SobreEventoSection';
+import dynamic from 'next/dynamic';
 import { Section, SectionTitle } from '@/components/sections/Section';
 import { Container } from '@/components/layout/Container';
 import Link from 'next/link';
@@ -17,6 +11,14 @@ import { useGallery } from '@/hooks/useGallery';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import eventData from '@/data/event-data.json';
+
+const HeroSection = dynamic(() => import('@/components/sections/HeroSection').then(m => m.HeroSection), { loading: () => <div className="min-h-[90vh] bg-gradient-to-b from-[#0d1b2a] via-[#0d3650] to-[#0d1b2a]" /> });
+const BienvenidaSection = dynamic(() => import('@/components/sections/BienvenidaSection').then(m => m.BienvenidaSection));
+const SobreEventoSection = dynamic(() => import('@/components/sections/SobreEventoSection').then(m => m.SobreEventoSection));
+const TalksSection = dynamic(() => import('@/components/sections/TalksSection').then(m => m.TalksSection));
+const EmpresasSection = dynamic(() => import('@/components/sections/EmpresasSection').then(m => m.EmpresasSection));
+const StandsSection = dynamic(() => import('@/components/sections/StandsSection').then(m => m.StandsSection));
+const GallerySection = dynamic(() => import('@/components/sections/GallerySection').then(m => m.GallerySection));
 
 export default function HomePage() {
   const { event } = useEvent();
@@ -74,14 +76,14 @@ export default function HomePage() {
                   disabled
                   className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#56bcb8] to-[#25848d] text-white px-10 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(86,188,184,0.5)] animate-pulse cursor-pointer"
                 >
-                  Proximamente
+                  Próximamente
                 </button>
               ) : (
                 <Link 
                   href="#registro"
                   className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#56bcb8] to-[#25848d] text-white px-10 py-4 text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(86,188,184,0.5)]"
                 >
-                  Proximamente
+                  Próximamente
                 </Link>
               )}
             </div>
