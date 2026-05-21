@@ -7,9 +7,16 @@ import { getEventStats as getEventStatsFromRepo } from '@/lib/repositories/stats
 import { createClient } from '@supabase/supabase-js';
 import type { Event } from '@/types/event';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const adminClient = createClient(supabaseUrl, supabaseServiceKey);
+let _adminClient: ReturnType<typeof createClient> | null = null;
+
+function getAdminClient() {
+  if (!_adminClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    _adminClient = createClient(supabaseUrl, supabaseServiceKey);
+  }
+  return _adminClient;
+}
 
 export async function getUsers(eventId: string, page = 1, limit = 20) {
   return userRepo.getUsersByEvent(eventId, page, limit);
@@ -37,7 +44,7 @@ export async function getUserSurveyAnswers(eventId: string, dni: string) {
 }
 
 export async function exportUsersToCSV(eventId: string): Promise<string> {
-  const { data: users, error } = await adminClient
+  const { data: users, error } = await getAdminClient()
     .from('users')
     .select('dni, name, lastname, email, checked_in, created_at')
     .eq('event_id', eventId)
@@ -48,7 +55,7 @@ export async function exportUsersToCSV(eventId: string): Promise<string> {
   }
   
   const headers = ['DNI', 'Nombre', 'Apellido', 'Email', 'Check-in', 'Fecha Registro'];
-  const rows = users.map(user => [
+  const rows = (users as unknown as { dni: string; name: string; lastname: string; email: string; checked_in: boolean; created_at: string }[]).map(user => [
     user.dni,
     user.name,
     user.lastname,
@@ -67,12 +74,12 @@ export async function exportUsersToCSV(eventId: string): Promise<string> {
 
 export async function getCheckinStats(eventId: string) {
   const [totalResult, checkedInResult] = await Promise.all([
-    adminClient.from('users').select('*', { count: 'exact', head: true }).eq('event_id', eventId),
-    adminClient.from('users').select('*', { count: 'exact', head: true }).eq('event_id', eventId).eq('checked_in', true),
+    getAdminClient().from('users').select('*', { count: 'exact', head: true }).eq('event_id', eventId),
+    getAdminClient().from('users').select('*', { count: 'exact', head: true }).eq('event_id', eventId).eq('checked_in', true),
   ]);
   
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Argentina/Buenos_Aires' });
-  const { count: todayCount } = await adminClient
+  const { count: todayCount } = await getAdminClient()
     .from('users')
     .select('*', { count: 'exact', head: true })
     .eq('event_id', eventId)
@@ -89,9 +96,9 @@ export async function getCheckinStats(eventId: string) {
 }
 
 export async function undoCheckin(userId: string, eventId: string): Promise<boolean> {
-  const { error } = await adminClient
+  const { error } = await getAdminClient()
     .from('users')
-    .update({ checked_in: false, checked_in_at: null })
+    .update({ checked_in: false, checked_in_at: null } as never)
     .eq('id', userId)
     .eq('event_id', eventId);
   

@@ -2,9 +2,16 @@ import { createClient } from '@supabase/supabase-js';
 import { registrationSchema } from '@/lib/validation/schemas';
 import { logger } from '@/lib/logger';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const adminClient = createClient(supabaseUrl, supabaseServiceKey);
+let _adminClient: ReturnType<typeof createClient> | null = null;
+
+function getAdminClient() {
+  if (!_adminClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    _adminClient = createClient(supabaseUrl, supabaseServiceKey);
+  }
+  return _adminClient;
+}
 
 export interface ParsedRow {
   nombre: string;
@@ -77,7 +84,7 @@ export async function processMassiveLoad(
     const batchSize = 100;
     for (let i = 0; i < usersToInsert.length; i += batchSize) {
       const batch = usersToInsert.slice(i, i + batchSize);
-      const { error } = await adminClient.from('users').insert(batch);
+      const { error } = await getAdminClient().from('users').insert(batch as never);
 
       if (error) {
         for (let j = 0; j < batch.length; j++) {

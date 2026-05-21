@@ -4,13 +4,20 @@ import { mapRowToUser, type UserRow } from '@/lib/models/userModel';
 import { NotFoundError } from '@/lib/errors';
 import { logger } from '@/lib/logger';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const adminClient = createClient(supabaseUrl, supabaseServiceKey);
+let _adminClient: ReturnType<typeof createClient> | null = null;
+
+function getAdminClient() {
+  if (!_adminClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    _adminClient = createClient(supabaseUrl, supabaseServiceKey);
+  }
+  return _adminClient;
+}
 
 export const userRepo = {
   async getUserByDNI(dni: string, eventId: string): Promise<User | null> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('users')
       .select('*')
       .eq('dni', dni)
@@ -27,7 +34,7 @@ export const userRepo = {
   },
 
   async getUserById(userId: string): Promise<User> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('users')
       .select('*')
       .eq('id', userId)
@@ -41,7 +48,7 @@ export const userRepo = {
   },
 
   async createUser(user: Omit<User, 'id' | 'createdAt' | 'updatedAt'>): Promise<User | null> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('users')
       .insert({
         event_id: user.eventId,
@@ -54,7 +61,7 @@ export const userRepo = {
         qr_code: user.qrCode,
         checked_in: user.checkedIn,
         how_found_id: user.howFoundId,
-      })
+      } as never)
       .select('*')
       .single();
 
@@ -68,7 +75,7 @@ export const userRepo = {
 
   async searchUsers(eventId: string, query: string, limit = 10): Promise<User[]> {
     const escapedQuery = query.replace(/[%_]/g, '\\$&');
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('users')
       .select('*')
       .eq('event_id', eventId)
@@ -87,7 +94,7 @@ export const userRepo = {
   async getUsersByEvent(eventId: string, page = 1, limit = 20): Promise<User[]> {
     const offset = (page - 1) * limit;
     
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('users')
       .select('*')
       .eq('event_id', eventId)
@@ -103,7 +110,7 @@ export const userRepo = {
   },
 
   async getUsersCount(eventId: string): Promise<number> {
-    const { count } = await adminClient
+    const { count } = await getAdminClient()
       .from('users')
       .select('*', { count: 'exact', head: true })
       .eq('event_id', eventId);
@@ -112,9 +119,9 @@ export const userRepo = {
   },
 
   async checkinUser(dni: string, eventId: string): Promise<boolean> {
-    const { error } = await adminClient
+    const { error } = await getAdminClient()
       .from('users')
-      .update({ checked_in: true, checked_in_at: new Date().toISOString() })
+      .update({ checked_in: true, checked_in_at: new Date().toISOString() } as never)
       .eq('dni', dni)
       .eq('event_id', eventId);
 
@@ -127,14 +134,14 @@ export const userRepo = {
   },
 
   async updateUser(userId: string, updates: Partial<User>): Promise<boolean> {
-    const { error } = await adminClient
+    const { error } = await getAdminClient()
       .from('users')
       .update({
         name: updates.name,
         lastname: updates.lastname,
         email: updates.email,
         phone: updates.phone,
-      })
+      } as never)
       .eq('id', userId);
 
     if (error) {
@@ -146,7 +153,7 @@ export const userRepo = {
   },
 
   async deleteUser(userId: string): Promise<boolean> {
-    const { error } = await adminClient
+    const { error } = await getAdminClient()
       .from('users')
       .delete()
       .eq('id', userId);
@@ -160,9 +167,9 @@ export const userRepo = {
   },
 
   async markAsCheckedIn(userId: string): Promise<boolean> {
-    const { error } = await adminClient
+    const { error } = await getAdminClient()
       .from('users')
-      .update({ checked_in: true, checked_in_at: new Date().toISOString() })
+      .update({ checked_in: true, checked_in_at: new Date().toISOString() } as never)
       .eq('id', userId);
 
     if (error) {
@@ -174,7 +181,7 @@ export const userRepo = {
   },
 
   async isCheckedIn(userId: string): Promise<boolean> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('users')
       .select('checked_in')
       .eq('id', userId)
@@ -184,6 +191,6 @@ export const userRepo = {
       return false;
     }
 
-    return data.checked_in === true;
+    return (data as { checked_in: boolean }).checked_in === true;
   },
 };

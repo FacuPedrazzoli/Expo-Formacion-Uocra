@@ -1,13 +1,20 @@
 import { createClient } from '@supabase/supabase-js';
 import { logger } from '@/lib/logger';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const adminClient = createClient(supabaseUrl, supabaseServiceKey);
+let _adminClient: ReturnType<typeof createClient> | null = null;
+
+function getAdminClient() {
+  if (!_adminClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    _adminClient = createClient(supabaseUrl, supabaseServiceKey);
+  }
+  return _adminClient;
+}
 
 export const surveyRepo = {
   async getQuestionsByEvent(eventId: string): Promise<SurveyQuestion[]> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('survey_questions')
       .select('*')
       .eq('event_id', eventId)
@@ -23,13 +30,13 @@ export const surveyRepo = {
   },
 
   async saveAnswers(eventId: string, dni: string, answers: Record<string, unknown>): Promise<boolean> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('survey_answers')
       .insert({
         event_id: eventId,
         dni: dni,
         answers_json: answers,
-      })
+      } as never)
       .select('id')
       .single();
 
@@ -47,7 +54,7 @@ export const surveyRepo = {
   },
 
   async getAnswersByEvent(eventId: string): Promise<SurveyAnswer[]> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('survey_answers')
       .select('*')
       .eq('event_id', eventId)
@@ -62,7 +69,7 @@ export const surveyRepo = {
   },
 
   async hasAnswered(eventId: string, dni: string): Promise<boolean> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('survey_answers')
       .select('id')
       .eq('event_id', eventId)

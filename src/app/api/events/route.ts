@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { eventRepo } from '@/lib/repositories/eventRepo';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const events = await eventRepo.getAllEvents();

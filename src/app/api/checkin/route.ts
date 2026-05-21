@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkinService } from '@/lib/services/checkinService';
 
+export const dynamic = 'force-dynamic';
+
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000;
 const MAX_ATTEMPTS = 10;

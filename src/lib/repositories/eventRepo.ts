@@ -3,9 +3,16 @@ import type { Event, EventStats } from '@/types/event';
 import { mapRowToEvent, mapRowToEventStats, type EventRow, type EventStatsRow } from '@/lib/models/eventModel';
 import { logger } from '@/lib/logger';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const adminClient = createClient(supabaseUrl, supabaseServiceKey);
+let _adminClient: ReturnType<typeof createClient> | null = null;
+
+function getAdminClient() {
+  if (!_adminClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    _adminClient = createClient(supabaseUrl, supabaseServiceKey);
+  }
+  return _adminClient;
+}
 
 function toSnakeCase(obj: Record<string, unknown>): Record<string, unknown> {
   const result: Record<string, unknown> = {};
@@ -18,7 +25,7 @@ function toSnakeCase(obj: Record<string, unknown>): Record<string, unknown> {
 
 export const eventRepo = {
   async getActiveEvent(): Promise<Event | null> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('events')
       .select('*')
       .eq('active', true)
@@ -33,7 +40,7 @@ export const eventRepo = {
   },
 
   async getEventById(id: string): Promise<Event | null> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('events')
       .select('*')
       .eq('id', id)
@@ -48,7 +55,7 @@ export const eventRepo = {
   },
 
   async getEventStats(eventId: string): Promise<EventStats | null> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('event_stats')
       .select('*')
       .eq('event_id', eventId)
@@ -63,7 +70,7 @@ export const eventRepo = {
   },
 
   async getAllEvents(): Promise<Event[]> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('events')
       .select('*')
       .order('year', { ascending: false });
@@ -78,9 +85,9 @@ export const eventRepo = {
 
   async updateEvent(id: string, updates: Partial<Event>): Promise<boolean> {
     const snakeUpdates = toSnakeCase(updates as Record<string, unknown>);
-    const { error } = await adminClient
+    const { error } = await getAdminClient()
       .from('events')
-      .update(snakeUpdates)
+      .update(snakeUpdates as never)
       .eq('id', id);
 
     if (error) {
@@ -92,9 +99,9 @@ export const eventRepo = {
   },
 
   async createEvent(event: Omit<Event, 'id' | 'createdAt'>): Promise<Event | null> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('events')
-      .insert(event)
+      .insert(event as never)
       .select()
       .single();
 

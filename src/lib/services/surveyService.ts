@@ -2,9 +2,16 @@ import { createClient } from '@supabase/supabase-js';
 import { surveyRepo } from '@/lib/repositories/surveyRepo';
 import { logger } from '@/lib/logger';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const adminClient = createClient(supabaseUrl, supabaseServiceKey);
+let _adminClient: ReturnType<typeof createClient> | null = null;
+
+function getAdminClient() {
+  if (!_adminClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    _adminClient = createClient(supabaseUrl, supabaseServiceKey);
+  }
+  return _adminClient;
+}
 
 export interface SurveyQuestion {
   id: string;
@@ -51,7 +58,7 @@ export const surveyService = {
   },
 
   async getSurveyStats(eventId: string): Promise<{ total: number }> {
-    const { count } = await adminClient
+    const { count } = await getAdminClient()
       .from('survey_answers')
       .select('*', { count: 'exact', head: true })
       .eq('event_id', eventId);

@@ -103,7 +103,7 @@ export async function registerUser(formData: unknown): Promise<RegisterResult> {
         has_qr: false,
         checked_in: false,
         how_found_id: howFoundId,
-      })
+      } as never)
       .select('id, dni')
       .single();
 
@@ -119,7 +119,7 @@ export async function registerUser(formData: unknown): Promise<RegisterResult> {
 
     const { error: updateError } = await supabase
       .from('users')
-      .update({ has_qr: true, qr_code: qrDataUrl })
+      .update({ has_qr: true, qr_code: qrDataUrl } as never)
       .eq('id', newUser.id);
 
     if (updateError) {

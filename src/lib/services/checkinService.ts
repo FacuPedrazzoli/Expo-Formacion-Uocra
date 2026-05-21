@@ -4,9 +4,16 @@ import type { User } from '@/types/user';
 import { logger } from '@/lib/logger';
 import { verifyQRHash } from '@/lib/qr';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const adminClient = createClient(supabaseUrl, supabaseServiceKey);
+let _adminClient: ReturnType<typeof createClient> | null = null;
+
+function getAdminClient() {
+  if (!_adminClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    _adminClient = createClient(supabaseUrl, supabaseServiceKey);
+  }
+  return _adminClient;
+}
 
 export interface CheckinResult {
   success: boolean;
@@ -127,7 +134,7 @@ export const checkinService = {
   async getCheckinStats(eventId: string): Promise<{ total: number; checkedIn: number }> {
     const total = await userRepo.getUsersCount(eventId);
 
-    const { count } = await adminClient
+    const { count } = await getAdminClient()
       .from('users')
       .select('*', { count: 'exact', head: true })
       .eq('event_id', eventId)
@@ -137,14 +144,14 @@ export const checkinService = {
   },
 
   async getActiveEventId(): Promise<string | null> {
-    const { data, error } = await adminClient
+    const { data, error } = await getAdminClient()
       .from('events')
       .select('id')
       .eq('active', true)
       .single();
 
     if (error || !data) return null;
-    return data.id;
+    return (data as { id: string }).id;
   },
 
   async getUserByDNI(dni: string): Promise<User | null> {

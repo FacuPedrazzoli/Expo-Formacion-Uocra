@@ -1,8 +1,15 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const adminClient = createClient(supabaseUrl, supabaseServiceKey);
+let _adminClient: ReturnType<typeof createClient> | null = null;
+
+function getAdminClient() {
+  if (!_adminClient) {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    _adminClient = createClient(supabaseUrl, supabaseServiceKey);
+  }
+  return _adminClient;
+}
 
 export interface EventStats {
   totalInscriptos: number;
@@ -12,7 +19,7 @@ export interface EventStats {
 }
 
 export async function getEventStats(eventId: string): Promise<EventStats> {
-  const supabase = adminClient;
+  const supabase = getAdminClient();
 
   try {
     const [totalResult, checkedInResult, surveyResult] = await Promise.all([
@@ -39,7 +46,7 @@ export async function getEventStats(eventId: string): Promise<EventStats> {
 }
 
 export async function getTodayCheckinCount(eventId: string): Promise<number> {
-  const supabase = adminClient;
+  const supabase = getAdminClient();
   const today = new Date().toISOString().split('T')[0];
 
   try {

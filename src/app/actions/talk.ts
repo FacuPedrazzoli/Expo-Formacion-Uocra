@@ -31,7 +31,7 @@ export async function registerUserToTalk(userId: string, talkId: string, eventId
 
     const { error: insertError } = await adminClient
       .from('talk_registrations')
-      .insert({ user_id: userId, talk_id: talkId });
+      .insert({ user_id: userId, talk_id: talkId } as never);
 
     if (insertError) {
       if (insertError.code === '23505') {
