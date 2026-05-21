@@ -8,7 +8,7 @@ interface SectionProps {
 }
 
 const variantClasses = {
-  default: 'bg-[#faf9f7]',
+  default: 'bg-background',
   primary: 'bg-primary text-primary-foreground',
   secondary: 'bg-[#f3f1ed]',
   dark: 'bg-slate-900 text-white',
@@ -57,7 +57,7 @@ interface SectionTitleProps {
 export function SectionTitle({ title, subtitle, className, align = 'center' }: SectionTitleProps) {
   return (
     <div className={cn('mb-10 md:mb-14', align === 'center' ? 'text-center' : 'text-left', className)}>
-      <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
         {title}
       </h2>
       {subtitle && (

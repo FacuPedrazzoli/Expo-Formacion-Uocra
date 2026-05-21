@@ -300,8 +300,8 @@ export default function CheckinPage() {
         <h3 className="font-medium mb-2">Cómo usar:</h3>
         <ol className="text-sm text-muted-foreground space-y-1">
           <li>1. Ingresá el DNI del asistente</li>
-          <li>2. Hacé clic en "Validar" para verificar si está registrado</li>
-          <li>3. Si está OK, hacé clic en "Check-in" para confirmar</li>
+          <li>2. Hacé clic en &quot;Validar&quot; para verificar si está registrado</li>
+          <li>3. Si está OK, hacé clic en &quot;Check-in&quot; para confirmar</li>
           <li>4. Si te equivocaste, podés deshacer el último check-in</li>
         </ol>
       </div>

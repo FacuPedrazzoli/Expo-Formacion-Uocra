@@ -18,16 +18,21 @@ export default function CredentialsPage() {
   const [loading, setLoading] = useState(false);
   const [allUsers, setAllUsers] = useState<UserType[]>([]);
   const [exporting, setExporting] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalUsers, setTotalUsers] = useState(0);
+  const pageSize = 20;
 
   useEffect(() => {
-    loadAllUsers();
-  }, []);
+    loadAllUsers(currentPage);
+  }, [currentPage]);
 
-  async function loadAllUsers() {
+  async function loadAllUsers(page: number) {
     const eventId = await getActiveEventId();
     if (!eventId) return;
-    const users = await userRepo.getUsersByEvent(eventId, 1, 1000);
+    const users = await userRepo.getUsersByEvent(eventId, page, pageSize);
+    const count = await userRepo.getUsersCount(eventId);
     setAllUsers(users);
+    setTotalUsers(count);
   }
 
   async function handleSearch() {
@@ -253,9 +258,9 @@ export default function CredentialsPage() {
               imprimible con todas las credenciales para su distribución.
             </p>
             <div className="bg-muted p-4 rounded-lg">
-              <p className="font-medium">{allUsers.length} inscriptos</p>
+              <p className="font-medium">{totalUsers} inscriptos</p>
               <p className="text-sm text-muted-foreground">
-                Lista completa para exportar
+                Página {currentPage} de {Math.ceil(totalUsers / pageSize)}
               </p>
             </div>
             <Button 
@@ -315,6 +320,32 @@ export default function CredentialsPage() {
                 )}
               </tbody>
             </table>
+          </div>
+          <div className="flex items-center justify-between mt-4">
+            <p className="text-sm text-muted-foreground">
+              Mostrando {allUsers.length} de {totalUsers} inscriptos
+            </p>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+              >
+                Anterior
+              </Button>
+              <span className="flex items-center px-3 text-sm">
+                Página {currentPage} de {Math.max(1, Math.ceil(totalUsers / pageSize))}
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage((p) => p + 1)}
+                disabled={currentPage >= Math.ceil(totalUsers / pageSize)}
+              >
+                Siguiente
+              </Button>
+            </div>
           </div>
         </CardContent>
       </Card>

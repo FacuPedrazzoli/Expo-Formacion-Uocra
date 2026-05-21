@@ -62,7 +62,7 @@ export function Navbar({ eventTitle = 'Expo Formación UOCRA' }: NavbarProps) {
           </nav>
 
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-3"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >

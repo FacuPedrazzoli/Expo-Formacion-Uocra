@@ -11,9 +11,9 @@ export default function ProximamenteOverlay() {
           ¡Estamos preparando algo especial!
         </p>
         <div className="flex justify-center gap-3 text-2xl mb-2">
-          <span>🔨</span>
-          <span>🏗️</span>
-          <span>⚙️</span>
+          <span aria-hidden="true">🔨</span>
+          <span aria-hidden="true">🏗️</span>
+          <span aria-hidden="true">⚙️</span>
         </div>
         <p className="text-[#e2c048] font-medium text-xs tracking-wide">
           Expo Formación UOCRA 2026

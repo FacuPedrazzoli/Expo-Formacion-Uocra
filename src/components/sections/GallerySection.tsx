@@ -87,7 +87,7 @@ export const GallerySection = memo(function GallerySection({
               >
                 <Image
                   src={image.src}
-                  alt={image.alt || ''}
+                  alt={image.alt || 'Galería de imágenes del evento'}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"

@@ -4,7 +4,6 @@ import { useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '@/components/layout/Container';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Section, SectionTitle } from '@/components/sections/Section';
@@ -192,18 +191,11 @@ export default function SurveyPage() {
                   questions={questions}
                   answers={answers}
                   onAnswer={handleAnswer}
+                  onSubmit={handleSubmit}
                   errors={errors}
+                  isLoading={isSubmitting}
+                  submitError={submitError}
                 />
-                {submitError && (
-                  <p className="text-sm text-destructive mb-4">{submitError}</p>
-                )}
-                <Button
-                  onClick={handleSubmit}
-                  className="w-full mt-8"
-                  disabled={Object.keys(errors).length > 0 || !dni || isSubmitting}
-                >
-                  {isSubmitting ? 'Enviando...' : 'Enviar Encuesta'}
-                </Button>
               </CardContent>
             </Card>
           </motion.div>

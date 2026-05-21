@@ -25,10 +25,10 @@ export function PremiumSectionTitle({
       className={cn('mb-10 md:mb-14', centered ? 'text-center' : 'text-left')}
     >
       <div className="relative inline-block">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-[#D4A853] to-[#F4D03F] bg-clip-text text-transparent">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-accent to-[#F4D03F] bg-clip-text text-transparent">
           {title}
         </h2>
-        <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#D4A853]/50 to-transparent" />
+        <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
       </div>
       
       {subtitle && (

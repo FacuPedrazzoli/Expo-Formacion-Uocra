@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import type { User } from '@/types/user';
-import { mapRowToUser } from '@/lib/models/userModel';
+import { mapRowToUser, type UserRow } from '@/lib/models/userModel';
 import { NotFoundError } from '@/lib/errors';
 import { logger } from '@/lib/logger';
 
@@ -23,7 +23,7 @@ export const userRepo = {
       return null;
     }
 
-    return data ? mapRowToUser(data as any) : null;
+    return data ? mapRowToUser(data as UserRow) : null;
   },
 
   async getUserById(userId: string): Promise<User> {
@@ -37,7 +37,7 @@ export const userRepo = {
       throw new NotFoundError('Usuario');
     }
 
-    return mapRowToUser(data as any);
+    return mapRowToUser(data as UserRow);
   },
 
   async createUser(user: Omit<User, 'id' | 'createdAt' | 'updatedAt'>): Promise<User | null> {
@@ -63,15 +63,16 @@ export const userRepo = {
       return null;
     }
 
-    return data ? mapRowToUser(data as any) : null;
+    return data ? mapRowToUser(data as UserRow) : null;
   },
 
   async searchUsers(eventId: string, query: string, limit = 10): Promise<User[]> {
+    const escapedQuery = query.replace(/[%_]/g, '\\$&');
     const { data, error } = await adminClient
       .from('users')
       .select('*')
       .eq('event_id', eventId)
-      .or(`dni.ilike.%${query}%,name.ilike.%${query}%,lastname.ilike.%${query}%,email.ilike.%${query}%`)
+      .or(`dni.ilike.%${escapedQuery}%,name.ilike.%${escapedQuery}%,lastname.ilike.%${escapedQuery}%,email.ilike.%${escapedQuery}%`)
       .order('created_at', { ascending: false })
       .limit(limit);
 
@@ -80,7 +81,7 @@ export const userRepo = {
       return [];
     }
 
-    return (data || []).map(row => mapRowToUser(row as any));
+    return (data || []).map(row => mapRowToUser(row as UserRow));
   },
 
   async getUsersByEvent(eventId: string, page = 1, limit = 20): Promise<User[]> {
@@ -98,7 +99,7 @@ export const userRepo = {
       return [];
     }
 
-    return (data || []).map(row => mapRowToUser(row as any));
+    return (data || []).map(row => mapRowToUser(row as UserRow));
   },
 
   async getUsersCount(eventId: string): Promise<number> {

@@ -46,6 +46,7 @@ export function Footer({ year = 2026, eventTitle = 'Expo Formación UOCRA' }: Fo
               href="https://wa.me/5491156044650"
               target="_blank"
               rel="noreferrer"
+              aria-label="Contactar por WhatsApp"
               className="mt-4 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700"
             >
               <svg

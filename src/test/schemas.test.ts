@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { registrationSchema, checkinSchema, surveySchema, userSchema, eventSchema, talkSchema } from '@/lib/validation/schemas';
+import { SOURCE_OPTIONS } from '@/lib/constants/source-options';
 
 describe('registrationSchema', () => {
   const validData = {
@@ -56,7 +57,7 @@ describe('registrationSchema', () => {
   });
 
   it('rechaza source inválido', () => {
-    const result = registrationSchema.safeParse({ ...validData, source: 'Fuente inventada' as any });
+    const result = registrationSchema.safeParse({ ...validData, source: 'Fuente inventada' as unknown as typeof SOURCE_OPTIONS[number] });
     expect(result.success).toBe(false);
   });
 });
@@ -142,7 +143,7 @@ describe('userSchema', () => {
   });
 
   it('rechaza userType inválido', () => {
-    const result = userSchema.safeParse({ ...validUser, userType: 'invalid' as any });
+    const result = userSchema.safeParse({ ...validUser, userType: 'invalid' as unknown as 'manual' | 'web' });
     expect(result.success).toBe(false);
   });
 

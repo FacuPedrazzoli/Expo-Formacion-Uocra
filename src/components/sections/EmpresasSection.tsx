@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 import { Section } from './Section';
@@ -20,9 +20,13 @@ interface EmpresasSectionProps {
 }
 
 export const EmpresasSection = React.memo(function EmpresasSection({ id, empresas = [] }: EmpresasSectionProps) {
-  const sortedEmpresas = [...empresas].sort((a, b) => a.name.localeCompare(b.name));
-  
-  const tripleEmpresas = [...sortedEmpresas, ...sortedEmpresas, ...sortedEmpresas];
+  const sortedEmpresas = useMemo(() => {
+    return [...empresas].sort((a, b) => a.name.localeCompare(b.name));
+  }, [empresas]);
+
+  const tripleEmpresas = useMemo(() => {
+    return [...sortedEmpresas, ...sortedEmpresas, ...sortedEmpresas];
+  }, [sortedEmpresas]);
 
   return (
     <Section id={id} className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-primary to-slate-900">
@@ -65,29 +69,35 @@ export const EmpresasSection = React.memo(function EmpresasSection({ id, empresa
           </div>
         )}
 
-        <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-4">
-          {sortedEmpresas.map((empresa, index) => (
-            <motion.a
-              key={empresa.id}
-              href={empresa.website || '#'}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.02 }}
-              viewport={{ once: true }}
-              className="group flex flex-col items-center p-1.5 bg-slate-300 rounded-lg border border-slate-400 hover:bg-slate-400 hover:border-slate-500 hover:shadow-xl hover:shadow-accent/20 hover:-translate-y-0.5 transition-all duration-300"
-            >
-              <div className="w-full aspect-square flex items-center justify-center bg-slate-300 rounded-lg p-0.5">
-                <img 
-                  src={empresa.logo} 
-                  alt={empresa.name}
-                  className="w-full h-full object-contain" 
-                />
-              </div>
-            </motion.a>
-          ))}
-        </div>
+        {sortedEmpresas.length > 0 ? (
+          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-4">
+            {sortedEmpresas.map((empresa, index) => (
+              <motion.a
+                key={empresa.id}
+                href={empresa.website || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.02 }}
+                viewport={{ once: true }}
+                className="group flex flex-col items-center p-1.5 bg-slate-300 rounded-lg border border-slate-400 hover:bg-slate-400 hover:border-slate-500 hover:shadow-xl hover:shadow-accent/20 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="w-full aspect-square flex items-center justify-center bg-slate-300 rounded-lg p-0.5">
+                  <img 
+                    src={empresa.logo} 
+                    alt={empresa.name}
+                    className="w-full h-full object-contain" 
+                  />
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-8 text-muted-foreground">
+            Próximamente se conocerán las empresas participantes
+          </div>
+        )}
       </Container>
 
       <style jsx>{`

@@ -1,10 +1,12 @@
 import QRCode from 'qrcode';
 import { createHmac } from 'crypto';
 
-const QR_SECRET = process.env.QR_SECRET || 'expo2026-default-secret';
-
 function generateQRHash(dni: string): string {
-  return createHmac('sha256', QR_SECRET)
+  const secret = process.env.QR_SECRET;
+  if (!secret) {
+    throw new Error('QR_SECRET environment variable is required');
+  }
+  return createHmac('sha256', secret)
     .update(dni)
     .digest('hex')
     .substring(0, 16);

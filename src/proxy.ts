@@ -3,7 +3,10 @@ import type { NextRequest } from 'next/server';
 
 const ADMIN_PATHS = ['/admin'];
 const PUBLIC_PATHS = ['/admin/login'];
-const SESSION_SECRET = process.env.SESSION_SECRET || 'expo2026-session-secret';
+const SESSION_SECRET = process.env.SESSION_SECRET;
+if (!SESSION_SECRET) {
+  throw new Error('SESSION_SECRET environment variable is required');
+}
 
 async function validateSessionToken(token: string): Promise<boolean> {
   try {

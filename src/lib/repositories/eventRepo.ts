@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Event, EventStats } from '@/types/event';
-import { mapRowToEvent, mapRowToEventStats } from '@/lib/models/eventModel';
+import { mapRowToEvent, mapRowToEventStats, type EventRow, type EventStatsRow } from '@/lib/models/eventModel';
 import { logger } from '@/lib/logger';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -29,7 +29,7 @@ export const eventRepo = {
       return null;
     }
 
-    return data ? mapRowToEvent(data as any) : null;
+    return data ? mapRowToEvent(data as EventRow) : null;
   },
 
   async getEventById(id: string): Promise<Event | null> {
@@ -44,7 +44,7 @@ export const eventRepo = {
       return null;
     }
 
-    return data ? mapRowToEvent(data as any) : null;
+    return data ? mapRowToEvent(data as EventRow) : null;
   },
 
   async getEventStats(eventId: string): Promise<EventStats | null> {
@@ -59,7 +59,7 @@ export const eventRepo = {
       return null;
     }
 
-    return data ? mapRowToEventStats(data as any) : null;
+    return data ? mapRowToEventStats(data as EventStatsRow) : null;
   },
 
   async getAllEvents(): Promise<Event[]> {
@@ -73,7 +73,7 @@ export const eventRepo = {
       return [];
     }
 
-    return (data || []).map(row => mapRowToEvent(row as any));
+    return (data || []).map(row => mapRowToEvent(row as EventRow));
   },
 
   async updateEvent(id: string, updates: Partial<Event>): Promise<boolean> {
@@ -103,6 +103,6 @@ export const eventRepo = {
       return null;
     }
 
-    return data ? mapRowToEvent(data as any) : null;
+    return data ? mapRowToEvent(data as EventRow) : null;
   },
 };
